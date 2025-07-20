@@ -433,7 +433,7 @@ export default function Home() {
   <div className="absolute bottom-10 right-10 w-40 h-40 bg-green-300/20 rounded-full blur-3xl" />
   <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-green-100/40 rounded-full blur-2xl" />
   
-  <div className="max-w-7xl mx-auto text-center relative z-10">
+  <div className="max-w-7xl mx-auto text-center  relative z-10">
     {/* Section Header */}
     <div className="mb-16">
       <p className="text-sm font-medium text-green-700 mb-2 uppercase tracking-wide">How It Works</p>
@@ -466,7 +466,7 @@ export default function Home() {
             {/* Outer thinner ring */}
             <div className="w-28 h-28 border-2 border-green-700 rounded-full flex items-center justify-center relative z-20">
               {/* Inner thicker ring */}
-              <div className="w-24 h-24 border-4 border-green-700 rounded-full bg-[#fdfcf7] flex items-center justify-center">
+              <div className="w-24 h-24 border-8 border-green-700 rounded-full bg-white flex items-center justify-center">
                 <div className="text-center">
                   <p className="text-xs font-medium text-gray-600 mb-1">Step 1</p>
                   <p className="text-lg font-bold text-gray-900">Discover</p>
@@ -495,7 +495,7 @@ export default function Home() {
             {/* Outer thinner ring */}
             <div className="w-28 h-28 border-2 border-green-700 rounded-full flex items-center justify-center relative z-20">
               {/* Inner thicker ring */}
-              <div className="w-24 h-24 border-4 border-green-700 rounded-full bg-[#fdfcf7] flex items-center justify-center">
+              <div className="w-24 h-24 border-8 border-green-700 rounded-full bg-white flex items-center justify-center">
                 <div className="text-center">
                   <p className="text-xs font-medium text-gray-600 mb-1">Step 2</p>
                   <p className="text-lg font-bold text-gray-900">Engage</p>
@@ -524,7 +524,7 @@ export default function Home() {
             {/* Outer thinner ring */}
             <div className="w-28 h-28 border-2 border-green-700 rounded-full flex items-center justify-center relative z-20">
               {/* Inner thicker ring */}
-              <div className="w-24 h-24 border-4 border-green-700 rounded-full bg-[#fdfcf7] flex items-center justify-center">
+              <div className="w-24 h-24 border-8 border-green-700 rounded-full bg-white flex items-center justify-center">
                 <div className="text-center">
                   <p className="text-xs font-medium text-gray-600 mb-1">Step 3</p>
                   <p className="text-lg font-bold text-gray-900">Support</p>
@@ -550,7 +550,7 @@ export default function Home() {
             {/* Outer thinner ring */}
             <div className="w-28 h-28 border-2 border-green-700 rounded-full flex items-center justify-center relative z-20">
               {/* Inner thicker ring */}
-              <div className="w-24 h-24 border-4 border-green-700 rounded-full bg-[#fdfcf7] flex items-center justify-center">
+              <div className="w-24 h-24 border-8 border-green-700 rounded-full bg-white flex items-center justify-center">
                 <div className="text-center">
                   <p className="text-xs font-medium text-gray-600 mb-1">Step 4</p>
                   <p className="text-lg font-bold text-gray-900">Grow</p>
@@ -574,7 +574,419 @@ export default function Home() {
     </div>
   </div>
 </section>
+{/* ✅ Stories & Insights From the Field Section */}
+<section className="bg-[#f8f9fa] py-20 px-4 md:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          {/* Left Content */}
+          <div className="space-y-6 ml-9">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                Stories &<br />
+                Insights <span className="text-green-700">From<br />
+                the Field</span>
+              </h2>
+            </div>
+            
+            <p className="text-gray-700 text-lg leading-relaxed">
+              Hear directly from farmers, producers, and consumers<br />
+              transforming lives through agroecology.
+            </p>
+            
+            <p className="text-gray-600 text-base leading-relaxed">
+              Explore success stories, expert advice, and the latest<br />
+              updates from our growing network.
+            </p>
+            
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <button className="bg-green-700 hover:bg-green-800 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300">
+                Read Other Stories
+              </button>
+              <button className="border-2 border-green-700 text-green-700 hover:bg-green-700 hover:text-white font-semibold px-8 py-3 rounded-full transition-all duration-300">
+                Submit Yours
+              </button>
+            </div>
+          </div>
+          
+          {/* Right Content - Three Column Image Layout */}
+          <div className="flex gap-3 h-96 -ml-9">
+            
+            {/* Main Story Card with Background Image */}
+            <div 
+              className="flex-1 rounded-2xl p-6 text-white relative overflow-hidden bg-cover bg-center"
+              style={{
+                backgroundImage: `linear-gradient(135deg, rgba(185, 28, 28, 0.8) 0%, rgba(21, 128, 61, 0.8) 100%), url('https://images.unsplash.com/photo-1594736797933-d0701ba2fe65?w=800&q=80')`,
+                backgroundColor: 'rgba(46, 125, 50, 0.1)'
+              }}
+            >
+              {/* Profile Image */}
+              <div className="mb-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&h=100&fit=crop&crop=face&q=80"
+                  alt="Wanjiku, Farmer" 
+                  className="w-16 h-16 rounded-full object-cover border-2 border-white/20"
+                />
+              </div>
+              
+              {/* Story Content */}
+              <div className="space-y-4">
+                <h3 className="text-xl font-bold leading-tight">
+                  How Organic<br />
+                  Practices Helped<br />
+                  Me Triple My Yield
+                </h3>
+                
+                <p className="text-sm text-white/90 leading-relaxed">
+                  "When I started using compost<br />
+                  and rotating my crops, I noticed<br />
+                  a real difference. Today, I sell at<br />
+                  three organic markets."
+                </p>
+                
+                <p className="text-xs text-white/70">
+                  By Wanjiku, Farmer | Muranga, Kenya
+                </p>
+                
+                <button className="bg-white/20 hover:bg-white/30 text-white text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 flex items-center gap-2">
+                  Read the Story
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            
+            {/* Second Column - Light colored image */}
+            <div className="w-24 md:w-28">
+              <img 
+                src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&q=80"
+                alt="Light colored background" 
+                className="w-full h-full object-cover rounded-2xl"
+              />
+            </div>
+            
+            {/* Third Column - Green plants */}
+            <div className="w-24 md:w-28">
+              <img 
+                src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=400&q=80"
+                alt="Green plants in field" 
+                className="w-full h-full object-cover rounded-2xl"
+              />
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    {/* ✅ Upcoming Events & Trainings Section */}
+<section className="bg-white py-20 px-4 md:px-8 lg:px-12">
+  <div className="max-w-7xl mx-auto">
+    {/* Section Header */}
+    <div className="text-center mb-16">
+      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+        Upcoming Events &<br />
+        Trainings
+      </h2>
+      <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+        Learn directly from experts and experienced farmers through interactive sessions designed to deepen your knowledge of ecological organic agriculture.
+      </p>
+    </div>
 
+    {/* Events Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      
+      {/* Event 1 - Getting Started with Organic Farming */}
+      <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 relative">
+        <div 
+          className="h-full bg-cover bg-center relative"
+          style={{
+            backgroundImage: `linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%), url('https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=800&q=80')`
+          }}
+        >
+          {/* Free Webinar Badge */}
+          <div className="absolute top-4 left-4 bg-white/90 text-gray-700 text-xs font-medium px-3 py-1 rounded-full">
+            Free Webinar
+          </div>
+          
+          <div className="p-6 pt-20">
+            <h3 className="text-xl font-bold text-white mb-4">
+              Getting Started with Organic Farming
+            </h3>
+            <p className="text-white/90 text-sm mb-4 leading-relaxed">
+              Discover the basics of AE/EOA, ask live questions, and connect with certified producers.
+            </p>
+            <p className="text-white/70 text-xs mb-6">
+              July 15, 2025 | 10:00 AM EAT | Online via Zoom
+            </p>
+            
+            <button className="w-full bg-white text-gray-800 font-semibold py-3 px-6 rounded-full hover:bg-gray-50 transition-colors duration-300">
+              Register Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Event 2 - Organic Soil Health & Composting Workshop */}
+      <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 relative">
+        <div 
+          className="h-full bg-cover bg-center relative"
+          style={{
+            backgroundImage: `linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%), url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80')`
+          }}
+        >
+          {/* Free Webinar Badge */}
+          <div className="absolute top-4 left-4 bg-white/90 text-gray-700 text-xs font-medium px-3 py-1 rounded-full">
+            Free Webinar
+          </div>
+          
+          <div className="p-6 pt-20">
+            <h3 className="text-xl font-bold text-white mb-4">
+              Organic Soil Health & Composting Workshop
+            </h3>
+            <p className="text-white/90 text-sm mb-4 leading-relaxed">
+              Learn how to build healthy, living soil through composting, mulching, and crop rotation.
+            </p>
+            <p className="text-white/70 text-xs mb-6">
+              July 18, 2025 | 10:00 AM EAT | Organic Farmers Market, Karen, Nairobi
+            </p>
+            
+            <button className="w-full bg-green-700 text-white font-semibold py-3 px-6 rounded-full hover:bg-green-800 transition-colors duration-300">
+              Register Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Event 3 - AE/EOA in Practice */}
+      <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 relative">
+        <div 
+          className="h-full bg-cover bg-center relative"
+          style={{
+            backgroundImage: `linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80')`
+          }}
+        >
+          {/* Free Webinar Badge */}
+          <div className="absolute top-4 left-4 bg-white/90 text-gray-700 text-xs font-medium px-3 py-1 rounded-full">
+            Free Webinar
+          </div>
+          
+          <div className="p-6 pt-20">
+            <h3 className="text-xl font-bold text-white mb-4">
+              AE/EOA in Practice: Online Webinar for Consumers & Advocates
+            </h3>
+            <p className="text-white/90 text-sm mb-4 leading-relaxed">
+              How can consumers make impact-driven choices? Join us for a dynamic online session featuring stories from producers, a live Q&A, and actionable tips for conscious consumption.
+            </p>
+            <p className="text-white/70 text-xs mb-6">
+              August 1, 2025 | 4:00 PM EAT | Online via Zoom
+            </p>
+            
+            <button className="w-full bg-white text-gray-800 font-semibold py-3 px-6 rounded-full hover:bg-gray-50 transition-colors duration-300">
+              Register Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* View All Events Button */}
+    <div className="text-center">
+      <button className="bg-green-700 hover:bg-green-800 text-white font-semibold px-8 py-4 rounded-full text-sm transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+        View All Events
+      </button>
+    </div>
+  </div>
+</section>
+{/* ✅ Ready to Shop Section */}
+<section className="bg-green-700 py-16 px-4 md:px-8 lg:px-12 relative overflow-hidden">
+  {/* Decorative background pattern */}
+  <div className="absolute inset-0 opacity-10">
+    <div className="absolute top-10 left-10 w-32 h-32 border border-white/20 rounded-full" />
+    <div className="absolute bottom-20 right-20 w-24 h-24 border border-white/20 rounded-full" />
+    <div className="absolute top-1/2 left-1/4 w-16 h-16 border border-white/20 rounded-full" />
+  </div>
+  
+  <div className="max-w-4xl mx-auto text-center relative z-10">
+    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+      Ready to shop for impact?
+    </h2>
+    <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+      Explore our full range of certified organic solutions and see how every purchase drives change.
+    </p>
+    <button className="bg-white text-green-700 hover:bg-gray-50 font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-lg">
+      Shop All Products
+    </button>
+  </div>
+</section>
+
+{/* ✅ Newsletter Section */}
+<section className="bg-[#2C2A29] py-16 px-4 md:px-8 lg:px-12">
+  <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+    
+    {/* Left side - Newsletter info */}
+    <div className="flex items-center gap-4 text-white">
+      <div className="flex-shrink-0">
+        {/* Email icon */}
+        <svg className="w-12 h-12 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      </div>
+      <div>
+        <h3 className="text-xl md:text-2xl font-bold mb-2">
+          Join the Movement
+        </h3>
+        <p className="text-gray-300 text-sm md:text-base">
+          Get updates on AE/EOA events, stories, outlets, and resources that empower African farmers.
+        </p>
+      </div>
+    </div>
+
+    {/* Right side - Email signup form */}
+    <div className="flex w-full md:w-auto min-w-80">
+      <input
+        type="email"
+        placeholder="Your email address"
+        className="flex-1 px-4 py-3 text-gray-900 bg-white rounded-l-full focus:outline-none focus:ring-2 focus:ring-green-500 text-sm"
+      />
+      <button className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-r-full font-medium text-sm transition-colors duration-300">
+        Subscribe
+      </button>
+    </div>
+  </div>
+</section>
+{/* ✅ Footer Section */}
+{/* ✅ Footer Section */}
+      <footer className="bg-gray-900 py-16 px-4 md:px-8 lg:px-12 border-t border-gray-800">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-12">
+            
+            {/* Company Info */}
+            <div className="lg:col-span-2">
+              {/* Logo */}
+              <div className="mb-6">
+                <div className="flex items-center gap-3">
+                  {/* Africa Map Icon */}
+                  <div className="relative w-12 h-12">
+                    <svg viewBox="0 0 48 48" className="w-full h-full text-white fill-current">
+                      <path d="M24 4c-8.5 0-15.5 5.2-18.5 12.5C3.8 19.8 3 23.8 3 28c0 11.6 9.4 21 21 21s21-9.4 21-21c0-4.2-0.8-8.2-2.5-11.5C39.5 9.2 32.5 4 24 4z" />
+                      {/* Simplified Africa continent shape */}
+                      <path d="M20 12c2-1 4-1 6 0 1 1 2 3 2 5 0 1-1 2-1 3 1 1 2 1 3 2 1 2 0 4-1 5-1 1-3 1-4 2 0 1 1 2 0 3-1 1-2 0-3 1-1 1-1 3-2 4-1 0-2-1-3-1-1 0-2 1-3 0-1-1 0-3-1-4-1-1-2 0-3-1 0-1 1-2 0-3-1-1-3-1-4-2-1-1-2-3-1-5 1-1 2-1 3-2 0-1-1-2-1-3 0-2 1-4 2-5z" className="fill-green-700" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="text-white text-xl font-bold">Biovision</div>
+                    <div className="text-white text-sm">Africa Trust</div>
+                  </div>
+                </div>
+              </div>
+              
+              <h4 className="text-xl font-bold text-white mb-4">
+                Growing Africa's Future Through Sustainable Agriculture
+              </h4>
+              <p className="text-gray-300 text-base leading-relaxed mb-6 max-w-md">
+                We partner with farmers across Africa to build sustainable food systems through agroecology, creating premium products that support rural communities.
+              </p>
+              
+              {/* Social Media Links */}
+              <div className="flex gap-4">
+                <button className="w-10 h-10 bg-green-700 hover:bg-green-800 rounded-full flex items-center justify-center transition-colors duration-300">
+                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                  </svg>
+                </button>
+                <button className="w-10 h-10 bg-green-700 hover:bg-green-800 rounded-full flex items-center justify-center transition-colors duration-300">
+                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
+                </button>
+                <button className="w-10 h-10 bg-green-700 hover:bg-green-800 rounded-full flex items-center justify-center transition-colors duration-300">
+                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                </button>
+                <button className="w-10 h-10 bg-green-700 hover:bg-green-800 rounded-full flex items-center justify-center transition-colors duration-300">
+                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.347-.09.375-.293 1.199-.332 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.756-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* Explore Links */}
+            <div>
+              <h5 className="text-lg font-semibold text-white mb-6">Explore</h5>
+              <ul className="space-y-4">
+                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-300">Our Mission</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-300">Shop</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-300">Learn</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-300">FAQs</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-300">Press & Media</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-300">Career</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-300">Become a Partner</a></li>
+              </ul>
+            </div>
+
+            {/* Contact Info */}
+            <div>
+              <h5 className="text-lg font-semibold text-white mb-6">Contact</h5>
+              <div className="space-y-4 text-gray-300">
+                <div className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span>+254 (0) 20 632 4806</span>
+                </div>
+                
+                <div className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <span>info@biovisionafricatrust.org</span>
+                </div>
+                
+                <div className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  <div>
+                    <p>Duduville Campus, Kasarani Nairobi, Kenya</p>
+                    <p className="mt-1">P.O. Box 12345, Nairobi, Kenya</p>
+                  </div>
+                </div>
+                
+                <div className="pt-2 space-y-1 text-sm">
+                  <p><span className="text-white font-medium">Monday - Friday:</span> 8:00 AM - 5:00 PM EAT</p>
+                  <p><span className="text-white font-medium">Saturday:</span> 9:00 AM - 1:00 PM EAT</p>
+                  <p><span className="text-white font-medium">Sunday:</span> Closed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Section */}
+          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-gray-400 text-sm">
+              © 2025 BioVision Africa Trust. All Rights Reserved.
+            </p>
+            <div className="flex gap-6 text-sm">
+              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">Terms of Use</a>
+              <span className="text-gray-600">|</span>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">Privacy Policy</a>
+              <span className="text-gray-600">|</span>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">Cookie Policy</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+
+
+
+
+    
 
 
 
