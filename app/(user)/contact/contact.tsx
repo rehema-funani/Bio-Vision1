@@ -112,7 +112,7 @@ export default function Contact() {
       </div>
 
       {/* Contact Info Section */}
-      <div className="bg-green-100 py-10 px-4 mt-12">
+      <div className="bg-green-100 py-10 px-4 mt-12 h-60">
         <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-center sm:text-left">
           {/* Message */}
           <div>
@@ -138,7 +138,7 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      {/* ✅ Newsletter Section */}
+{/* ✅ Newsletter Section */}
 <section className="bg-[#2C2A29] py-16 px-4 md:px-8 lg:px-12 -mt-16">
   <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
     

@@ -2,7 +2,7 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
-import { BookOpen, DollarSign, GraduationCap, Heart, Leaf, Smile, Sprout, Users } from "lucide-react";
+import { BookOpen, Box, DollarSign, GraduationCap, Headphones, Heart, Leaf, ShieldCheck, Smile, Sprout, Truck, Users } from "lucide-react";
 
 export default function Shop() {
     const pathname = usePathname();
@@ -18,22 +18,22 @@ export default function Shop() {
         { name: "Contact Us", href: "/contact" },
       ];
   return (
-  <div className="relative min-h-screen w-full overflow-x-hidden">
+  <div className=" bg-[#FFFFFF]relative min-h-screen w-full overflow-x-hidden">
     {/* ✅ Background image using <img src="/about-hero.jpg" /> */}
-      <img
+      {/* <img
         src="/images/farmers.png"
         alt="Hero Background"
         className="fixed top-0 left-0 w-full h-full object-cover -z-10"
       />
-      <div className="fixed inset-0 bg-black/40  " />
+      <div className="fixed inset-0 bg-black/40  " /> */}
 
       {/* ✅ Fixed Navbar */}
-      <header className="fixed top-0 w-full z-50 bg-black/30 backdrop-blur-md">
+      <header className="fixed top-0 w-full z-50 bg-white backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
           <div className="flex-shrink-0">
             <img
-              src="https://api.builder.io/api/v1/image/assets/TEMP/5376572c943bbbbf555a8e8d2b23c9146eee9067?width=335"
+              src="/images/greenlogo.png"
               alt="Biovision Africa Trust"
               className="h-12 md:h-14 object-contain"
             />
@@ -48,7 +48,7 @@ export default function Shop() {
                   className={`text-sm font-semibold px-2 transition ${
                     pathname === item.href
                       ? "text-green-500"
-                      : "text-white hover:text-green-400"
+                      : "text-black hover:text-green-400"
                   }`}
                 >
                   {item.name}
@@ -62,13 +62,13 @@ export default function Shop() {
 
           {/* Search + Sign Up */}
           <div className="flex items-center gap-4">
-            <div className="hidden md:flex items-center border border-white rounded-full overflow-hidden">
+            <div className="hidden md:flex items-center border border-gray-500 rounded-full overflow-hidden">
               <input
                 type="text"
                 placeholder="Search"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="bg-transparent text-white placeholder-white/50 text-sm px-4 py-2 w-32 focus:outline-none"
+                className="bg-transparent text-black placeholder-white/50 text-sm px-4 py-2 w-32 focus:outline-none"
               />
               <button className="bg-green-700 hover:bg-green-800 text-white text-sm px-4 py-2 transition">
                 Search
@@ -87,73 +87,81 @@ export default function Shop() {
 
     
     
+    <section className=" mt-12 bg-[#D6E1D6] py-20 px-4 md:px-12 relative overflow-visible">
+  <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
     
-    <section className="bg-[#F4F8F4] py-16 px-4 md:px-12 relative">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        {/* LEFT SIDE: Text */}
+    {/* LEFT SIDE: Text */}
+    <div className="ml-4">
+      <p className=" text-sm text-[#2E7D32] font-semibold uppercase">Welcome to Shopery</p>
+      <h1 className=" text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+        Fresh & Healthy <br />
+        Organic Products
+      </h1>
+      <p className="text-lg text-gray-700 mt-2">
+        Certified organic products from <br /> Africa's most innovative farmers
+      </p>
+      <p className="text-sm text-gray-500 mt-1">
+        Free shipping on all your order. we deliver, you enjoy
+      </p>
+      <button className="mt-4 bg-[#2E7D32] text-white text-lg font-semibold px-8 py-3 rounded-full hover:bg-[#256829] transition">
+        Shop Now
+      </button>
+    </div>
+
+    {/* RIGHT SIDE: Image */}
+    <div className="flex justify-center items-center h-full">
+      <img
+        src="/images/vegetables.png"
+        alt="Organic Vegetables Basket"
+        className="w-full h-auto object-contain lg:max-h-[400px]"
+      />
+    </div>
+  </div>
+
+  {/* BOTTOM ICONS */}
+  <div className="absolute bottom-[-60px] left-1/2 transform -translate-x-1/2 w-full px-4 z-10">
+    <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 bg-white rounded-xl shadow-xl py-6 px-6">
+      
+      <div className="flex items-start gap-3">
+        <Truck className="w-6 h-6 mt-1 text-green-700" />
         <div>
-          <p className=" text-sm text-[#2E7D32] font-semibold uppercase">Welcome to Shopery</p>
-          <h1 className="ml-13 text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-            Fresh & Healthy <br />
-            Organic Products
-          </h1>
-          <p className="ml-13 text-lg text-gray-700 mt-4">
-            Certified organic products from <br/>Africa's most innovative farmers
-          </p>
-          <p className="ml-13 text-sm text-gray-500 mt-2">
-            Free shipping on all your order. we deliver, you enjoy
-          </p>
-          <button className="ml-13 mt-6 bg-[#2E7D32] text-white text-lg font-semibold px-8 py-3 rounded-full hover:bg-[#256829] transition">
-            Shop Now
-          </button>
-        </div>
-
-        {/* RIGHT SIDE: Image */}
-        <div className="flex justify-center">
-          <img
-            src="/hero-vegetables.png" // Place this image in /public folder
-            alt="Organic Vegetables Basket"
-            className="max-w-full h-auto"
-          />
+          <p className="font-semibold">Free Shipping</p>
+          <p className="text-sm text-gray-500">Free shipping on all your order</p>
         </div>
       </div>
 
-      {/* BOTTOM ICONS */}
-      <div className="mt-20 px-4">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 bg-white rounded-xl shadow-lg py-6 px-6">
-          <div className="flex items-start gap-3">
-            <img src="/icons/truck.svg" alt="Shipping" className="w-6 h-6 mt-1" />
-            <div>
-              <p className="font-semibold">Free Shipping</p>
-              <p className="text-sm text-gray-500">Free shipping on all your order</p>
-            </div>
-          </div>
-          <div className="flex items-start gap-3">
-            <img src="/icons/support.svg" alt="Support" className="w-6 h-6 mt-1" />
-            <div>
-              <p className="font-semibold">Customer Support 24/7</p>
-              <p className="text-sm text-gray-500">Instant access to Support</p>
-            </div>
-          </div>
-          <div className="flex items-start gap-3">
-            <img src="/icons/lock.svg" alt="Secure Payment" className="w-6 h-6 mt-1" />
-            <div>
-              <p className="font-semibold">100% Secure Payment</p>
-              <p className="text-sm text-gray-500">We ensure your money is safe</p>
-            </div>
-          </div>
-          <div className="flex items-start gap-3">
-            <img src="/icons/box.svg" alt="Money Back" className="w-6 h-6 mt-1" />
-            <div>
-              <p className="font-semibold">Money-Back Guarantee</p>
-              <p className="text-sm text-gray-500">30 Days Money-Back Guarantee</p>
-            </div>
-          </div>
+      <div className="flex items-start gap-3">
+        <Headphones className="w-6 h-6 mt-1 text-green-700" />
+        <div>
+          <p className="font-semibold">Customer Support 24/7</p>
+          <p className="text-sm text-gray-500">Instant access to Support</p>
         </div>
       </div>
-    </section>
+
+      <div className="flex items-start gap-3">
+        <ShieldCheck className="w-6 h-6 mt-1 text-green-700" />
+        <div>
+          <p className="font-semibold">100% Secure Payment</p>
+          <p className="text-sm text-gray-500">We ensure your money is safe</p>
+        </div>
+      </div>
+
+      <div className="flex items-start gap-3">
+        <Box className="w-6 h-6 mt-1 text-green-700" />
+        <div>
+          <p className="font-semibold">Money-Back Guarantee</p>
+          <p className="text-sm text-gray-500">30 Days Money-Back Guarantee</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
     {/* ✅ Featured Products Section */}
-<section className="bg-white py-20 px-4 md:px-12">
+<section className="bg-white -mt-2 pt-32  px-4 md:px-12">
   <h2 className="text-3xl md:text-4xl font-semibold text-center mb-12">
     Featured Products
   </h2>
@@ -161,31 +169,39 @@ export default function Shop() {
   {/* Main Products Grid */}
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-12">
     {[
-      { name: "Green Apples", img: "/products/green-apples.png" },
-      { name: "Chinese Cabbage", img: "/products/chinese-cabbage.png" },
-      { name: "Lettuce", img: "/products/lettuce.png" },
-      { name: "Green Peppers", img: "/products/green-peppers.png" },
-      { name: "Corn", img: "/products/corn.png" },
+      { name: "Green Apples", img: "/images/greenapples.png" },
+      { name: "Chinese Cabbage", img: "/images/chinese-cabbage.png" },
+      { name: "Lettuce", img: "/images/lettuces.png" },
+      { name: "Green Peppers", img: "/images/pepper.png" },
+      { name: "Corn", img: "/images/corn.png" },
     ].map((product) => (
       <div
-        key={product.name}
-        className="bg-white rounded-xl shadow-sm border p-4 text-center"
-      >
-        <img src={product.img} alt={product.name} className="h-32 mx-auto mb-4 object-contain" />
-        <p className="text-xs text-gray-500">Vegetables</p>
-        <h3 className="text-lg font-semibold">{product.name}</h3>
-        <p className="text-sm text-gray-600">By Mr.food</p>
-        <div className="flex justify-center items-center gap-1 text-yellow-400 mt-1">
-          ★★★★☆ <span className="text-gray-500 text-xs">(4)</span>
-        </div>
-        <div className="flex items-center justify-between mt-3">
-          <span className="text-green-700 font-bold text-lg">$2</span>
-          <span className="line-through text-gray-400 text-sm">$3.99</span>
-          <button className="border border-green-600 text-green-600 px-3 py-1 rounded-full text-sm">
-            Contact
-          </button>
-        </div>
-      </div>
+  key={product.name}
+  className="bg-white rounded-xl shadow-lg p-4 text-center"
+>
+  <img
+    src={product.img}
+    alt={product.name}
+    className="h-32 mx-auto mb-4 object-contain"
+  />
+  {/* Bottom info area with subtle background */}
+  <div className="bg-[#FFF9F2] rounded-b-xl p-3 text-left">
+    <p className="text-xs text-gray-400 mb-1">Vegetables</p>
+    <h3 className="text-lg font-bold mb-1">{product.name}</h3>
+    <p className="text-sm text-gray-700 font-semibold mb-1">By Mr.food</p>
+    <div className="flex items-center gap-1 text-yellow-400 mb-2">
+      ★★★★☆ <span className="text-gray-500 text-xs">(4)</span>
+    </div>
+    <div className="flex items-center justify-between">
+      <span className="text-green-700 font-bold text-lg">$2</span>
+      <span className="line-through text-gray-400 text-sm">$3.99</span>
+      <button className="border border-green-600 text-green-600 px-3 py-1 rounded-full text-sm">
+        Contact
+      </button>
+    </div>
+  </div>
+</div>
+
     ))}
   </div>
 

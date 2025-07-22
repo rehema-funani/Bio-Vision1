@@ -107,34 +107,46 @@ export default function Resources() {
     </p>
     
     {/* Featured Story with Background Image */}
-    <div className="relative max-w-4xl mx-auto">
-      {/* Background Image Container */}
-      <div className="relative h-96 md:h-[500px] rounded-t-lg overflow-hidden">
-        <img 
-          src="/images/woman.png"
-          alt="Mary working on her organic farm"
-          className="w-full h-full object-cover"
-        />
-        {/* Optional overlay for better text readability */}
-        <div className="absolute inset-0  bg-opacity-10"></div>
-      </div>
-      
-      {/* Success Story Card - Overlapping */}
-      <div className="absolute bottom-0 left-4 right-4 md:left-8 md:right-8 transform translate-y-1/2">
-        <div className="bg-white rounded-lg shadow-xl p-6 md:p-8 text-left">
-          <div className="text-sm text-green-600 font-semibold mb-3 tracking-wide">SUCCESS STORY</div>
-          <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 leading-tight">
-            From Farm to Market: How Mary's Organic Journey Doubled Her Income
-          </h3>
-          <p className="text-gray-600 mb-6 leading-relaxed text-sm md:text-base">
-            Mary, a smallholder farmer from Nyarugenge District, never imagined that adopting agroecological practices would change her family's future. In just two years, her switch to agroecological farming has doubled her income, improved her soil quality, and opened new doors she never knew existed.
-          </p>
-          <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition duration-300">
-            Read More
-          </button>
-        </div>
-      </div>
+<div className="relative mx-auto max-w-6xl">
+  {/* Background Image Container */}
+  <div className="ml-15 relative h-[320px] md:h-[380px] w-[85%] md:w-[90%] rounded-2xl overflow-hidden">
+    <img 
+      src="/images/woman.png" 
+      alt="Mary working on her organic farm" 
+      className="w-full h-full object-cover" 
+    />
+  </div>
+  
+  {/* Success Story Card - Positioned to overlap and extend beyond the right side */}
+<div className="absolute top-[-1/2] -right-4 md:-right-8 transform -translate-y-1/2 w-[500px] md:w-[600px] lg:w-[750px] z-10 mr-10">
+  <div className="bg-[#FAF9F7] rounded-xl shadow-lg p-5 md:p-6 text-left"> {/* <- Changed bg color & text-left */}
+    
+    {/* Top row: SUCCESS STORY and Date */}
+    <div className="flex items-center justify-between mb-3">
+      <span className="text-xs text-green-600 font-semibold tracking-wide uppercase">SUCCESS STORY</span>
+      <span className="text-xs text-gray-400">4 July 2025</span>
     </div>
+
+    {/* Heading */}
+    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 leading-snug">
+      From Farm to Market: How Mary's Organic Journey Doubled Her Income
+    </h3>
+
+    {/* Description */}
+    <p className="text-gray-600 text-sm leading-relaxed mb-4">
+      Mary Njoroge, a smallholder farmer from Nyandarua County, never imagined that growing vegetables without 
+      chemicals could change her family's future. But in just two years, her switch to agroecological farming has doubled 
+      her income, improved her soil quality, and opened new doors she didn't know existed.
+    </p>
+
+    {/* Read More Button */}
+    <button className="bg-green-600 hover:bg-green-700 text-white text-sm px-5 py-2.5 rounded-lg font-medium transition duration-200">
+      Read More
+    </button>
+  </div>
+</div>
+
+</div>
     
     {/* Add margin to account for overlapping card */}
     <div className="mt-24 md:mt-32"></div>
@@ -150,7 +162,7 @@ export default function Resources() {
       {/* Post 1 */}
       <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
         <img 
-          src="/api/placeholder/300/200" 
+          src="/images/woman.png" 
           alt="Mary's success story"
           className="w-full h-48 object-cover"
         />
@@ -171,7 +183,7 @@ export default function Resources() {
       {/* Post 2 */}
       <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
         <img 
-          src="/api/placeholder/300/200" 
+          src="/images/africa-landscape.png" 
           alt="African landscape"
           className="w-full h-48 object-cover"
         />
@@ -192,7 +204,7 @@ export default function Resources() {
       {/* Post 3 */}
       <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
         <img 
-          src="/api/placeholder/300/200" 
+          src="/images/foodplate.png" 
           alt="Healthy food plate"
           className="w-full h-48 object-cover"
         />
@@ -213,7 +225,7 @@ export default function Resources() {
       {/* Post 4 */}
       <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
         <img 
-          src="/api/placeholder/300/200" 
+          src="/images/africa-landscape.png" 
           alt="African landscape"
           className="w-full h-48 object-cover"
         />
@@ -243,7 +255,7 @@ export default function Resources() {
       {/* Popular Post 1 */}
       <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
         <img 
-          src="/api/placeholder/300/200" 
+          src="/images/sunset.png" 
           alt="Sunset over water"
           className="w-full h-48 object-cover"
         />
@@ -264,7 +276,7 @@ export default function Resources() {
       {/* Popular Post 2 */}
       <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
         <img 
-          src="/api/placeholder/300/200" 
+          src="/images/rooftop-farming.png" 
           alt="Rooftop farming"
           className="w-full h-48 object-cover"
         />
@@ -285,7 +297,7 @@ export default function Resources() {
       {/* Popular Post 3 */}
       <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
         <img 
-          src="/api/placeholder/300/200" 
+          src="/images/plant-seedling.png" 
           alt="Plant seedling"
           className="w-full h-48 object-cover"
         />
@@ -306,7 +318,7 @@ export default function Resources() {
       {/* Popular Post 4 */}
       <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
         <img 
-          src="/api/placeholder/300/200" 
+          src="/images/rooftop-farming.png" 
           alt="Rooftop farming"
           className="w-full h-48 object-cover"
         />
@@ -330,7 +342,7 @@ export default function Resources() {
       {/* Popular Post 5 */}
       <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
         <img 
-          src="/api/placeholder/300/200" 
+          src="/images/garden-space.png" 
           alt="Garden space"
           className="w-full h-48 object-cover"
         />
@@ -351,7 +363,7 @@ export default function Resources() {
       {/* Popular Post 6 */}
       <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
         <img 
-          src="/api/placeholder/300/200" 
+          src="/images/training-session.png" 
           alt="Training session"
           className="w-full h-48 object-cover"
         />
@@ -372,7 +384,7 @@ export default function Resources() {
       {/* Popular Post 7 */}
       <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
         <img 
-          src="/api/placeholder/300/200" 
+          src="/images/market-produce.png" 
           alt="Market produce"
           className="w-full h-48 object-cover"
         />
@@ -393,7 +405,7 @@ export default function Resources() {
       {/* Popular Post 8 */}
       <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
         <img 
-          src="/api/placeholder/300/200" 
+          src="/images/training-session.png" 
           alt="Training session"
           className="w-full h-48 object-cover"
         />
@@ -415,16 +427,16 @@ export default function Resources() {
 </section>
 
 {/* Call-to-Action Section */}
-<section className="bg-green-600 py-16 px-4 ">
-  <div className="max-w-4xl mx-auto text-center">
-    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+<section className="mb-20 ml-50 max-w-4xl bg-green-600 rounded-xlml-60 max-w-3xl mt-[-6] px-6 py-6 rounded-xl">
+  <div className="mb-4 max-w-4xl mx-auto text-center">
+    <h2 className="mb-4 text-3xl md:text-4xl font-bold text-white mb-6">
       Your Story Could Inspire Thousands
     </h2>
-    <p className="text-lg md:text-xl text-green-100 mb-8 max-w-2xl mx-auto">
+    <p className="mb-6 text-lg md:text-xl text-green-100 mb-8 max-w-2xl mx-auto">
       Have you started your agroecology journey? Share your experience 
       and become part of a growing movement across Africa.
     </p>
-    <button className="bg-white hover:bg-gray-100 text-green-600 px-8 py-4 rounded-lg font-semibold text-lg transition duration-300 shadow-lg hover:shadow-xl">
+    <button className="mt-[-2] bg-white hover:bg-gray-100 text-green-600 px-8 py-4 rounded-lg font-semibold text-lg transition duration-300 shadow-lg hover:shadow-xl">
       Share Your Story
     </button>
   </div>

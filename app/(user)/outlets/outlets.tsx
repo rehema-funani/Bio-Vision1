@@ -647,107 +647,378 @@ export default function Outlets() {
         </div>
       </header>
       {/* Header */}
-      <div className="mt-19 text-center px-6 py-10 max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-4">
-          Explore Certified Outlets <br className="md:hidden" />
-          <span className="text-green-600">Across Africa</span>
-        </h1>
-        <p className="text-lg text-gray-600">
-          Discover a growing network of agroecological and ecological organic agriculture producers,
-          retailers, and marketplaces. All listings are verified to meet sustainable farming principles —
-          offering you trusted access to healthier, ethical, and environmentally sound products.
+<div className="text-center px-6 py-16 max-w-3xl mx-auto mt-15">
+  <h1 className="text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+    Explore Certified Outlets <br />
+    Across Africa
+  </h1>
+  <p className="text-lg text-gray-700 leading-relaxed">
+    Discover a growing network of agroecological and ecological organic agriculture producers, retailers, and marketplaces. All listings are verified to meet sustainable farming principles — offering you trusted access to healthier, ethical, and environmentally sound products.
+  </p>
+</div>
+
+<div className="flex flex-col lg:flex-row gap-4 max-w-7xl mx-auto px-4 py-8">
+  {/* Left Column - Map and View Buttons */}
+  <div className="w-full lg:w-2/3 flex flex-col">
+    {/* Toggle Buttons ABOVE the map */}
+    <div className="flex gap-2 mb-4">
+      <button className="flex items-center gap-2 border text-sm px-4 py-2 rounded-md bg-white shadow hover:bg-gray-100">
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+        </svg>
+        List View
+      </button>
+      <button className="flex items-center gap-2 border text-sm px-4 py-2 rounded-md bg-green-600 text-white shadow hover:bg-green-700">
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A2 2 0 013 15.382V6.618a2 2 0 01.553-1.382L9 2m6 18l5.447-2.724A2 2 0 0021 15.382V6.618a2 2 0 00-.553-1.382L15 2" />
+        </svg>
+        Map View
+      </button>
+    </div>
+
+    {/* Map Embed (Kenya) */}
+    <div className="h-[600px] w-full rounded-xl overflow-hidden shadow border">
+      <iframe
+        title="Kenya Map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.635984352418!2d36.8219467!3d-1.2920659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d83281d997%3A0x4a6b8dd22bd62df0!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2ske!4v1698492348234!5m2!1sen!2ske"
+        className="w-full h-full"
+        allowFullScreen
+        loading="lazy"
+      />
+    </div>
+  </div>
+
+  {/* Right Column - All Results List */}
+ <div className="bg-[#fdfcf9] p-4 w-full md:w-[400px] max-h-[600px] overflow-y-auto">
+  {/* Header */}
+  <h2 className="text-lg font-semibold mb-4">All Results</h2>
+  
+  {/* Filters */}
+  <div className="flex items-center justify-between mb-4">
+    <div className="flex items-center gap-2">
+      <button className="border px-3 py-1 rounded-md text-sm flex items-center gap-1">
+        📍 Nairobi, Kenya
+      </button>
+      <button className="border px-3 py-1 rounded-md text-sm flex items-center gap-1">
+        Sort By ▾
+      </button>
+    </div>
+    <button className="relative bg-green-600 text-white w-8 h-8 flex items-center justify-center text-xs rounded-full">
+      3
+    </button>
+  </div>
+  
+  {/* Results Count */}
+  <p className="text-sm text-gray-600 mb-4">Showing 95 results</p>
+  
+  {/* Card 1 */}
+  <div className="bg-white rounded-lg shadow-sm p-4 mb-3 border border-gray-100">
+    <div className="flex justify-between items-start gap-3 mb-3">
+      <div className="flex-1 min-w-0">
+        <h3 className="text-base font-medium text-gray-900 mb-1">
+          Kampala Sunrise Café
+        </h3>
+        <p className="text-sm text-gray-400 mb-2">
+          32 Acacia Avenue, Kololo, Kampala
         </p>
-      </div>
-
-      {/* Map + Sidebar */}
-      <div className="lg:flex gap-6 px-4 lg:px-16">
-        {/* Map */}
-        <div className="lg:w-2/3 w-full h-[500px] rounded-md overflow-hidden">
-          <MapContainer
-            center={[-0.0236, 37.9062]} // Kenya center
-            zoom={7}
-            scrollWheelZoom={false}
-            className="h-full w-full z-0"
-          >
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-          </MapContainer>
-        </div>
-
-        {/* Sidebar */}
-        <div className="w-full lg:w-1/3 bg-[#fdfcfb] p-4 overflow-y-auto max-h-[500px] border border-gray-200 rounded-md">
-          {/* Filters */}
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex gap-2">
-              <select className="border border-gray-300 text-sm rounded px-3 py-1">
-                <option>Nairobi, Kenya</option>
-                <option>Kampala, Uganda</option>
-                <option>Addis Ababa, Ethiopia</option>
-              </select>
-              <select className="border border-gray-300 text-sm rounded px-3 py-1">
-                <option>Sort By</option>
-                <option>Rating</option>
-                <option>Distance</option>
-              </select>
-            </div>
-            <div className="relative">
-              <button className="border border-green-500 text-green-600 text-sm px-3 py-1 rounded">
-                Filters
-              </button>
-              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-1">3</span>
-            </div>
-          </div>
-
-          {/* Results Count */}
-          <p className="text-sm text-gray-600 mb-2">Showing 95 results</p>
-
-          {/* Outlet Cards */}
-          <div className="space-y-4">
-            {sampleOutlets.map((outlet, i) => (
-              <div key={i} className="bg-white shadow-sm border border-gray-200 rounded-md p-3 flex gap-3">
-                <img
-                  src={outlet.image}
-                  alt={outlet.name}
-                  className="w-16 h-16 rounded object-cover"
-                />
-                <div className="flex-1">
-                  <h3 className="font-semibold text-gray-800 text-sm">{outlet.name}</h3>
-                  <p className="text-xs text-gray-500">{outlet.address}</p>
-                  <div className="flex gap-1 mt-1 flex-wrap">
-                    {outlet.tags.map((tag: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined, idx: Key | null | undefined) => (
-                      <span key={idx} className="text-[10px] px-2 py-0.5 bg-gray-100 border border-gray-300 rounded-full text-gray-600">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex items-center justify-between mt-2 text-sm">
-                    <span className="text-gray-700">{outlet.phone}</span>
-                    <span className="flex items-center gap-1 text-yellow-500 font-medium">
-                      {outlet.rating} <FaStar className="w-4 h-4" />
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="flex gap-2">
+          <span className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
+            Chinese
+          </span>
+          <span className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
+            Takeaway
+          </span>
         </div>
       </div>
-
-      {/* CTA Section */}
-      <div className="bg-green-100 mt-10 px-6 py-12 text-center">
-        <h2 className="text-2xl font-bold mb-4 text-green-700">Your Story Could Inspire Thousands</h2>
-        <p className="text-gray-600 mb-6">
-          Have you started your agroecology journey? Share your experience and become part
-          of a growing movement across Africa.
-        </p>
-        <button className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition">
-          Share your Story
-        </button>
+      <img
+        src="/api/placeholder/60/60"
+        alt="Restaurant"
+        className="w-15 h-15 object-cover rounded-lg flex-shrink-0"
+      />
+    </div>
+    <div className="flex justify-between items-center pt-2 border-t border-gray-100">
+      <span className="text-sm font-medium text-gray-900">
+        +256 79 234 5678
+      </span>
+      <div className="flex items-center gap-1">
+        <span className="text-sm font-medium text-gray-900">4.5</span>
+        <svg className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+          <path d="M10 15l-5.878 3.09L5.82 12.09 1 7.91l6.061-.909L10 1l2.939 6.001L19 7.91l-4.82 4.18L15.878 18z" />
+        </svg>
       </div>
+    </div>
+  </div>
+
+  {/* Card 2 */}
+  <div className="bg-white rounded-lg shadow-sm p-4 mb-3 border border-gray-100">
+    <div className="flex justify-between items-start gap-3 mb-3">
+      <div className="flex-1 min-w-0">
+        <h3 className="text-base font-medium text-gray-900 mb-1">
+          Kampala Sunrise Café
+        </h3>
+        <p className="text-sm text-gray-400 mb-2">
+          32 Acacia Avenue, Kololo, Kampala
+        </p>
+        <div className="flex gap-2">
+          <span className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
+            Chinese
+          </span>
+          <span className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
+            Takeaway
+          </span>
+        </div>
+      </div>
+      <img
+        src="/api/placeholder/60/60"
+        alt="Restaurant"
+        className="w-15 h-15 object-cover rounded-lg flex-shrink-0"
+      />
+    </div>
+    <div className="flex justify-between items-center pt-2 border-t border-gray-100">
+      <span className="text-sm font-medium text-gray-900">
+        +256 79 234 5678
+      </span>
+      <div className="flex items-center gap-1">
+        <span className="text-sm font-medium text-gray-900">4.5</span>
+        <svg className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+          <path d="M10 15l-5.878 3.09L5.82 12.09 1 7.91l6.061-.909L10 1l2.939 6.001L19 7.91l-4.82 4.18L15.878 18z" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  {/* Card 3 */}
+  <div className="bg-white rounded-lg shadow-sm p-4 mb-3 border border-gray-100">
+    <div className="flex justify-between items-start gap-3 mb-3">
+      <div className="flex-1 min-w-0">
+        <h3 className="text-base font-medium text-gray-900 mb-1">
+          Kampala Sunrise Café
+        </h3>
+        <p className="text-sm text-gray-400 mb-2">
+          32 Acacia Avenue, Kololo, Kampala
+        </p>
+        <div className="flex gap-2">
+          <span className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
+            Chinese
+          </span>
+          <span className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
+            Takeaway
+          </span>
+        </div>
+      </div>
+      <img
+        src="/api/placeholder/60/60"
+        alt="Restaurant"
+        className="w-15 h-15 object-cover rounded-lg flex-shrink-0"
+      />
+    </div>
+    <div className="flex justify-between items-center pt-2 border-t border-gray-100">
+      <span className="text-sm font-medium text-gray-900">
+        +256 79 234 5678
+      </span>
+      <div className="flex items-center gap-1">
+        <span className="text-sm font-medium text-gray-900">4.5</span>
+        <svg className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+          <path d="M10 15l-5.878 3.09L5.82 12.09 1 7.91l6.061-.909L10 1l2.939 6.001L19 7.91l-4.82 4.18L15.878 18z" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  {/* Card 4 */}
+  <div className="bg-white rounded-lg shadow-sm p-4 mb-3 border border-gray-100">
+    <div className="flex justify-between items-start gap-3 mb-3">
+      <div className="flex-1 min-w-0">
+        <h3 className="text-base font-medium text-gray-900 mb-1">
+          Kampala Sunrise Café
+        </h3>
+        <p className="text-sm text-gray-400 mb-2">
+          32 Acacia Avenue, Kololo, Kampala
+        </p>
+        <div className="flex gap-2">
+          <span className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
+            Chinese
+          </span>
+          <span className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
+            Takeaway
+          </span>
+        </div>
+      </div>
+      <img
+        src="/api/placeholder/60/60"
+        alt="Restaurant"
+        className="w-15 h-15 object-cover rounded-lg flex-shrink-0"
+      />
+    </div>
+    <div className="flex justify-between items-center pt-2 border-t border-gray-100">
+      <span className="text-sm font-medium text-gray-900">
+        +256 79 234 5678
+      </span>
+      <div className="flex items-center gap-1">
+        <span className="text-sm font-medium text-gray-900">4.5</span>
+        <svg className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+          <path d="M10 15l-5.878 3.09L5.82 12.09 1 7.91l6.061-.909L10 1l2.939 6.001L19 7.91l-4.82 4.18L15.878 18z" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  {/* Card 5 - Special Ad Card */}
+  <div className="bg-white rounded-lg shadow-sm p-4 mb-3 border border-gray-100">
+    <h3 className="text-base font-medium text-green-600 mb-1">
+      Kampala Sunrise Café
+    </h3>
+    <p className="text-base font-medium text-gray-900 mb-1">+256 79 234 5678</p>
+    <p className="text-sm text-gray-500 mb-2">
+      32 Acacia Avenue,<br />
+      Kololo, Kampala
+    </p>
+    <p className="text-sm text-gray-600 mb-3">
+      Cozy café with a wide selection of coffee, pastries, and local Ugandan cuisine. Perfect for breakfast and brunch.
+    </p>
+    <div className="flex gap-4 text-sm">
+      <a href="#" className="text-green-600 underline">Website</a>
+      <a href="#" className="text-green-600 underline">Directions</a>
+      <a href="#" className="text-green-600 underline">More Info</a>
+    </div>
+    <div className="text-right text-xs text-gray-400 mt-2">Ad</div>
+  </div>
+
+  {/* Card 6 */}
+  <div className="bg-white rounded-lg shadow-sm p-4 mb-3 border border-gray-100">
+    <div className="flex justify-between items-start gap-3 mb-3">
+      <div className="flex-1 min-w-0">
+        <h3 className="text-base font-medium text-gray-900 mb-1">
+          Kampala Sunrise Café
+        </h3>
+        <p className="text-sm text-gray-400 mb-2">
+          32 Acacia Avenue, Kololo, Kampala
+        </p>
+        <div className="flex gap-2">
+          <span className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
+            Chinese
+          </span>
+          <span className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
+            Takeaway
+          </span>
+        </div>
+      </div>
+      <img
+        src="/api/placeholder/60/60"
+        alt="Restaurant"
+        className="w-15 h-15 object-cover rounded-lg flex-shrink-0"
+      />
+    </div>
+    <div className="flex justify-between items-center pt-2 border-t border-gray-100">
+      <span className="text-sm font-medium text-gray-900">
+        +256 79 234 5678
+      </span>
+      <div className="flex items-center gap-1">
+        <span className="text-sm font-medium text-gray-900">4.5</span>
+        <svg className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+          <path d="M10 15l-5.878 3.09L5.82 12.09 1 7.91l6.061-.909L10 1l2.939 6.001L19 7.91l-4.82 4.18L15.878 18z" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  {/* Card 7 */}
+  <div className="bg-white rounded-lg shadow-sm p-4 mb-3 border border-gray-100">
+    <div className="flex justify-between items-start gap-3 mb-3">
+      <div className="flex-1 min-w-0">
+        <h3 className="text-base font-medium text-gray-900 mb-1">
+          Kampala Sunrise Café
+        </h3>
+        <p className="text-sm text-gray-400 mb-2">
+          32 Acacia Avenue, Kololo, Kampala
+        </p>
+        <div className="flex gap-2">
+          <span className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
+            Chinese
+          </span>
+          <span className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
+            Takeaway
+          </span>
+        </div>
+      </div>
+      <img
+        src="/api/placeholder/60/60"
+        alt="Restaurant"
+        className="w-15 h-15 object-cover rounded-lg flex-shrink-0"
+      />
+    </div>
+    <div className="flex justify-between items-center pt-2 border-t border-gray-100">
+      <span className="text-sm font-medium text-gray-900">
+        +256 79 234 5678
+      </span>
+      <div className="flex items-center gap-1">
+        <span className="text-sm font-medium text-gray-900">4.5</span>
+        <svg className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+          <path d="M10 15l-5.878 3.09L5.82 12.09 1 7.91l6.061-.909L10 1l2.939 6.001L19 7.91l-4.82 4.18L15.878 18z" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  {/* Card 8 (partially visible due to scrolling) */}
+  <div className="bg-white rounded-lg shadow-sm p-4 mb-3 border border-gray-100">
+    <div className="flex justify-between items-start gap-3 mb-3">
+      <div className="flex-1 min-w-0">
+        <h3 className="text-base font-medium text-gray-900 mb-1">
+          Kampala Sunrise Café
+        </h3>
+        <p className="text-sm text-gray-400 mb-2">
+          32 Acacia Avenue, Kololo, Kampala
+        </p>
+        <div className="flex gap-2">
+          <span className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
+            Chinese
+          </span>
+          <span className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
+            Takeaway
+          </span>
+        </div>
+      </div>
+      <img
+        src="/api/placeholder/60/60"
+        alt="Restaurant"
+        className="w-15 h-15 object-cover rounded-lg flex-shrink-0"
+      />
+    </div>
+    <div className="flex justify-between items-center pt-2 border-t border-gray-100">
+      <span className="text-sm font-medium text-gray-900">
+        +256 79 234 5678
+      </span>
+      <div className="flex items-center gap-1">
+        <span className="text-sm font-medium text-gray-900">4.5</span>
+        <svg className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+          <path d="M10 15l-5.878 3.09L5.82 12.09 1 7.91l6.061-.909L10 1l2.939 6.001L19 7.91l-4.82 4.18L15.878 18z" />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+
+
+     {/* CTA Section */}
+<div className="ml-60 max-w-3xl bg-green-600 mt-10 px-6 py-12 text-center rounded-xl">
+  <h2 className="text-2xl font-bold mb-4 text-white">Your Story Could Inspire Thousands</h2>
+  <p className="text-white mb-6">
+    Have you started your agroecology journey? Share your experience and become part
+    of a growing movement across Africa.
+  </p>
+  <button className="bg-white text-green-600 font-semibold px-8 py-3 rounded-full hover:bg-gray-100 transition">
+    Share your Story
+  </button>
+</div>
+
       {/* ✅ Newsletter Section */}
-<section className="bg-[#2C2A29] py-16 px-4 md:px-8 lg:px-12 -mt-16">
+<section className="bg-[#2C2A29] py-16 px-4 md:px-8 lg:px-12 mt-13">
   <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
     
     {/* Left side - Newsletter info */}

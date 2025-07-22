@@ -29,12 +29,12 @@ export default function Mission() {
       <div className="fixed inset-0 bg-black/40  " />
 
       {/* ✅ Fixed Navbar */}
-      <header className="fixed top-0 w-full z-50 bg-black/30 backdrop-blur-md">
+      <header className="fixed top-0 w-full z-50 bg-white backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
           <div className="flex-shrink-0">
             <img
-              src="https://api.builder.io/api/v1/image/assets/TEMP/5376572c943bbbbf555a8e8d2b23c9146eee9067?width=335"
+              src="/images/greenlogo.png"
               alt="Biovision Africa Trust"
               className="h-12 md:h-14 object-contain"
             />
@@ -49,7 +49,7 @@ export default function Mission() {
                   className={`text-sm font-semibold px-2 transition ${
                     pathname === item.href
                       ? "text-green-500"
-                      : "text-white hover:text-green-400"
+                      : "text-black hover:text-green-400"
                   }`}
                 >
                   {item.name}
@@ -63,13 +63,13 @@ export default function Mission() {
 
           {/* Search + Sign Up */}
           <div className="flex items-center gap-4">
-            <div className="hidden md:flex items-center border border-white rounded-full overflow-hidden">
+            <div className="hidden md:flex items-center border border-gray-300 rounded-full overflow-hidden">
               <input
                 type="text"
                 placeholder="Search"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="bg-transparent text-white placeholder-white/50 text-sm px-4 py-2 w-32 focus:outline-none"
+                className="bg-transparent text-black placeholder-white/50 text-sm px-4 py-2 w-32 focus:outline-none"
               />
               <button className="bg-green-700 hover:bg-green-800 text-white text-sm px-4 py-2 transition">
                 Search
@@ -121,7 +121,7 @@ export default function Mission() {
     </section>
     
 
-    <section className="bg-green-50 py-12 px-4 sm:py-16 md:py-20 lg:py-24">
+    <section className="mt-[-1] bg-green-50 py-12 px-4 sm:py-16 md:py-20 lg:py-24">
       <div className="ml-13 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[500px]">
           {/* Left Column - Four pillars */}

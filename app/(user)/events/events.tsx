@@ -3,56 +3,63 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
-import { BookOpen, DollarSign, GraduationCap, Heart, Leaf, Smile, Sprout, Users } from "lucide-react";
-
 
 export default function Events() {
-     const pathname = usePathname();
-      const [searchQuery, setSearchQuery] = useState("");
-       const navigationItems = [
-        { name: "Home", href: "/" },
-        { name: "Our Mission", href: "/mission" },
-        { name: "Shop", href: "/shop" },
-        { name: "Resources", href: "/resources" },
-        { name: "Outlets", href: "/outlets" },
-        { name: "Surveys", href: "/surveys" },
-        { name: "Events", href: "/events" },
-        { name: "Contact Us", href: "/contact" },
-      ];
+  const pathname = usePathname();
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const navigationItems = [
+    { name: "Home", href: "/" },
+    { name: "Our Mission", href: "/mission" },
+    { name: "Shop", href: "/shop" },
+    { name: "Resources", href: "/resources" },
+    { name: "Outlets", href: "/outlets" },
+    { name: "Surveys", href: "/surveys" },
+    { name: "Events", href: "/events" },
+    { name: "Contact Us", href: "/contact" },
+  ];
+
   const eventData = [
     {
       title: "Getting Started with Organic Farming",
       date: "18",
       month: "July",
-      description: "Discover the basics of AE/EOA, with expert-led sessions and hands-on practicals.",
+      description:
+        "Discover the basics of AE/EOA, ask live questions, and connect with certified producers.",
       category: "Trainings & Workshops",
+      image: "farm.png",
+      datetime: "July 18, 2025 | 10:00 AM EAT | Online via Zoom",
+      cta: "Register Now",
     },
     {
       title: "Organic Soil Health & Composting Workshop",
       date: "18",
       month: "July",
-      description: "Learn how to build healthy, thriving soils by composting, mulching, and reducing inputs.",
+      description:
+        "Learn how to build healthy, living soil through composting, mulching, and crop rotation.",
       category: "Trainings & Workshops",
+      image: "soil-workshop.png",
+      datetime: "July 18, 2025 | 10:00 AM EAT | Organic Farmers Market, Kenya",
+      cta: "Register Now",
     },
     {
       title: "AE/EOA in Practice: Online Webinar for Consumers & Advocates",
       date: "01",
       month: "Aug",
-      description: "How can consumers make a bigger impact? This free webinar includes live Q&A.",
+      description:
+        "How can consumers make impact-driven choices? Join us for a dynamic online session featuring stories from producers, a live Q&A, and tools for conscious consumption.",
       category: "Trainings & Workshops",
+      image: "consumer-webinar.png",
+      datetime: "August 1, 2025 | 4:00 PM EAT | Online via Zoom",
+      cta: "Register Now",
     },
   ];
 
-  // Repeat same data for all sections for this mockup
-  const repeatedEvents = [...eventData, ...eventData, ...eventData];
-
   return (
-
-        <div className="relative min-h-screen w-full overflow-x-hidden">
-            {/* ✅ Fixed Navbar */}
+    <div className="relative min-h-screen w-full overflow-x-hidden bg-white">
+      {/* Navbar */}
       <header className="fixed top-0 w-full z-50 bg-black/30 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-20 md:h-24">
-          {/* Logo */}
           <div className="flex-shrink-0">
             <img
               src="https://api.builder.io/api/v1/image/assets/TEMP/5376572c943bbbbf555a8e8d2b23c9146eee9067?width=335"
@@ -60,8 +67,6 @@ export default function Events() {
               className="h-12 md:h-14 object-contain"
             />
           </div>
-
-          {/* Navigation */}
           <nav className="hidden lg:flex items-center space-x-2">
             {navigationItems.map((item, index) => (
               <div key={item.name} className="flex items-center">
@@ -81,8 +86,6 @@ export default function Events() {
               </div>
             ))}
           </nav>
-
-          {/* Search + Sign Up */}
           <div className="flex items-center gap-4">
             <div className="hidden md:flex items-center border border-white rounded-full overflow-hidden">
               <input
@@ -102,104 +105,142 @@ export default function Events() {
           </div>
         </div>
       </header>
-      {/* Header */}
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold">Upcoming Events & Trainings</h1>
+
+      {/* Page Title */}
+      <div className="text-center pt-28 pb-12">
+        <h1 className="text-4xl font-bold leading-tight text-gray-800">
+          Upcoming Events & <br /> Trainings
+        </h1>
       </div>
 
-      {/* Section */}
-      {["Trainings & Workshops", "Online Webinars", "Farm Tours"].map((sectionTitle, idx) => (
-        <div key={idx} className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6">{sectionTitle}</h2>
+      {/* Events Sections */}
+      <main className="px-4 md:px-6 max-w-7xl mx-auto space-y-20">
+        {["Trainings & Workshops", "Online Webinars", "Farm Tours"].map(
+          (sectionTitle, idx) => (
+            <section key={idx}>
+              <h2 className="text-2xl font-semibold text-gray-800 mb-6 ml-50">
+                {sectionTitle}
+              </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {eventData.map((event, i) => (
-              <div
-                key={i}
-                className="relative rounded-xl overflow-hidden shadow-lg group"
-              >
-                {/* Background Image Placeholder */}
-                <div
-                  className="h-56 bg-cover bg-center"
-                  style={{
-                    backgroundImage:
-                      "url('https://images.unsplash.com/photo-1575658804234-462a3ec3f73b?auto=format&fit=crop&w=800&q=60')",
-                  }}
-                >
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition" />
-                  {/* Date */}
-                  <div className="absolute top-4 left-4 bg-white text-center px-2 py-1 rounded shadow">
-                    <p className="text-lg font-bold text-green-600">{event.date}</p>
-                    <p className="text-xs font-semibold text-gray-600 uppercase">{event.month}</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1 justify-center ml-50">
+                {eventData.map((event, i) => (
+                  <div
+                    key={i}
+                    className="relative group overflow-hidden rounded-xl"
+                    style={{  width: "235px", height: "320px" }}
+                  >
+                    {/* Background Image */}
+                    <div
+                      className="absolute inset-0 bg-cover bg-center transition-transform duration-300 scale-100 group-hover:scale-105"
+                      style={{
+                        backgroundImage: `url("/images/${event.image}")`,
+                      }}
+                    />
+
+                    {/* Dark Gradient Overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#1C4C36] via-[#1C4C36cc] to-transparent" />
+
+
+                    {/* Date Badge */}
+                    <div className="absolute top-3 right-3 bg-white rounded-md text-green-600 text-xs font-semibold px-2 py-1 shadow">
+                      <div>{event.date}</div>
+                      <div className="text-[10px] uppercase">{event.month}</div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="absolute bottom-0 p-4 text-white">
+                      <p className="text-sm mb-1">Free Webinar</p>
+                      <h3 className="text-lg font-bold leading-snug mb-1">
+                        {event.title}
+                      </h3>
+                      <p className="text-xs leading-snug mb-2">
+                        {event.description}
+                      </p>
+                      <p className="text-[10px] mb-3">{event.datetime}</p>
+                      <button className="bg-white text-green-600 text-xs font-semibold px-3 py-1 rounded-full shadow">
+                        {event.cta}
+                      </button>
+                    </div>
                   </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-4 bg-white">
-                  <h3 className="text-md font-bold mb-2">{event.title}</h3>
-                  <p className="text-sm text-gray-600 mb-4">{event.description}</p>
-                  <button className="bg-green-600 text-white text-sm px-4 py-2 rounded hover:bg-green-700 transition">
-                    Register Now
-                  </button>
-                </div>
+                ))}
               </div>
-            ))}
+            </section>
+          )
+        )}
+      </main>
+
+      {/* CTA */}
+<div
+  className="max-w-3xl mx-auto mt-20 px-6 py-10 rounded-[20px] text-center bg-green-600 text-white mr-50"
+  style={{
+    backgroundImage: 'url("/images/veggie-pattern.png")',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+  }}
+>
+  <h3 className="text-2xl md:text-3xl font-bold mb-3">
+    Don’t Miss Our Upcoming Trainings
+  </h3>
+  <p className="text-sm md:text-base mb-6 max-w-2xl mx-auto">
+    Join free webinars and in-person workshops to learn agroecology techniques from
+    experts and farmers like you.
+  </p>
+  <button className="bg-white text-green-700 font-semibold px-6 py-2 rounded-full text-sm hover:bg-gray-100 transition">
+    View Events
+  </button>
+</div>
+
+
+      {/* Newsletter */}
+      <section className="bg-[#2C2A29] py-16 px-4 md:px-8 lg:px-12 mt-16">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="flex items-center gap-4 text-white">
+            <svg
+              className="w-12 h-12 text-green-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                                d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
+            </svg>
+            <div>
+              <h2 className="text-xl font-semibold mb-1">Subscribe to Our Newsletter</h2>
+              <p className="text-sm max-w-sm">
+                Get updates on upcoming events and trainings delivered to your inbox.
+              </p>
+            </div>
           </div>
+
+          {/* Newsletter Form */}
+          <form
+            className="flex gap-2"
+            onSubmit={(e) => {
+              e.preventDefault();
+              alert("Thank you for subscribing!");
+            }}
+          >
+            <input
+              type="email"
+              placeholder="Enter your email"
+              required
+              className="px-4 py-2 rounded-l-md border-none focus:outline-none text-black"
+            />
+            <button
+              type="submit"
+              className="bg-green-600 text-white px-6 rounded-r-md hover:bg-green-700 transition"
+            >
+              Subscribe
+            </button>
+          </form>
         </div>
-      ))}
-
-      {/* CTA Section */}
-      <div className="bg-green-100 text-center py-10 rounded-lg mt-10">
-        <h3 className="text-xl font-bold text-green-800 mb-3">
-          Don’t Miss Our Upcoming Trainings
-        </h3>
-        <p className="text-gray-700 mb-6">
-          Join free webinars and in-person workshops to learn agroecology techniques from
-          experts and farmers like you.
-        </p>
-        <button className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition">
-          View Events
-        </button>
-      </div>
-      {/* ✅ Newsletter Section */}
-<section className="bg-[#2C2A29] py-16 px-4 md:px-8 lg:px-12 -mt-16">
-  <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-    
-    {/* Left side - Newsletter info */}
-    <div className="flex items-center gap-4 text-white">
-      <div className="flex-shrink-0">
-        {/* Email icon */}
-        <svg className="w-12 h-12 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      </div>
-      <div>
-        <h3 className="text-xl md:text-2xl font-bold mb-2">
-          Join the Movement
-        </h3>
-        <p className="text-gray-300 text-sm md:text-base">
-          Get updates on AE/EOA events, stories, outlets, and resources that empower African farmers.
-        </p>
-      </div>
-    </div>
-
-    {/* Right side - Email signup form */}
-    <div className="flex w-full md:w-auto min-w-80">
-      <input
-        type="email"
-        placeholder="Your email address"
-        className="flex-1 px-4 py-3 text-gray-900 bg-white rounded-l-full focus:outline-none focus:ring-2 focus:ring-green-500 text-sm"
-      />
-      <button className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-r-full font-medium text-sm transition-colors duration-300">
-        Subscribe
-      </button>
-    </div>
-  </div>
-</section>
-{/* ✅ Footer Section */}
-{/* ✅ Footer Section */}
-        {/* Main Footer Section */}
+      </section>
+       {/* Main Footer Section */}
     <footer className="bg-[#24231D] py-16 px-4 md:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-12">
@@ -327,7 +368,6 @@ export default function Events() {
             </div>
         </div>
     </footer>
-            </div>
-
+    </div>
   );
 }
