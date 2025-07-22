@@ -109,7 +109,7 @@ export default function Shop() {
     </div>
 
     {/* RIGHT SIDE: Image */}
-    <div className="flex justify-center items-center h-full">
+    <div className="flex justify-end items-center h-full w-full">
       <img
         src="/images/vegetables.png"
         alt="Organic Vegetables Basket"
@@ -120,7 +120,7 @@ export default function Shop() {
 
   {/* BOTTOM ICONS */}
   <div className="absolute bottom-[-60px] left-1/2 transform -translate-x-1/2 w-full px-4 z-10">
-    <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 bg-white rounded-xl shadow-xl py-6 px-6">
+    <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 bg-white rounded-xl shadow-xl py-6 px-6">
       
       <div className="flex items-start gap-3">
         <Truck className="w-6 h-6 mt-1 text-green-700" />
@@ -206,95 +206,100 @@ export default function Shop() {
   </div>
 
   {/* Secondary Categories */}
-  <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-    {/* Hot Deals */}
-    <div>
-      <h4 className="font-semibold text-lg mb-4">Hot Deals</h4>
-      {[
-        "Green Apple",
-        "Oranges",
-        "Lettuce",
-      ].map((item, idx) => (
-        <div
-          key={idx}
-          className="flex items-center justify-between border border-green-500 rounded-xl p-2 mb-3"
-        >
-          <img src={`/products/${item.toLowerCase().replace(/ /g, '-')}.png`} className="w-12 h-12" />
-          <div className="flex-1 ml-2">
-            <p className="text-xs text-gray-500">Vegetables</p>
-            <p className="font-semibold text-sm">{item}</p>
-            <p className="text-xs text-gray-500">By Mr.food</p>
-          </div>
-          <div className="text-right">
-            <span className="text-green-700 font-semibold text-sm">$2</span><br />
-            <span className="text-gray-400 line-through text-xs">$3.99</span>
-          </div>
-        </div>
-      ))}
-    </div>
+<div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+  {/* Hot Deals */}
+  <div>
+    <h4 className="font-semibold text-lg mb-4">Hot Deals</h4>
+    {[
+      { name: "Green Apple", image: "/images/greenapples.png" },
+      { name: "Oranges", image: "/images/orange.png" },
+      { name: "Lettuce", image: "/images/lettuce.png" },
 
-    {/* Best Seller */}
-    <div>
-      <h4 className="font-semibold text-lg mb-4">Best Seller</h4>
-      {[
-        "Eggplant",
-        "Okra",
-        "Tomatoes",
-      ].map((item, idx) => (
-        <div
-          key={idx}
-          className="flex items-center justify-between border border-green-500 rounded-xl p-2 mb-3"
-        >
-          <img src={`/products/${item.toLowerCase()}.png`} className="w-12 h-12" />
-          <div className="flex-1 ml-2">
-            <p className="text-xs text-gray-500">Vegetables</p>
-            <p className="font-semibold text-sm">{item}</p>
-            <p className="text-xs text-gray-500">By Mr.food</p>
-          </div>
-          <div className="text-right">
-            <span className="text-green-700 font-semibold text-sm">$2</span><br />
-            <span className="text-gray-400 line-through text-xs">$3.99</span>
-          </div>
+    ].map((item, idx) => (
+      <div
+        key={idx}
+        className="flex items-center justify-between border border-green-500 rounded-xl p-2 mb-3"
+      >
+        <img src={item.image} alt={item.name} className="w-12 h-12" />
+        <div className="flex-1 ml-2 bg-[#FDFBF6]">
+          <p className="text-xs text-gray-500">Vegetables</p>
+          <p className="font-semibold text-sm">{item.name}</p>
+          <p className="text-xs text-gray-500">By Mr.food</p>
         </div>
-      ))}
-    </div>
-
-    {/* Top Rated */}
-    <div>
-      <h4 className="font-semibold text-lg mb-4">Top Rated</h4>
-      {[
-        "Potatoes",
-        "Corn",
-        "Cauliflower",
-      ].map((item, idx) => (
-        <div
-          key={idx}
-          className="flex items-center justify-between border border-green-500 rounded-xl p-2 mb-3"
-        >
-          <img src={`/products/${item.toLowerCase()}.png`} className="w-12 h-12" />
-          <div className="flex-1 ml-2">
-            <p className="text-xs text-gray-500">Vegetables</p>
-            <p className="font-semibold text-sm">{item}</p>
-            <p className="text-xs text-gray-500">By Mr.food</p>
-          </div>
-          <div className="text-right">
-            <span className="text-green-700 font-semibold text-sm">$2</span><br />
-            <span className="text-gray-400 line-through text-xs">$3.99</span>
-          </div>
+        <div className="text-right bg-[#FDFBF6]">
+          <span className="text-green-700 font-semibold text-sm">$2</span><br />
+          <span className="text-gray-400 line-through text-xs">$3.99</span>
         </div>
-      ))}
-    </div>
-
-    {/* Promo Card */}
-    <div className="bg-[#F4F8F4] rounded-xl text-center p-6 flex flex-col items-center justify-center">
-      <p className="text-xs text-gray-500">SUMMER SALE</p>
-      <h3 className="text-2xl font-bold text-green-700 mb-2">75% off</h3>
-      <button className="bg-green-700 text-white px-6 py-2 rounded-full text-sm mb-4 hover:bg-green-800">
-        Shop Now →
-      </button>
-      <img src="/products/promo-bag.png" alt="Promo" className="h-32 object-contain" />
-    </div>
+      </div>
+    ))}
   </div>
+
+  {/* Best Seller */}
+  <div>
+    <h4 className="font-semibold text-lg mb-4">Best Seller</h4>
+    {[
+      { name: "Eggplant", image: "/images/eggplant.png" },
+      { name: "Okra", image: "/images/okra.png" },
+      { name: "Tomatoes", image: "/images/tomato.png" },
+    ].map((item, idx) => (
+      <div
+        key={idx}
+        className="flex items-center justify-between border  border-green-500 rounded-xl p-2 mb-3"
+      >
+        <img src={item.image} alt={item.name} className="w-12 h-12" />
+        <div className="flex-1 ml-2 bg-[#FDFBF6]">
+          <p className="text-xs text-gray-500">Vegetables</p>
+          <p className="font-semibold text-sm">{item.name}</p>
+          <p className="text-xs text-gray-500">By Mr.food</p>
+        </div>
+        <div className="text-right bg-[#FDFBF6]">
+          <span className="text-green-700 font-semibold text-sm">$2</span><br />
+          <span className="text-gray-400 line-through text-xs">$3.99</span>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  {/* Top Rated */}
+  <div>
+    <h4 className="font-semibold text-lg mb-4">Top Rated</h4>
+    {[
+      { name: "Potatoes", image: "/images/potato.png" },
+      { name: "Corn", image: "/images/corn.png" },
+      { name: "Cauliflower", image: "/images/cauliflower.png" },
+    ].map((item, idx) => (
+      <div
+        key={idx}
+        className="flex items-center justify-between border border-green-500 rounded-xl p-2 mb-3"
+      >
+        <img src={item.image} alt={item.name} className="w-12 h-12" />
+        <div className="flex-1 ml-2 bg-[#FDFBF6]">
+          <p className="text-xs text-gray-500">Vegetables</p>
+          <p className="font-semibold text-sm">{item.name}</p>
+          <p className="text-xs text-gray-500">By Mr.food</p>
+        </div>
+        <div className="text-right bg-[#FDFBF6]">
+          <span className="text-green-700 font-semibold text-sm">$2</span><br />
+          <span className="text-gray-400 line-through text-xs">$3.99</span>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div 
+    className="rounded-xl mt-9 text-center p-6 flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat min-h-[200px]"
+    style={{ 
+      backgroundImage: "url('/images/promo-bag.png')",
+      backgroundColor: '#F4F8F4'
+    }}
+  >
+    <p className="mt-[-149] text-xs text-gray-700 font-medium">SUMMER SALE</p>
+    <h3 className="text-2xl font-bold text-green-800 mb-2 drop-shadow-sm">75% off</h3>
+    <button className="bg-white text-green-800 px-6 py-2 rounded-full text-sm hover:bg-green-800 shadow-md">
+      Shop Now →
+    </button>
+  </div>
+</div>
 
   <div className="text-center mt-12">
     <button className="bg-green-700 hover:bg-green-800 text-white px-8 py-3 rounded-full font-semibold text-lg">
@@ -304,35 +309,91 @@ export default function Shop() {
 </section>
 {/* ✅ Promo Cards Section */}
 <section className="bg-white py-16 px-4 md:px-12">
-  <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-    {/* Promo Card 1 */}
-    <div className="bg-[#EAF5EA] p-6 rounded-xl text-center shadow-sm">
-      <h3 className="text-lg font-semibold text-gray-800 mb-2">100% Fresh Cow Milk</h3>
-      <p className="text-sm text-gray-600 mb-4">Starting at $14.99</p>
-      <img src="/products/milk.png" alt="Fresh Cow Milk" className="h-32 mx-auto object-contain mb-4" />
-      <button className="bg-green-700 text-white px-6 py-2 rounded-full text-sm hover:bg-green-800">
-        Shop Now →
-      </button>
+  <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
+    {/* Promo Card 1 - Fresh Cow Milk */}
+    <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-4 rounded-lg text-left shadow-md relative overflow-hidden"
+         style={{
+           backgroundImage: "url('/images/milk.png')",
+           backgroundSize: 'cover',
+           backgroundPosition: 'center',
+           backgroundRepeat: 'no-repeat'
+         }}>
+
+      <div className="relative z-10">
+        <h3 className="text-base font-semibold text-white mb-1 drop-shadow-lg">100% Fresh Cow Milk</h3>
+        <p className="text-xs text-blue-100 mb-3 drop-shadow-md">Starting at $14.99</p>
+        <div className="h-20 mb-3"></div> {/* Reduced spacer */}
+        <button className="bg-white text-blue-600 px-4 py-1.5 rounded-full text-xs hover:bg-blue-50 transition-colors shadow-lg">
+          Shop Now →
+        </button>
+      </div>
+      <div className="absolute right-2 top-2 w-16 h-16 bg-white rounded-full flex items-center justify-center z-10">
+        <div className="w-10 h-12 bg-white rounded-lg flex items-center justify-center overflow-hidden">
+          <div className="w-8 h-10 bg-gradient-to-b from-white to-gray-100 rounded-lg relative">
+            <div className="absolute top-1 left-1/2 transform -translate-x-1/2 w-5 h-5 bg-white rounded-full shadow-sm"></div>
+            <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-4 h-1 bg-blue-500 rounded-full"></div>
+          </div>
+        </div>
+      </div>
+      <div className="absolute top-0 right-0 w-20 h-20 opacity-10 z-5">
+        <div className="w-full h-full bg-white rounded-full transform translate-x-4 -translate-y-4"></div>
+      </div>
     </div>
 
-    {/* Promo Card 2 */}
-    <div className="bg-[#EAF5EA] p-6 rounded-xl text-center shadow-sm">
-      <h3 className="text-lg font-semibold text-gray-800 mb-2">Drink Sale</h3>
-      <p className="text-sm text-gray-600 mb-4">Water & Soft Drink</p>
-      <img src="/products/soda.png" alt="Soft Drink" className="h-32 mx-auto object-contain mb-4" />
-      <button className="bg-green-700 text-white px-6 py-2 rounded-full text-sm hover:bg-green-800">
-        Shop Now →
-      </button>
+    {/* Promo Card 2 - Water & Soft Drinks */}
+    <div className="bg-gradient-to-br from-cyan-400 to-blue-500 p-4 rounded-lg text-left shadow-md relative overflow-hidden"
+         style={{
+           backgroundImage: "url('/images/softdrink.png')",
+           backgroundSize: 'cover',
+           backgroundPosition: 'center',
+           backgroundRepeat: 'no-repeat'
+         }}>
+
+      <div className="relative z-10">
+        <h3 className="text-base font-semibold text-white mb-1 drop-shadow-lg">Drink Sale</h3>
+        <p className="text-xs text-cyan-100 mb-3 drop-shadow-md">Water & Soft Drink</p>
+        <div className="h-20 mb-3"></div> {/* Reduced spacer */}
+        <button className="bg-white text-cyan-600 px-4 py-1.5 rounded-full text-xs hover:bg-cyan-50 transition-colors shadow-lg">
+          Shop Now →
+        </button>
+      </div>
+      <div className="absolute right-3 bottom-2 w-12 h-16 z-10">
+        <div className="w-full h-full bg-gradient-to-b from-amber-900 to-amber-800 rounded-lg relative shadow-lg">
+          <div className="absolute top-0 left-0 right-0 h-2 bg-amber-700 rounded-t-lg"></div>
+          <div className="absolute inset-1 bg-gradient-to-b from-amber-600 to-amber-900 rounded opacity-80"></div>
+          <div className="absolute top-0.5 left-0.5 right-0.5 h-1 bg-gradient-to-r from-white to-transparent rounded opacity-30"></div>
+        </div>
+      </div>
+      <div className="absolute bottom-0 left-0 w-full h-4 bg-white opacity-10 transform -skew-x-12 z-5"></div>
     </div>
 
-    {/* Promo Card 3 */}
-    <div className="bg-[#EAF5EA] p-6 rounded-xl text-center shadow-sm">
-      <h3 className="text-lg font-semibold text-gray-800 mb-2">100% Organic</h3>
-      <p className="text-sm text-gray-600 mb-4">Quick Breakfast</p>
-      <img src="/products/breakfast.png" alt="Quick Breakfast" className="h-32 mx-auto object-contain mb-4" />
-      <button className="bg-green-700 text-white px-6 py-2 rounded-full text-sm hover:bg-green-800">
-        Shop Now →
-      </button>
+    {/* Promo Card 3 - Quick Breakfast */}
+    <div className="bg-gradient-to-br from-gray-100 to-gray-200 p-4 rounded-lg text-left shadow-md relative overflow-hidden border"
+         style={{
+           backgroundImage: "url('/images/breakfast.png')",
+           backgroundSize: 'cover',
+           backgroundPosition: 'center',
+           backgroundRepeat: 'no-repeat'
+         }}>
+
+      <div className="relative z-10">
+        <h3 className="text-lg font-semibold text-gray-800 mb-2 drop-shadow-sm">100% Organic</h3>
+        <p className="text-sm text-gray-600 mb-4 drop-shadow-sm">Quick Breakfast</p>
+        <div className="h-32 mb-4"></div> {/* Spacer to maintain layout */}
+        <button className="bg-green-700 text-white px-6 py-2 rounded-full text-sm hover:bg-green-800 transition-colors shadow-lg">
+          Shop Now →
+        </button>
+      </div>
+      <div className="absolute right-2 bottom-2 flex gap-1 z-10">
+        <div className="w-5 h-5 bg-yellow-400 rounded-full shadow-sm"></div>
+        <div className="w-5 h-5 bg-amber-600 rounded-full shadow-sm"></div>
+        <div className="w-5 h-5 bg-yellow-600 rounded-full shadow-sm"></div>
+      </div>
+      <div className="absolute right-2 top-10 flex gap-1 z-10">
+        <div className="w-4 h-4 bg-amber-800 rounded-full shadow-sm"></div>
+        <div className="w-4 h-4 bg-yellow-500 rounded-full shadow-sm"></div>
+      </div>
+      <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-yellow-200 to-transparent opacity-30 rounded-full transform translate-x-4 -translate-y-4 z-5"></div>
     </div>
   </div>
 
@@ -340,7 +401,7 @@ export default function Shop() {
   <div className="bg-[#EAF5EA] py-12 px-4 md:px-12 rounded-xl">
     <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
       <div className="flex justify-center">
-        <img src="/products/vegetable-pile.png" alt="Special Deal" className="w-64 sm:w-80 lg:w-96 object-contain" />
+        <img src="/images/vegetables.png" alt="Special Deal" className="w-64 sm:w-80 lg:w-96 object-contain" />
       </div>
       <div className="text-center lg:text-left flex-1">
         <p className="text-sm text-gray-500 uppercase font-medium">Best Deals</p>
@@ -362,7 +423,7 @@ export default function Shop() {
         </button>
       </div>
       <div className="hidden lg:flex justify-center">
-        <img src="/products/farmer-box.png" alt="Farmer Holding Basket" className="w-64 lg:w-80 object-contain" />
+        <img src="/images/farmer-box.png" alt="Farmer Holding Basket" className="w-64 lg:w-80 object-contain" />
       </div>
     </div>
   </div>
@@ -372,19 +433,19 @@ export default function Shop() {
     <h2 className="text-2xl md:text-3xl font-bold mb-8">Newest Products</h2>
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
       {[
-        { name: "Green Apples", img: "/products/green-apples.png" },
-        { name: "Chinese Cabbage", img: "/products/chinese-cabbage.png" },
-        { name: "Lettuce", img: "/products/lettuce.png" },
-        { name: "Green Peppers", img: "/products/green-peppers.png" },
-        { name: "Corn", img: "/products/corn.png" },
+        { name: "Green Apples", img: "/images/greenapples.png" },
+        { name: "Chinese Cabbage", img: "/images/chinesecabbage.png" },
+        { name: "Lettuce", img: "/images/lettuce.png" },
+        { name: "Green Peppers", img: "/images/green-peppers.png" },
+        { name: "Corn", img: "/images/corn.png" },
       ].map((product) => (
-        <div key={product.name} className="bg-white rounded-xl shadow-sm border p-4 text-center">
+        <div key={product.name} className=" rounded-xl shadow-sm border p-4 text-left">
           <img src={product.img} alt={product.name} className="h-32 mx-auto mb-4 object-contain" />
           <p className="text-xs text-gray-500">Vegetables</p>
           <h3 className="text-lg font-semibold">{product.name}</h3>
-          <p className="text-sm text-gray-600">By Mr.food</p>
+          <p className="text-sm text-gray-600">By Mr.food ★★★★☆(4)</p>
           <div className="flex justify-center items-center gap-1 text-yellow-400 mt-1">
-            ★★★★☆ <span className="text-gray-500 text-xs">(4)</span>
+             <span className="text-gray-500 text-xs"></span>
           </div>
           <div className="flex items-center justify-between mt-3">
             <span className="text-green-700 font-bold text-lg">$2</span>
