@@ -2,14 +2,16 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
-import { BookOpen, DollarSign, GraduationCap, Heart, Leaf, Smile, Sprout, Users } from "lucide-react";
-import News from "./news";
+import { BookOpen, DollarSign, GraduationCap, Heart, Leaf, MessageCircle, Smile, Sprout, ThumbsUp, Users } from "lucide-react";
 
-export default function Resources() {
+export default function StoryPage() {
+    // const [activeTab, setActiveTab] = useState<"stories" | "news" | "learning">("stories");
     const [activeTab, setActiveTab] = useState<"stories" | "news" | "learning">("stories");
+    const [newComment, setNewComment] = useState("");
+
 
     const pathname = usePathname();
-      const [searchQuery, setSearchQuery] = useState("");
+    const [searchQuery, setSearchQuery] = useState("");
        const navigationItems = [
         { name: "Home", href: "/" },
         { name: "Our Mission", href: "/mission" },
@@ -21,6 +23,59 @@ export default function Resources() {
         { name: "Contact Us", href: "/contact" },
         
       ];
+       const comments = [
+        {
+            id: 1,
+            author: "Ralph Edwards",
+            date: "Aug 18, 2021",
+            text: "In magna porttitor Aucibus mauris massa sit lorem sed scelerisque. Pharetra pharetra vel massa lorem auctor nulla nec ulla potitor faucibus porta ut quam aliquet fermentum nibh"
+        },
+        {
+            id: 2,
+            author: "Ralph Edwards", 
+            date: "Aug 18, 2021",
+            text: "In magna porttitor Aucibus mauris massa sit lorem sed scelerisque. Pharetra pharetra vel massa lorem auctor nulla nec ulla potitor faucibus porta ut quam aliquet fermentum nibh"
+        },
+        {
+            id: 3,
+            author: "Ralph Edwards",
+            date: "Aug 18, 2021", 
+            text: "In magna porttitor Aucibus mauris massa sit lorem sed scelerisque. Pharetra pharetra vel massa lorem auctor nulla nec ulla potitor faucibus porta ut quam aliquet fermentum nibh"
+        },
+        {
+            id: 4,
+            author: "Ralph Edwards",
+            date: "Aug 18, 2021",
+            text: "In magna porttitor Aucibus mauris massa sit lorem sed scelerisque. Pharetra pharetra vel massa lorem auctor nulla nec ulla potitor faucibus porta ut quam aliquet fermentum nibh"
+        }
+    ];
+
+    const popularPosts = [
+        {
+            category: "CONSUMER GUIDE",
+            date: "3 May 2024",
+            title: "How to Start Your Organic Kitchen Garden (Even in a Small Space)",
+            image: "/images/garden-1.png"
+        },
+        {
+            category: "NEWS",
+            date: "3 May 2024", 
+            title: "Biovision's July Training Recap: 200 Farmers Empowered in Meru",
+            image: "/images/farmers-2.png"
+        },
+        {
+            category: "AGROECOLOGY",
+            date: "3 May 2024",
+            title: "Why Supporting Agroecological Markets Matters", 
+            image: "/images/market.jpg"
+        },
+        {
+            category: "NEWS",
+            date: "3 May 2024",
+            title: "Biovision's July Training Recap: 200 Farmers Empowered in Meru",
+            image: "/images/farmers-3.jpg"
+        }
+    ];
     return (
     
         <div className="relative min-h-screen w-full overflow-x-hidden">
@@ -85,380 +140,197 @@ export default function Resources() {
           </div>
         </div>
       </header>
-      <div className="min-h-screen bg-gray-50">
-      {/* Navigation */}
-{/* Navigation */}
+      {/* Main Content */}
+            <main className="pt-24 pb-20">
+                <div className="max-w-4xl mx-auto px-4 md:px-6">
+                    {/* Breadcrumb */}
+                    <div className="flex items-center gap-2 text-sm text-gray-600 mb-6">
+                        <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium">SUCCESS STORY</span>
+                        <span>•</span>
+                        <span>18 March 2021</span>
+                    </div>
 
-{/* Navigation */}
-{/* Updated Navigation with clickable links */}
-<nav className="mt-29 bg-white px-4 py-4">
-  <div className="max-w-6xl mx-auto flex justify-center">
-    <div className="flex items-center space-x-8">
-      <Link 
-        href="/news" 
-        className={`text-lg font-semibold transition-colors duration-200 ${
-          pathname === '/news' 
-            ? 'text-green-600' 
-            : 'text-gray-900 hover:text-green-600'
-        }`}
-      >
-        News
-      </Link>
-      <Link 
-        href="/resources" 
-        className={`px-3 py-1 rounded text-sm font-medium transition-colors duration-200 ${
-          pathname === '/resources' 
-            ? 'bg-green-600 text-white' 
-            : 'text-gray-600 hover:bg-green-100 hover:text-green-600'
-        }`}
-      >
-        Stories
-      </Link>
-      <Link 
-        href="/learning" 
-        className={`text-lg font-semibold transition-colors duration-200 ${
-          pathname === '/learning' 
-            ? 'text-green-600' 
-            : 'text-gray-600 hover:text-green-600'
-        }`}
-      >
-        Learning
-      </Link>
-    </div>
-  </div>
-</nav>
-
-
-      {/* Hero Section */}
-<section className="py-16 px-4">
-  <div className="max-w-6xl mx-auto text-center">
-    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-      Real Stories from Our<br />Community
-    </h1>
-    <p className="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
-      Hear from farmers, students, and advocates transforming lives through agroecology.<br />
-      These stories reflect passion, progress, and the power of sustainable farming.
-    </p>
-    
-    {/* Featured Story with Background Image */}
-<div className="relative mx-auto max-w-6xl">
-  {/* Background Image Container */}
-  <div className="ml-15 relative h-[320px] md:h-[380px] w-[85%] md:w-[90%] rounded-2xl overflow-hidden">
+                    {/* Article Header */}
+                    <header className="mb-8">
+                        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                            From Farm to Market: How Mary's Organic Journey Doubled Her Income
+                        </h1>
+                        
+                       {/* Background Image Container */}
+  <div className="ml-1 relative h-[320px] md:h-[380px] w-[85%] md:w-[90%] rounded-2xl overflow-hidden">
     <img 
       src="/images/woman.png" 
       alt="Mary working on her organic farm" 
       className="w-full h-full object-cover" 
     />
   </div>
-  
-  {/* Success Story Card - Positioned to overlap and extend beyond the right side */}
-<div className="absolute top-[-1/2] -right-4 md:-right-8 transform -translate-y-1/2 w-[500px] md:w-[600px] lg:w-[750px] z-10 mr-10">
-  <div className="bg-[#FAF9F7] rounded-xl shadow-lg p-5 md:p-6 text-left"> {/* <- Changed bg color & text-left */}
-    
-    {/* Top row: SUCCESS STORY and Date */}
-    <div className="flex items-center justify-between mb-3">
-      <span className="text-xs text-green-600 font-semibold tracking-wide uppercase">SUCCESS STORY</span>
-      <span className="text-xs text-gray-400">4 July 2025</span>
-    </div>
 
-    {/* Heading */}
-    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 leading-snug">
-      From Farm to Market: How Mary's Organic Journey Doubled Her Income
-    </h3>
+                        <p className="text-lg text-gray-600 leading-relaxed">
+                            Mary Njonge, a smallholder farmer from Nyambene County never imagined that growing vegetables without chemicals could change her family's future. But in just two years, her switch to agroecological farming has doubled her income, improved her soil quality, and opened doors she'd never envisaged.
+                        </p>
+                    </header>
 
-    {/* Description */}
-    <p className="text-gray-600 text-sm leading-relaxed mb-4">
-      Mary Njoroge, a smallholder farmer from Nyandarua County, never imagined that growing vegetables without 
-      chemicals could change her family's future. But in just two years, her switch to agroecological farming has doubled 
-      her income, improved her soil quality, and opened new doors she didn't know existed.
-    </p>
+                    {/* Article Content */}
+                    <article className="prose prose-lg max-w-none">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-4">From Struggle to Opportunity</h2>
+                        <p className="text-gray-700 mb-6">
+                            Before learning about AE/EOA practices, Mary struggled to make a profit from her cabbages and spinach. Pests were frequent, costs of chemical inputs were rising, and markets were uncertain.
+                        </p>
 
-    {/* Read More Button */}
-    <button className="bg-green-600 hover:bg-green-700 text-white text-sm px-5 py-2.5 rounded-lg font-medium transition duration-200">
-      Read More
-    </button>
-  </div>
-</div>
+                        <blockquote className="border-l-4 border-green-500 pl-6 my-8 italic text-lg text-gray-700">
+                            "I was working hard, but the returns didn't match. Every season felt like a gamble," she says.
+                            <footer className="text-sm text-gray-500 mt-2">— Mary Njonge</footer>
+                        </blockquote>
 
-</div>
-    
-    {/* Add margin to account for overlapping card */}
-    <div className="mt-24 md:mt-32"></div>
-  </div>
-</section>
-    </div>
-{/* Recent Posts Section */}
-<section className="py-16 px-4 bg-white">
-  <div className="max-w-6xl mx-auto">
-    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">Our Recent Posts</h2>
-    
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {/* Post 1 */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-        <img 
-          src="/images/woman.png" 
-          alt="Mary's success story"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <div className="text-xs text-green-600 font-semibold mb-2">SUCCESS STORY</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-3">
-            How Mary's Organic Journey Doubled Her Income
-          </h3>
-          <p className="text-gray-600 text-sm mb-4">
-            Mary Nzirorigo, a farmer from Nyarutarama, shares her transition to AECOA practices and how it transformed her income and lifestyle for her vegetables.
-          </p>
-          <button className="text-green-600 hover:text-green-700 font-semibold text-sm">
-            Read More...
-          </button>
-        </div>
-      </div>
+                        <p className="text-gray-700 mb-6">
+                            Her turning point came during a Biovision Africa Trust training session on soil health and composting.
+                        </p>
 
-      {/* Post 2 */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-        <img 
-          src="/images/africa-landscape.png" 
-          alt="African landscape"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <div className="text-xs text-green-600 font-semibold mb-2">AGROECOLOGY</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-3">
-            5 Reasons Agroecology is Africa's Future
-          </h3>
-          <p className="text-gray-600 text-sm mb-4">
-            A compelling breakdown of how agroecological practices can benefit both World vision, improve health, and support modern resilience.
-          </p>
-          <button className="text-green-600 hover:text-green-700 font-semibold text-sm">
-            Read More...
-          </button>
-        </div>
-      </div>
+                        <h2 className="text-2xl font-bold text-gray-900 mb-4">Learning to Grow Differently</h2>
+                        <p className="text-gray-700 mb-6">
+                            Mary started small: composting kitchen waste, using natural pest repellents like neem, and practicing crop rotation. The results were immediate — healthier vegetables, fewer losses in the field, and reduced costs.
+                        </p>
 
-      {/* Post 3 */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-        <img 
-          src="/images/foodplate.png" 
-          alt="Healthy food plate"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <div className="text-xs text-green-600 font-semibold mb-2">LIFESTYLE</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-3">
-            What's Really on Your Plate?
-          </h3>
-          <p className="text-gray-600 text-sm mb-4">
-            An eye-opening examination of food systems across communities, highlighting green alternatives — including fermented foods and environmental nutrients.
-          </p>
-          <button className="text-green-600 hover:text-green-700 font-semibold text-sm">
-            Read More...
-          </button>
-        </div>
-      </div>
+                        <p className="text-gray-700 mb-6">
+                            She joined a local agroecological group, got certified by her county's organic committee, and began supplying produce to a new EOA-certified outlet in Mbokomu.
+                        </p>
 
-      {/* Post 4 */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-        <img 
-          src="/images/africa-landscape.png" 
-          alt="African landscape"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <div className="text-xs text-green-600 font-semibold mb-2">AGROECOLOGY</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-3">
-            5 Reasons Agroecology is Africa's Future
-          </h3>
-          <p className="text-gray-600 text-sm mb-4">
-            A compelling breakdown of how agroecological practices can benefit both World vision, improve health, and support modern resilience.
-          </p>
-          <button className="text-green-600 hover:text-green-700 font-semibold text-sm">
-            Read More...
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+                        <h2 className="text-2xl font-bold text-gray-900 mb-4">Doubling Her Income — And Confidence</h2>
+                        <p className="text-gray-700 mb-6">
+                            By embracing locally smart and accessible farmer market, Mary's monthly income grew from KES 8,000 to over KES 16,000.
+                        </p>
 
-{/* Popular Posts Section */}
-<section className="py-16 px-4 bg-gray-50">
-  <div className="max-w-6xl mx-auto">
-    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">Popular Posts</h2>
-    
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-      {/* Popular Post 1 */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-        <img 
-          src="/images/sunset.png" 
-          alt="Sunset over water"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <div className="text-xs text-green-600 font-semibold mb-2">VISIT</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-3">
-            Inside Kenya's First AE-Certified Market in Kisumu
-          </h3>
-          <p className="text-gray-600 text-sm mb-4">
-            The Kisumu Agroecology Market has been certified and AFECA payment required for all buyers. Learn more about selling sustainably and how it's being received.
-          </p>
-          <button className="text-green-600 hover:text-green-700 font-semibold text-sm">
-            Read More...
-          </button>
-        </div>
-      </div>
+                        <p className="text-gray-700 mb-6">
+                            She's also become a mentor in her area, helping 15 neighboring women start their organic kitchen gardens.
+                        </p>
 
-      {/* Popular Post 2 */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-        <img 
-          src="/images/rooftop-farming.png" 
-          alt="Rooftop farming"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <div className="text-xs text-green-600 font-semibold mb-2">VISIT</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-3">
-            Meet the Youth Behind the Nairobi Rooftop Farming Movement
-          </h3>
-          <p className="text-gray-600 text-sm mb-4">
-            A look at how young agroecologists are turning Nairobi into thriving organic gardens, supporting both food security, innovation, and community action.
-          </p>
-          <button className="text-green-600 hover:text-green-700 font-semibold text-sm">
-            Read More...
-          </button>
-        </div>
-      </div>
+                        <blockquote className="border-l-4 border-green-500 pl-6 my-8 italic text-lg text-gray-700">
+                            "Now, I can pay school fees on time, save a little, and teach others what I've learned."
+                            <footer className="text-sm text-gray-500 mt-2">— Mary Njonge</footer>
+                        </blockquote>
 
-      {/* Popular Post 3 */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-        <img 
-          src="/images/plant-seedling.png" 
-          alt="Plant seedling"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <div className="text-xs text-green-600 font-semibold mb-2">CAPACITY BUILDING</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-3">
-            What Agroecology Taught Me About Climate Resilience
-          </h3>
-          <p className="text-gray-600 text-sm mb-4">
-            A journey through understanding water, harvesting, and environmental practices that help us survive the best rain seasons.
-          </p>
-          <button className="text-green-600 hover:text-green-700 font-semibold text-sm">
-            Read More...
-          </button>
-        </div>
-      </div>
+                        <p className="text-gray-700 mb-6">
+                            She's also become a mentor in her area, helping 15 neighboring women start their organic kitchen gardens.
+                        </p>
 
-      {/* Popular Post 4 */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-        <img 
-          src="/images/rooftop-farming.png" 
-          alt="Rooftop farming"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <div className="text-xs text-green-600 font-semibold mb-2">VISIT</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-3">
-            Meet the Youth Behind the Nairobi Rooftop Farming Movement
-          </h3>
-          <p className="text-gray-600 text-sm mb-4">
-            A look at how 20-30 agroecologists are turning Nairobi into thriving organic gardens, supporting both food security, innovation, and community action.
-          </p>
-          <button className="text-green-600 hover:text-green-700 font-semibold text-sm">
-            Read More...
-          </button>
-        </div>
-      </div>
-    </div>
+                        {/* Second Image */}
+                        <div className="relative w-full h-64 md:h-80 rounded-lg overflow-hidden my-8">
+                            <img 
+                                src="/images/organic-vegetables.png" 
+                                alt="Fresh organic vegetables from Mary's farm"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
 
-    {/* Second Row of Popular Posts */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {/* Popular Post 5 */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-        <img 
-          src="/images/garden-space.png" 
-          alt="Garden space"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <div className="text-xs text-green-600 font-semibold mb-2">CONSUMER GUIDE</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-3">
-            How to Start Your Organic Garden (Even in a Small Space)
-          </h3>
-          <p className="text-gray-600 text-sm mb-4">
-            Agroecology is about communities and making the most of small resources. A beginner guide offering step-by-step tips to learn using AECOA principles.
-          </p>
-          <button className="text-green-600 hover:text-green-700 font-semibold text-sm">
-            Read More...
-          </button>
-        </div>
-      </div>
+                        <h2 className="text-2xl font-bold text-gray-900 mb-4">The Bigger Picture</h2>
+                        <p className="text-gray-700 mb-6">
+                            Mary's journey is just one example of how agroecology transforms lives — especially for women in rural areas. With access to training, better markets, and policy support, small farmers like her can lead the way in creating healthier, more resilient food systems.
+                        </p>
 
-      {/* Popular Post 6 */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-        <img 
-          src="/images/training-session.png" 
-          alt="Training session"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <div className="text-xs text-green-600 font-semibold mb-2">NEWS</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-3">
-            Biovision's July Training Recap: 250 Farmers Empowered in Meru
-          </h3>
-          <p className="text-gray-600 text-sm mb-4">
-            Event recap following the week-long workshops, including partnerships we built during July field training workshops organized by Biovision Africa Trust.
-          </p>
-          <button className="text-green-600 hover:text-green-700 font-semibold text-sm">
-            Read More...
-          </button>
-        </div>
-      </div>
+                        <p className="text-gray-700 mb-6">
+                            We're so excited by the potential of grassroots AE and the opportunities it will unlock — from helping people explore themselves creatively, to helping decisionalized trend new types of opportunities, to transforming how businesses and governments engage their customers and constituents. We invest for more to come in the years and months ahead.
+                        </p>
+                    </article>
 
-      {/* Popular Post 7 */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-        <img 
-          src="/images/market-produce.png" 
-          alt="Market produce"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <div className="text-xs text-green-600 font-semibold mb-2">AGROECOLOGY</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-3">
-            Why Supporting Agroecological Markets Matters
-          </h3>
-          <p className="text-gray-600 text-sm mb-4">
-            Farmers markets are building stronger local economies and supporting sustainable, empowering smallholder producers through AECOA.
-          </p>
-          <button className="text-green-600 hover:text-green-700 font-semibold text-sm">
-            Read More...
-          </button>
-        </div>
-      </div>
+                    {/* Comments Section */}
+                    <section className="mt-16 pt-8 border-t border-gray-200">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-8">Comments</h3>
+                        
+                        {/* Add Comment Form */}
+                        <div className="flex gap-4 mb-8">
+                            <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <Users className="w-5 h-5 text-green-600" />
+                            </div>
+                            <div className="flex-1">
+                                <textarea
+                                    value={newComment}
+                                    onChange={(e) => setNewComment(e.target.value)}
+                                    placeholder="Add a comment"
+                                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 resize-none"
+                                    rows={3}
+                                />
+                                <button className="mt-3 bg-green-700 hover:bg-green-800 text-white px-6 py-2 rounded-lg font-medium transition">
+                                    Post
+                                </button>
+                            </div>
+                        </div>
 
-      {/* Popular Post 8 */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-        <img 
-          src="/images/training-session.png" 
-          alt="Training session"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <div className="text-xs text-green-600 font-semibold mb-2">NEWS</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-3">
-            Biovision's July Training Recap: 250 Farmers Empowered in Meru
-          </h3>
-          <p className="text-gray-600 text-sm mb-4">
-            Event recap following the week-long workshops, including partnerships we built during July field training workshops organized by Biovision Africa Trust.
-          </p>
-          <button className="text-green-600 hover:text-green-700 font-semibold text-sm">
-            Read More...
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+                        {/* Comments List */}
+                        <div className="space-y-6">
+                            {comments.map((comment) => (
+                                <div key={comment.id} className="flex gap-4">
+                                    <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <span className="text-red-600 font-medium text-sm">R</span>
+                                    </div>
+                                    <div className="flex-1">
+                                        <div className="flex items-center gap-2 mb-2">
+                                            <h4 className="font-semibold text-gray-900">{comment.author}</h4>
+                                            <span className="text-sm text-gray-500">{comment.date}</span>
+                                        </div>
+                                        <p className="text-gray-700 mb-3">{comment.text}</p>
+                                        <div className="flex items-center gap-4 text-sm text-gray-500">
+                                            <button className="flex items-center gap-1 hover:text-green-600">
+                                                <ThumbsUp className="w-4 h-4" />
+                                                <span>5</span>
+                                            </button>
+                                            <button className="flex items-center gap-1 hover:text-green-600">
+                                                <MessageCircle className="w-4 h-4" />
+                                                <span>3</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="text-center mt-8">
+                            <button className="bg-green-100 hover:bg-green-200 text-green-700 px-6 py-2 rounded-lg font-medium transition">
+                                See 16 more comments
+                            </button>
+                        </div>
+                    </section>
+
+                    {/* Popular Posts Section */}
+                    <section className="mt-16 pt-8 border-t border-gray-200">
+                        <div className="flex items-center justify-between mb-8">
+                            <h3 className="text-2xl font-bold text-gray-900">Popular Posts</h3>
+                            <button className="text-green-700 hover:text-green-800 font-medium">View All</button>
+                        </div>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {popularPosts.map((post, index) => (
+                                <article key={index} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                                    <div className="h-40 bg-gray-200">
+                                        <img 
+                                            src={post.image} 
+                                            alt={post.title}
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </div>
+                                    <div className="p-4">
+                                        <div className="flex items-center gap-2 mb-2">
+                                            <span className="text-xs font-semibold text-green-700 bg-green-100 px-2 py-1 rounded">
+                                                {post.category}
+                                            </span>
+                                            <span className="text-xs text-gray-500">{post.date}</span>
+                                        </div>
+                                        <h4 className="font-semibold text-gray-900 text-sm leading-tight">
+                                            {post.title}
+                                        </h4>
+                                        <button className="text-green-700 hover:text-green-800 text-sm font-medium mt-2">
+                                            Read More...
+                                        </button>
+                                    </div>
+                                </article>
+                            ))}
+                        </div>
+                    </section>
+                </div>
+            </main>
+     
+
+
+
 
 {/* Call-to-Action Section */}
 <section className="mb-20 ml-50 max-w-4xl bg-green-600 rounded-xlml-60 max-w-3xl mt-[-6] px-6 py-6 rounded-xl">

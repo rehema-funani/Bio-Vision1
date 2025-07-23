@@ -2,8 +2,8 @@
 
 "use client";
 
-import Resources from "./resources"; // ✅ Correct
+import Learn from "./learning"; // ✅ Correct
 
 export default function MissionPage() {
-  return <Resources />;
+  return <Learn />;
 }

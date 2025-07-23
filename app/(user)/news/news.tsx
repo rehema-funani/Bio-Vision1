@@ -3,9 +3,8 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
 import { BookOpen, DollarSign, GraduationCap, Heart, Leaf, Smile, Sprout, Users } from "lucide-react";
-import News from "./news";
 
-export default function Resources() {
+export default function News() {
     const [activeTab, setActiveTab] = useState<"stories" | "news" | "learning">("stories");
 
     const pathname = usePathname();
@@ -133,11 +132,10 @@ export default function Resources() {
 <section className="py-16 px-4">
   <div className="max-w-6xl mx-auto text-center">
     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-      Real Stories from Our<br />Community
-    </h1>
+Latest News & <br/>Announcements    </h1>
     <p className="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
-      Hear from farmers, students, and advocates transforming lives through agroecology.<br />
-      These stories reflect passion, progress, and the power of sustainable farming.
+      Stay updated with the latest happenings across the AE/EOA movement.From new<br />
+      market launches to training recaps,we bring you the stories shaping Africas <br/>ecological future
     </p>
     
     {/* Featured Story with Background Image */}

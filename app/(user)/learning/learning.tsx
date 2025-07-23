@@ -2,14 +2,17 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
-import { BookOpen, DollarSign, GraduationCap, Heart, Leaf, Smile, Sprout, Users } from "lucide-react";
-import News from "./news";
+import { BookOpen, ChevronDown, ChevronUp, DollarSign, Download, GraduationCap, Heart, Leaf, Play, Smile, Sprout, Users } from "lucide-react";
 
-export default function Resources() {
-    const [activeTab, setActiveTab] = useState<"stories" | "news" | "learning">("stories");
+export default function Learn() {
+    // const [activeTab, setActiveTab] = useState<"stories" | "news" | "learning">("stories");
+    const [activeTab, setActiveTab] = useState<"publications" | "videos" | "newsletters" | "infographics" | "faqs">("publications");
+    const [activeFAQTab, setActiveFAQTab] = useState<"general" | "features" | "learning">("general");
+    const [expandedFAQ, setExpandedFAQ] = useState<number | null>(0);
 
     const pathname = usePathname();
-      const [searchQuery, setSearchQuery] = useState("");
+    const [searchQuery, setSearchQuery] = useState("");
+
        const navigationItems = [
         { name: "Home", href: "/" },
         { name: "Our Mission", href: "/mission" },
@@ -21,6 +24,148 @@ export default function Resources() {
         { name: "Contact Us", href: "/contact" },
         
       ];
+      // Sample data for resources
+    const resourceData = {
+        publications: [
+            {
+                id: 1,
+                title: "Beginner's Guide To Agroecology",
+                description: "Learn the 10 core principles of AECOA farming, with diagrams and field tips.",
+                image: "/images/woman.png",
+                type: "download",
+                fileTypes: ["PDF", "DOC"]
+            },
+            {
+                id: 2,
+                title: "Organic Compost At Home",
+                description: "Step-by-step video tutorial filmed with Bioevision farming officers.",
+                image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=300&h=200&fit=crop&crop=face",
+                type: "play",
+                fileTypes: ["MP4"]
+            },
+            {
+                id: 3,
+                title: "Certification Checklist For Smallholder Farmers",
+                description: "A downloadable checklist to prepare for required AECOA certification.",
+                image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=300&h=200&fit=crop&crop=face",
+                type: "download",
+                fileTypes: ["PDF"]
+            },
+            {
+                id: 4,
+                title: "Beginner's Guide To Agroecology",
+                description: "Learn the 10 core principles of AECOA farming, with diagrams and field tips.",
+                image: "/images/woman.png",
+                type: "download",
+                fileTypes: ["PDF", "DOC"]
+            }
+        ]
+    };
+
+    const faqs = {
+        general: [
+            {
+                question: "What is agroecology and how is it different from organic farming?",
+                answer: "We think clearly set as the leading no-code platform by giving users complete creative control over their websites without working on developers."
+            },
+            {
+                question: "How do I join a certified AE/EOA group in my region?",
+                answer: "Contact your local agricultural extension office or visit our outlets page to find certified groups near you."
+            },
+            {
+                question: "Can I get support or training for AECOA?",
+                answer: "Yes, we offer comprehensive training programs and ongoing support through our network of field officers and partner organizations."
+            },
+            {
+                question: "Do I need land to start agroecological practices?",
+                answer: "Not necessarily. You can start with container gardening, community gardens, or partner with local farmers to learn and practice agroecological methods."
+            },
+            {
+                question: "What crops grow best with AE techniques?",
+                answer: "Most crops thrive with agroecological practices. Indigenous and locally adapted varieties often perform best, including leafy greens, legumes, and traditional grains."
+            }
+        ],
+        features: [
+            {
+                question: "What features are available in our learning platform?",
+                answer: "Our platform includes video tutorials, downloadable guides, interactive workshops, and direct access to farming experts."
+            },
+            {
+                question: "How do I access premium content?",
+                answer: "Premium content is available to registered members and certified farmer groups. Sign up for free access to basic resources."
+            }
+        ],
+        learning: [
+            {
+                question: "How long does it take to complete the certification?",
+                answer: "The basic certification process typically takes 3-6 months, depending on your pace and the complexity of your farming operation."
+            },
+            {
+                question: "Are there online learning options available?",
+                answer: "Yes, we offer both online and in-person learning opportunities to accommodate different learning preferences and schedules."
+            }
+        ]
+    };
+    
+    const toggleFAQ = (index: number) => {
+        setExpandedFAQ(expandedFAQ === index ? null : index);
+    };
+
+    const ResourceCard = ({ resource }: { resource: any }) => (
+        <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div className="relative">
+                <img 
+                    src={resource.image} 
+                    alt={resource.title}
+                    className="w-full h-48 object-cover"
+                />
+                {resource.type === "play" && (
+                    <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                        <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
+                            <Play className="w-6 h-6 text-gray-800 ml-1" />
+                        </div>
+                    </div>
+                )}
+            </div>
+            <div className="p-4">
+                <h3 className="font-semibold text-gray-900 mb-2">{resource.title}</h3>
+                <p className="text-sm text-gray-600 mb-4">{resource.description}</p>
+                
+                <div className="flex items-center justify-between">
+                    <button className="text-green-600 hover:text-green-700 font-medium text-sm flex items-center gap-1">
+                        {resource.type === "download" ? (
+                            <>
+                                <Download className="w-4 h-4" />
+                                Download
+                            </>
+                        ) : (
+                            <>
+                                <Play className="w-4 h-4" />
+                                Play
+                            </>
+                        )}
+                    </button>
+                    
+                    <div className="flex gap-1">
+                        {resource.fileTypes.map((type: string, index: number) => (
+                            <span 
+                                key={index}
+                                className={`w-6 h-6 rounded text-xs font-bold flex items-center justify-center text-white ${
+                                    type === 'PDF' ? 'bg-red-500' : 
+                                    type === 'DOC' ? 'bg-blue-500' : 
+                                    type === 'MP4' ? 'bg-purple-500' : 'bg-gray-500'
+                                }`}
+                            >
+                                {type === 'PDF' ? 'P' : type === 'DOC' ? 'D' : type === 'MP4' ? 'M' : type[0]}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+
+
     return (
     
         <div className="relative min-h-screen w-full overflow-x-hidden">
@@ -127,339 +272,129 @@ export default function Resources() {
     </div>
   </div>
 </nav>
+{/* Main Content */}
+                <main className="max-w-6xl mx-auto px-4 py-12">
+                    {/* Hero Section */}
+                    <div className="text-center mb-12">
+                        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                            Practical Tools for Learning<br />& Growing
+                        </h1>
+                        <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+                            Access downloadable guides, videos, and FAQs to help you apply agroecology 
+                            principles on your farm, garden, or community project. Whether you're starting out or 
+                            scaling up — these tools are here to support you.
+                        </p>
 
+                        {/* Resource Type Tabs */}
+                        <div className="flex flex-wrap justify-center gap-2 mb-8">
+                            {[
+                                { key: "publications", label: "All", icon: BookOpen },
+                                { key: "videos", label: "Publications", icon: BookOpen },
+                                { key: "newsletters", label: "Videos", icon: Play },
+                                { key: "infographics", label: "Newsletters", icon: Leaf },
+                                { key: "faqs", label: "Infographics", icon: Heart },
+                                { key: "faqs", label: "FAQs", icon: GraduationCap }
+                            ].map((tab) => (
+                                <button
+                                    key={tab.key}
+                                    onClick={() => setActiveTab(tab.key as any)}
+                                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 flex items-center gap-2 ${
+                                        activeTab === tab.key || (tab.label === "All" && activeTab === "publications")
+                                            ? 'bg-green-600 text-white'
+                                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                    }`}
+                                >
+                                    <tab.icon className="w-4 h-4" />
+                                    {tab.label}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
 
-      {/* Hero Section */}
-<section className="py-16 px-4">
-  <div className="max-w-6xl mx-auto text-center">
-    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-      Real Stories from Our<br />Community
-    </h1>
-    <p className="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
-      Hear from farmers, students, and advocates transforming lives through agroecology.<br />
-      These stories reflect passion, progress, and the power of sustainable farming.
-    </p>
-    
-    {/* Featured Story with Background Image */}
-<div className="relative mx-auto max-w-6xl">
-  {/* Background Image Container */}
-  <div className="ml-15 relative h-[320px] md:h-[380px] w-[85%] md:w-[90%] rounded-2xl overflow-hidden">
-    <img 
-      src="/images/woman.png" 
-      alt="Mary working on her organic farm" 
-      className="w-full h-full object-cover" 
-    />
-  </div>
-  
-  {/* Success Story Card - Positioned to overlap and extend beyond the right side */}
-<div className="absolute top-[-1/2] -right-4 md:-right-8 transform -translate-y-1/2 w-[500px] md:w-[600px] lg:w-[750px] z-10 mr-10">
-  <div className="bg-[#FAF9F7] rounded-xl shadow-lg p-5 md:p-6 text-left"> {/* <- Changed bg color & text-left */}
-    
-    {/* Top row: SUCCESS STORY and Date */}
-    <div className="flex items-center justify-between mb-3">
-      <span className="text-xs text-green-600 font-semibold tracking-wide uppercase">SUCCESS STORY</span>
-      <span className="text-xs text-gray-400">4 July 2025</span>
-    </div>
+                    {/* Recently Added Section */}
+                    <section className="mb-16">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-8">Recently Added</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {resourceData.publications.map((resource) => (
+                                <ResourceCard key={resource.id} resource={resource} />
+                            ))}
+                        </div>
+                    </section>
 
-    {/* Heading */}
-    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 leading-snug">
-      From Farm to Market: How Mary's Organic Journey Doubled Her Income
-    </h3>
+                    {/* Top Picks Section */}
+                    <section className="mb-16">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-8">Top Picks</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {resourceData.publications.map((resource) => (
+                                <ResourceCard key={`top-${resource.id}`} resource={resource} />
+                            ))}
+                        </div>
+                    </section>
+                     {/* Top Picks Section */}
+                    <section className="mb-16">
+                        {/* <h2 className="text-2xl font-bold text-gray-900 mb-8">Top Picks</h2> */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {resourceData.publications.map((resource) => (
+                                <ResourceCard key={`top-${resource.id}`} resource={resource} />
+                            ))}
+                        </div>
+                    </section>
 
-    {/* Description */}
-    <p className="text-gray-600 text-sm leading-relaxed mb-4">
-      Mary Njoroge, a smallholder farmer from Nyandarua County, never imagined that growing vegetables without 
-      chemicals could change her family's future. But in just two years, her switch to agroecological farming has doubled 
-      her income, improved her soil quality, and opened new doors she didn't know existed.
-    </p>
+                    {/* FAQs Section */}
+                    <section className="bg-gray-100 rounded-2xl p-8 mb-16">
+                        <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">FAQs</h2>
+                        
+                        {/* FAQ Tabs */}
+                        <div className="flex flex-wrap justify-center gap-2 mb-8">
+                            {[
+                                { key: "general", label: "General" },
+                                { key: "features", label: "Features" },
+                                { key: "learning", label: "Learning" }
+                            ].map((tab) => (
+                                <button
+                                    key={tab.key}
+                                    onClick={() => setActiveFAQTab(tab.key as any)}
+                                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
+                                        activeFAQTab === tab.key
+                                            ? 'bg-green-600 text-white'
+                                            : 'bg-white text-gray-600 hover:bg-gray-50'
+                                    }`}
+                                >
+                                    {tab.label}
+                                </button>
+                            ))}
+                        </div>
 
-    {/* Read More Button */}
-    <button className="bg-green-600 hover:bg-green-700 text-white text-sm px-5 py-2.5 rounded-lg font-medium transition duration-200">
-      Read More
-    </button>
-  </div>
-</div>
+                        {/* FAQ Items */}
+                        <div className="max-w-3xl mx-auto">
+                            {faqs[activeFAQTab].map((faq, index) => (
+                                <div key={index} className="bg-white rounded-lg mb-4 overflow-hidden shadow-sm">
+                                    <button
+                                        onClick={() => toggleFAQ(index)}
+                                        className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+                                    >
+                                        <span className="font-medium text-gray-900">{faq.question}</span>
+                                        {expandedFAQ === index ? (
+                                            <ChevronUp className="w-5 h-5 text-gray-500" />
+                                        ) : (
+                                            <ChevronDown className="w-5 h-5 text-gray-500" />
+                                        )}
+                                    </button>
+                                    {expandedFAQ === index && (
+                                        <div className="px-6 pb-4">
+                                            <p className="text-gray-600">{faq.answer}</p>
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                </main>
 
-</div>
-    
-    {/* Add margin to account for overlapping card */}
-    <div className="mt-24 md:mt-32"></div>
-  </div>
-</section>
-    </div>
-{/* Recent Posts Section */}
-<section className="py-16 px-4 bg-white">
-  <div className="max-w-6xl mx-auto">
-    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">Our Recent Posts</h2>
-    
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {/* Post 1 */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-        <img 
-          src="/images/woman.png" 
-          alt="Mary's success story"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <div className="text-xs text-green-600 font-semibold mb-2">SUCCESS STORY</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-3">
-            How Mary's Organic Journey Doubled Her Income
-          </h3>
-          <p className="text-gray-600 text-sm mb-4">
-            Mary Nzirorigo, a farmer from Nyarutarama, shares her transition to AECOA practices and how it transformed her income and lifestyle for her vegetables.
-          </p>
-          <button className="text-green-600 hover:text-green-700 font-semibold text-sm">
-            Read More...
-          </button>
-        </div>
-      </div>
+                
 
-      {/* Post 2 */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-        <img 
-          src="/images/africa-landscape.png" 
-          alt="African landscape"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <div className="text-xs text-green-600 font-semibold mb-2">AGROECOLOGY</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-3">
-            5 Reasons Agroecology is Africa's Future
-          </h3>
-          <p className="text-gray-600 text-sm mb-4">
-            A compelling breakdown of how agroecological practices can benefit both World vision, improve health, and support modern resilience.
-          </p>
-          <button className="text-green-600 hover:text-green-700 font-semibold text-sm">
-            Read More...
-          </button>
-        </div>
-      </div>
-
-      {/* Post 3 */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-        <img 
-          src="/images/foodplate.png" 
-          alt="Healthy food plate"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <div className="text-xs text-green-600 font-semibold mb-2">LIFESTYLE</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-3">
-            What's Really on Your Plate?
-          </h3>
-          <p className="text-gray-600 text-sm mb-4">
-            An eye-opening examination of food systems across communities, highlighting green alternatives — including fermented foods and environmental nutrients.
-          </p>
-          <button className="text-green-600 hover:text-green-700 font-semibold text-sm">
-            Read More...
-          </button>
-        </div>
-      </div>
-
-      {/* Post 4 */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-        <img 
-          src="/images/africa-landscape.png" 
-          alt="African landscape"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <div className="text-xs text-green-600 font-semibold mb-2">AGROECOLOGY</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-3">
-            5 Reasons Agroecology is Africa's Future
-          </h3>
-          <p className="text-gray-600 text-sm mb-4">
-            A compelling breakdown of how agroecological practices can benefit both World vision, improve health, and support modern resilience.
-          </p>
-          <button className="text-green-600 hover:text-green-700 font-semibold text-sm">
-            Read More...
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{/* Popular Posts Section */}
-<section className="py-16 px-4 bg-gray-50">
-  <div className="max-w-6xl mx-auto">
-    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">Popular Posts</h2>
-    
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-      {/* Popular Post 1 */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-        <img 
-          src="/images/sunset.png" 
-          alt="Sunset over water"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <div className="text-xs text-green-600 font-semibold mb-2">VISIT</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-3">
-            Inside Kenya's First AE-Certified Market in Kisumu
-          </h3>
-          <p className="text-gray-600 text-sm mb-4">
-            The Kisumu Agroecology Market has been certified and AFECA payment required for all buyers. Learn more about selling sustainably and how it's being received.
-          </p>
-          <button className="text-green-600 hover:text-green-700 font-semibold text-sm">
-            Read More...
-          </button>
-        </div>
-      </div>
-
-      {/* Popular Post 2 */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-        <img 
-          src="/images/rooftop-farming.png" 
-          alt="Rooftop farming"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <div className="text-xs text-green-600 font-semibold mb-2">VISIT</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-3">
-            Meet the Youth Behind the Nairobi Rooftop Farming Movement
-          </h3>
-          <p className="text-gray-600 text-sm mb-4">
-            A look at how young agroecologists are turning Nairobi into thriving organic gardens, supporting both food security, innovation, and community action.
-          </p>
-          <button className="text-green-600 hover:text-green-700 font-semibold text-sm">
-            Read More...
-          </button>
-        </div>
-      </div>
-
-      {/* Popular Post 3 */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-        <img 
-          src="/images/plant-seedling.png" 
-          alt="Plant seedling"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <div className="text-xs text-green-600 font-semibold mb-2">CAPACITY BUILDING</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-3">
-            What Agroecology Taught Me About Climate Resilience
-          </h3>
-          <p className="text-gray-600 text-sm mb-4">
-            A journey through understanding water, harvesting, and environmental practices that help us survive the best rain seasons.
-          </p>
-          <button className="text-green-600 hover:text-green-700 font-semibold text-sm">
-            Read More...
-          </button>
-        </div>
-      </div>
-
-      {/* Popular Post 4 */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-        <img 
-          src="/images/rooftop-farming.png" 
-          alt="Rooftop farming"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <div className="text-xs text-green-600 font-semibold mb-2">VISIT</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-3">
-            Meet the Youth Behind the Nairobi Rooftop Farming Movement
-          </h3>
-          <p className="text-gray-600 text-sm mb-4">
-            A look at how 20-30 agroecologists are turning Nairobi into thriving organic gardens, supporting both food security, innovation, and community action.
-          </p>
-          <button className="text-green-600 hover:text-green-700 font-semibold text-sm">
-            Read More...
-          </button>
-        </div>
-      </div>
-    </div>
-
-    {/* Second Row of Popular Posts */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {/* Popular Post 5 */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-        <img 
-          src="/images/garden-space.png" 
-          alt="Garden space"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <div className="text-xs text-green-600 font-semibold mb-2">CONSUMER GUIDE</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-3">
-            How to Start Your Organic Garden (Even in a Small Space)
-          </h3>
-          <p className="text-gray-600 text-sm mb-4">
-            Agroecology is about communities and making the most of small resources. A beginner guide offering step-by-step tips to learn using AECOA principles.
-          </p>
-          <button className="text-green-600 hover:text-green-700 font-semibold text-sm">
-            Read More...
-          </button>
-        </div>
-      </div>
-
-      {/* Popular Post 6 */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-        <img 
-          src="/images/training-session.png" 
-          alt="Training session"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <div className="text-xs text-green-600 font-semibold mb-2">NEWS</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-3">
-            Biovision's July Training Recap: 250 Farmers Empowered in Meru
-          </h3>
-          <p className="text-gray-600 text-sm mb-4">
-            Event recap following the week-long workshops, including partnerships we built during July field training workshops organized by Biovision Africa Trust.
-          </p>
-          <button className="text-green-600 hover:text-green-700 font-semibold text-sm">
-            Read More...
-          </button>
-        </div>
-      </div>
-
-      {/* Popular Post 7 */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-        <img 
-          src="/images/market-produce.png" 
-          alt="Market produce"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <div className="text-xs text-green-600 font-semibold mb-2">AGROECOLOGY</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-3">
-            Why Supporting Agroecological Markets Matters
-          </h3>
-          <p className="text-gray-600 text-sm mb-4">
-            Farmers markets are building stronger local economies and supporting sustainable, empowering smallholder producers through AECOA.
-          </p>
-          <button className="text-green-600 hover:text-green-700 font-semibold text-sm">
-            Read More...
-          </button>
-        </div>
-      </div>
-
-      {/* Popular Post 8 */}
-      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-        <img 
-          src="/images/training-session.png" 
-          alt="Training session"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <div className="text-xs text-green-600 font-semibold mb-2">NEWS</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-3">
-            Biovision's July Training Recap: 250 Farmers Empowered in Meru
-          </h3>
-          <p className="text-gray-600 text-sm mb-4">
-            Event recap following the week-long workshops, including partnerships we built during July field training workshops organized by Biovision Africa Trust.
-          </p>
-          <button className="text-green-600 hover:text-green-700 font-semibold text-sm">
-            Read More...
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+ 
+    </div>   
 {/* Call-to-Action Section */}
 <section className="mb-20 ml-50 max-w-4xl bg-green-600 rounded-xlml-60 max-w-3xl mt-[-6] px-6 py-6 rounded-xl">
   <div className="mb-4 max-w-4xl mx-auto text-center">

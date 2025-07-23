@@ -2,8 +2,8 @@
 
 "use client";
 
-import Resources from "./resources"; // ✅ Correct
+import StoryPage from "./readmore"; // ✅ Correct
 
 export default function MissionPage() {
-  return <Resources />;
+  return <StoryPage />;
 }
