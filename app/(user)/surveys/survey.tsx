@@ -92,7 +92,7 @@ export default function Surveys() {
 
 
 {/* Surveys Hero Section */}
-<section className="mt-70 bg-gray-50 py-16 px-4">
+<section className="mt-20 bg-gray-50 py-16 px-4">
   <div className="max-w-4xl mx-auto text-center">
     <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
       Your Voice Shapes the<br />
