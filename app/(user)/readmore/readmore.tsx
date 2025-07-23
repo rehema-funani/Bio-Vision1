@@ -61,19 +61,19 @@ export default function StoryPage() {
             category: "NEWS",
             date: "3 May 2024", 
             title: "Biovision's July Training Recap: 200 Farmers Empowered in Meru",
-            image: "/images/farmers-2.png"
+            image: "/images/farmers2.png"
         },
         {
             category: "AGROECOLOGY",
             date: "3 May 2024",
             title: "Why Supporting Agroecological Markets Matters", 
-            image: "/images/market.jpg"
+            image: "/images/market.png"
         },
         {
             category: "NEWS",
             date: "3 May 2024",
             title: "Biovision's July Training Recap: 200 Farmers Empowered in Meru",
-            image: "/images/farmers-3.jpg"
+            image: "/images/farmers2.png"
         }
     ];
     return (
