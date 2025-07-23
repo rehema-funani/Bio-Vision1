@@ -1,7 +1,12 @@
-// app/mission/page.tsx
-
 "use client";
 import Resources from "./resources";
+import News from "./news";
+
 export default function MissionPage() {
-  return <Resources />;
+  return (
+    <>
+      <Resources />
+      <News />
+    </>
+  );
 }

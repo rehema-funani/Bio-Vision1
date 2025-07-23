@@ -123,7 +123,7 @@ export default function Mission() {
 
     <section className="mt-[-1] bg-green-50 py-12 px-4 sm:py-16 md:py-20 lg:py-24">
       <div className="ml-13 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[500px]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[50px]">
           {/* Left Column - Four pillars */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
             {/* Sustainable Agriculture */}

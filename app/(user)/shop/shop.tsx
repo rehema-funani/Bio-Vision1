@@ -311,7 +311,7 @@ export default function Shop() {
 <section className="bg-white py-16 px-4 md:px-12">
   <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
     {/* Promo Card 1 - Fresh Cow Milk */}
-    <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-4 rounded-lg text-left shadow-md relative overflow-hidden"
+    <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-4 rounded-lg text-left shadow-md relative overflow-hidden h-36"
          style={{
            backgroundImage: "url('/images/milk.png')",
            backgroundSize: 'cover',
@@ -320,44 +320,42 @@ export default function Shop() {
          }}>
 
       <div className="relative z-10">
-        <h3 className="text-base font-semibold text-white mb-1 drop-shadow-lg">100% Fresh Cow Milk</h3>
-        <p className="text-xs text-blue-100 mb-3 drop-shadow-md">Starting at $14.99</p>
-        <div className="h-20 mb-3"></div> {/* Reduced spacer */}
-        <button className="bg-white text-blue-600 px-4 py-1.5 rounded-full text-xs hover:bg-blue-50 transition-colors shadow-lg">
+        <h3 className="text-sm font-semibold text-white mb-0.5 drop-shadow-lg">100% Fresh<br/>Cow Milk</h3>
+        <p className="text-xs text-white mb-2 drop-shadow-md">Starting at $14.99</p>
+        <button className="bg-white text-blue-600 px-3 py-1 rounded-full text-xs hover:bg-blue-50 transition-colors shadow-lg">
           Shop Now →
         </button>
       </div>
-      <div className="absolute right-2 top-2 w-16 h-16 bg-white rounded-full flex items-center justify-center z-10">
-        <div className="w-10 h-12 bg-white rounded-lg flex items-center justify-center overflow-hidden">
-          <div className="w-8 h-10 bg-gradient-to-b from-white to-gray-100 rounded-lg relative">
-            <div className="absolute top-1 left-1/2 transform -translate-x-1/2 w-5 h-5 bg-white rounded-full shadow-sm"></div>
-            <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-4 h-1 bg-blue-500 rounded-full"></div>
+      <div className="absolute right-2 top-2 w-12 h-12 bg-white rounded-full flex items-center justify-center z-10">
+        <div className="w-8 h-10 bg-white rounded-lg flex items-center justify-center overflow-hidden">
+          <div className="w-6 h-8 bg-gradient-to-b from-white to-gray-100 rounded-lg relative">
+            <div className="absolute top-1 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white rounded-full shadow-sm"></div>
+            <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-3 h-0.5 bg-blue-500 rounded-full"></div>
           </div>
         </div>
       </div>
-      <div className="absolute top-0 right-0 w-20 h-20 opacity-10 z-5">
+      <div className="absolute top-0 right-0 w-16 h-16 opacity-10 z-5">
         <div className="w-full h-full bg-white rounded-full transform translate-x-4 -translate-y-4"></div>
       </div>
     </div>
 
     {/* Promo Card 2 - Water & Soft Drinks */}
-    <div className="bg-gradient-to-br from-cyan-400 to-blue-500 p-4 rounded-lg text-left shadow-md relative overflow-hidden"
+    <div className="bg-gradient-to-br from-cyan-400 to-blue-500 p-4 rounded-lg text-left shadow-md relative overflow-hidden h-36"
          style={{
-           backgroundImage: "url('/images/softdrink.png')",
+           backgroundImage: "url('/images/soda.png')",
            backgroundSize: 'cover',
            backgroundPosition: 'center',
            backgroundRepeat: 'no-repeat'
          }}>
 
-      <div className="relative z-10">
-        <h3 className="text-base font-semibold text-white mb-1 drop-shadow-lg">Drink Sale</h3>
-        <p className="text-xs text-cyan-100 mb-3 drop-shadow-md">Water & Soft Drink</p>
-        <div className="h-20 mb-3"></div> {/* Reduced spacer */}
-        <button className="bg-white text-cyan-600 px-4 py-1.5 rounded-full text-xs hover:bg-cyan-50 transition-colors shadow-lg">
+      <div className="text-right relative z-10">
+        <h3 className="text-xs font-semibold text-black mb-0.5 drop-shadow-lg">DRINK SALE</h3>
+        <p className="text-sm font-bold text-black mb-2 drop-shadow-md">Water &<br/>Soft Drink</p>
+        <button className="bg-white text-cyan-600 px-3 py-1 rounded-full text-xs hover:bg-cyan-50 transition-colors shadow-lg">
           Shop Now →
         </button>
       </div>
-      <div className="absolute right-3 bottom-2 w-12 h-16 z-10">
+      <div className="absolute right-3 bottom-2 w-10 h-14 z-10">
         <div className="w-full h-full bg-gradient-to-b from-amber-900 to-amber-800 rounded-lg relative shadow-lg">
           <div className="absolute top-0 left-0 right-0 h-2 bg-amber-700 rounded-t-lg"></div>
           <div className="absolute inset-1 bg-gradient-to-b from-amber-600 to-amber-900 rounded opacity-80"></div>
@@ -368,7 +366,7 @@ export default function Shop() {
     </div>
 
     {/* Promo Card 3 - Quick Breakfast */}
-    <div className="bg-gradient-to-br from-gray-100 to-gray-200 p-4 rounded-lg text-left shadow-md relative overflow-hidden border"
+    <div className="bg-gradient-to-br from-gray-100 to-gray-200 p-4 rounded-lg text-left shadow-md relative overflow-hidden border h-36"
          style={{
            backgroundImage: "url('/images/breakfast.png')",
            backgroundSize: 'cover',
@@ -377,23 +375,22 @@ export default function Shop() {
          }}>
 
       <div className="relative z-10">
-        <h3 className="text-lg font-semibold text-gray-800 mb-2 drop-shadow-sm">100% Organic</h3>
-        <p className="text-sm text-gray-600 mb-4 drop-shadow-sm">Quick Breakfast</p>
-        <div className="h-32 mb-4"></div> {/* Spacer to maintain layout */}
-        <button className="bg-green-700 text-white px-6 py-2 rounded-full text-sm hover:bg-green-800 transition-colors shadow-lg">
+        <h3 className="text-xs font-semibold text-gray-800 mb-0.5 drop-shadow-sm">100% ORGANIC</h3>
+        <p className="text-sm font-bold text-gray-800 mb-2 drop-shadow-sm">Quick<br/>Breakfast</p>
+        <button className="bg-green-700 text-white px-3 py-1 rounded-full text-xs hover:bg-green-800 transition-colors shadow-lg">
           Shop Now →
         </button>
       </div>
       <div className="absolute right-2 bottom-2 flex gap-1 z-10">
-        <div className="w-5 h-5 bg-yellow-400 rounded-full shadow-sm"></div>
-        <div className="w-5 h-5 bg-amber-600 rounded-full shadow-sm"></div>
-        <div className="w-5 h-5 bg-yellow-600 rounded-full shadow-sm"></div>
+        <div className="w-4 h-4 bg-yellow-400 rounded-full shadow-sm"></div>
+        <div className="w-4 h-4 bg-amber-600 rounded-full shadow-sm"></div>
+        <div className="w-4 h-4 bg-yellow-600 rounded-full shadow-sm"></div>
       </div>
-      <div className="absolute right-2 top-10 flex gap-1 z-10">
-        <div className="w-4 h-4 bg-amber-800 rounded-full shadow-sm"></div>
-        <div className="w-4 h-4 bg-yellow-500 rounded-full shadow-sm"></div>
+      <div className="absolute right-2 top-8 flex gap-1 z-10">
+        <div className="w-3 h-3 bg-amber-800 rounded-full shadow-sm"></div>
+        <div className="w-3 h-3 bg-yellow-500 rounded-full shadow-sm"></div>
       </div>
-      <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-yellow-200 to-transparent opacity-30 rounded-full transform translate-x-4 -translate-y-4 z-5"></div>
+      <div className="absolute top-0 right-0 w-12 h-12 bg-gradient-to-br from-yellow-200 to-transparent opacity-30 rounded-full transform translate-x-2 -translate-y-2 z-5"></div>
     </div>
   </div>
 
@@ -471,19 +468,19 @@ export default function Shop() {
         {
           name: "Robert Fox",
           role: "Customer",
-          img: "/avatars/robert.png",
+          img: "/images/robert.png",
           review: "Pellentesque eu nibh eget mauris congue mattis nec ut tellus. Praesent imperdiet nulla nec magna dapibus, nec iaculis velit molestie.",
         },
         {
           name: "Dianne Russel",
           role: "Customer",
-          img: "/avatars/dianne.png",
+          img: "/images/dianne.png",
           review: "Pellentesque eu nibh eget mauris congue mattis nec ut tellus. Praesent imperdiet nulla nec magna dapibus, nec iaculis velit molestie.",
         },
         {
           name: "Eleanor Pena",
           role: "Customer",
-          img: "/avatars/eleanor.png",
+          img: "/images/eleanor.png",
           review: "Pellentesque eu nibh eget mauris congue mattis nec ut tellus. Praesent imperdiet nulla nec magna dapibus, nec iaculis velit molestie.",
         },
       ].map((t, index) => (
@@ -507,17 +504,17 @@ export default function Shop() {
 </section>
 
 {/* ✅ Instagram Gallery Section */}
-<section className="bg-white py-16 px-4 md:px-12">
+<section className="mb-9 bg-white py-16 px-4 md:px-12">
   <div className="max-w-7xl mx-auto">
     <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Follow us on Instagram</h2>
     <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
       {[
-        "/insta/tomatoes.png",
-        "/insta/green-leaf.png",
-        "/insta/leaf-closeup.png",
-        "/insta/pepper.png",
-        "/insta/coconut.png",
-        "/insta/fruits.png",
+        "/images/tomatoes.png",
+        "/images/green-leaf.png",
+        "/images/leaf-closeup.png",
+        "/images/pepper.png",
+        "/images/coconut.png",
+        "/images/fruits.png",
       ].map((src, i) => (
         <img key={i} src={src} alt={`insta-${i}`} className="rounded-lg w-full h-24 md:h-32 object-cover" />
       ))}

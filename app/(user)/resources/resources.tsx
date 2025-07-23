@@ -3,8 +3,11 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
 import { BookOpen, DollarSign, GraduationCap, Heart, Leaf, Smile, Sprout, Users } from "lucide-react";
+import News from "./news";
 
 export default function Resources() {
+    const [activeTab, setActiveTab] = useState<"stories" | "news" | "learning">("stories");
+
     const pathname = usePathname();
       const [searchQuery, setSearchQuery] = useState("");
        const navigationItems = [
@@ -16,6 +19,9 @@ export default function Resources() {
         { name: "Surveys", href: "/surveys" },
         { name: "Events", href: "/events" },
         { name: "Contact Us", href: "/contact" },
+        { name: "News", href: "/resources/news" },
+        { name: "Learning", href: "/learning" },
+        { name: "Stories", href: "/resources" },
       ];
     return (
     
@@ -83,16 +89,37 @@ export default function Resources() {
       </header>
       <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
-      {/* Navigation */}
+{/* Navigation */}
+    <>
+
 <nav className="mt-29 bg-white px-4 py-4">
-  <div className="max-w-6xl mx-auto flex justify-center">
-    <div className="flex items-center space-x-8">
-      <div className="text-lg font-semibold text-gray-900">News</div>
-      <div className="bg-green-600 text-white px-3 py-1 rounded text-sm font-medium">Stories</div>
-      <div className="text-gray-600">Learning</div>
-    </div>
-  </div>
-</nav>
+        <div className="max-w-6xl mx-auto flex justify-center">
+          <div className="flex items-center space-x-8">
+            <div
+              className="text-lg font-semibold text-gray-900 cursor-pointer"
+              onClick={() => setActiveTab("news")}
+            >
+              News
+            </div>
+            <div
+              className="bg-green-600 text-white px-3 py-1 rounded text-sm font-medium cursor-pointer"
+              onClick={() => setActiveTab("stories")}
+            >
+              Stories
+            </div>
+            <div
+              className="text-gray-600 cursor-pointer"
+              onClick={() => setActiveTab("learning")}
+            >
+              Learning
+            </div>
+          </div>
+        </div>
+      </nav>
+      {activeTab === "stories" && <Resources />}
+      {activeTab === "news" && <News />}
+      {/* {activeTab === "learning" && <Learn />} */}
+    </>
 
 
       {/* Hero Section */}
