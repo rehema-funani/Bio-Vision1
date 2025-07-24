@@ -40,7 +40,7 @@ export default function Shop() {
           </div>
 
           {/* Navigation */}
-          <nav className="hidden lg:flex items-center space-x-2">
+          <nav className="bg-white hidden lg:flex items-center space-x-2">
             {navigationItems.map((item, index) => (
               <div key={item.name} className="flex items-center">
                 <Link

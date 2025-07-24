@@ -2,7 +2,8 @@
 
 "use client";
 
-import Surveys from "./survey";
-export default function SurveyPage() {
+import Surveys from "./surveys";// ✅ Correct
+
+export default function MissionPage() {
   return <Surveys />;
 }

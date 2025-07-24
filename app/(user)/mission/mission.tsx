@@ -29,7 +29,7 @@ export default function Mission() {
       <div className="fixed inset-0 bg-black/40  " />
 
       {/* ✅ Fixed Navbar */}
-      <header className="fixed top-0 w-full z-50 bg-white backdrop-blur-md">
+      <header className="bg-white fixed top-0 w-full z-50 bg-white backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -41,7 +41,7 @@ export default function Mission() {
           </div>
 
           {/* Navigation */}
-          <nav className="hidden lg:flex items-center space-x-2">
+          <nav className="hidden bg-white lg:flex items-center space-x-2">
             {navigationItems.map((item, index) => (
               <div key={item.name} className="flex items-center">
                 <Link
