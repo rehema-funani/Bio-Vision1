@@ -371,9 +371,12 @@ export default function Mission() {
               </p>
               
               <div className="pt-4">
-                <button className="bg-white text-green-600 font-semibold px-8 py-4 rounded-full text-lg hover:bg-gray-50 transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-transform">
-                  Shop All Products
-                </button>
+                <a href="/shop">
+  <button className="bg-white text-green-600 font-semibold px-8 py-4 rounded-full text-lg hover:bg-gray-50 transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-transform">
+    Shop All Products
+  </button>
+</a>
+
               </div>
             </div>
           </div>

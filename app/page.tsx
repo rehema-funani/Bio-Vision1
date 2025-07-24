@@ -108,12 +108,17 @@ export default function Home() {
         Every purchase supports 2.3M+ Farmers building sustainable food systems.
       </p>
       <div className="flex gap-4 flex-wrap">
-        <button className="bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-full text-sm">
-          Explore Products
-        </button>
+
+        <Link href="/shop">
+  <button className="bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-full text-sm">
+    Explore Products
+  </button>
+</Link>
+
         <button className="bg-white text-green-800 hover:bg-gray-100 font-semibold px-6 py-3 rounded-full text-sm">
           Learn More
         </button>
+        
       </div>
     </div>
 
