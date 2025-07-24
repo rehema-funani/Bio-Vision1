@@ -2,8 +2,7 @@
 
 "use client";
 
-import Learn from "./learning"; // ✅ Correct
-
+import Event1 from "./oneevent";
 export default function MissionPage() {
-  return <Learn />;
+  return <Event1 />;
 }
