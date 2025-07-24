@@ -26,6 +26,16 @@ export default function Shop() {
         { name: "Events", href: "/events" },
         { name: "Contact Us", href: "/contact" },
     ];
+    // Function to scroll to Featured Products section
+    const scrollToFeaturedProducts = () => {
+        const featuredSection = document.getElementById('featured-products');
+        if (featuredSection) {
+            featuredSection.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    };
 
     // All Products Data
     const categories = [
@@ -664,7 +674,10 @@ export default function Shop() {
                         <p className="text-sm text-gray-500 mt-1">
                             Free shipping on all your order. we deliver, you enjoy
                         </p>
-                        <button className="mt-4 bg-[#2E7D32] text-white text-lg font-semibold px-8 py-3 rounded-full hover:bg-[#256829] transition">
+                         <button 
+                            onClick={scrollToFeaturedProducts}
+                            className="mt-4 bg-[#2E7D32] text-white text-lg font-semibold px-8 py-3 rounded-full hover:bg-[#256829] transition"
+                        >
                             Shop Now
                         </button>
                     </div>
@@ -720,10 +733,10 @@ export default function Shop() {
             </section>
 
             {/* Featured Products Section */}
-            <section className="bg-white -mt-2 pt-32  px-4 md:px-12">
-                <h2 className="text-3xl md:text-4xl font-semibold text-center mb-12">
-                    Featured Products
-                </h2>
+            <section id="featured-products" className="bg-white -mt-2 pt-32  px-4 md:px-12">
+    <h2 className="text-3xl md:text-4xl font-semibold text-center mb-12">
+        Featured Products
+    </h2>
 
                 {/* Main Products Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-12">
@@ -1258,3 +1271,10 @@ export default function Shop() {
     </div>
   );
 }
+
+
+
+
+
+
+
