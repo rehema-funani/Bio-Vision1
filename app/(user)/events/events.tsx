@@ -535,7 +535,7 @@ export default function Events() {
       </main>
 
       <div
-        className="max-w-3xl mx-auto mt-20 px-6 py-10 rounded-[20px] text-center bg-green-600 text-white mr-50"
+        className="mb-29 max-w-3xl mx-auto mt-20 px-6 py-10 rounded-[20px] text-center bg-green-600 text-white mr-50"
         style={{
           backgroundImage: 'url("/images/veggie-pattern.png")',
           backgroundSize: "cover",
