@@ -11,13 +11,13 @@ export default function Contact() {
       const [searchQuery, setSearchQuery] = useState("");
        const navigationItems = [
         { name: "Home", href: "/" },
-        { name: "Our Mission", href: "/mission" },
+        { name: "Mission", href: "/mission" },
         { name: "Shop", href: "/shop" },
         { name: "Resources", href: "/resources" },
         { name: "Outlets", href: "/outlets" },
         { name: "Surveys", href: "/surveys" },
         { name: "Events", href: "/events" },
-        { name: "Contact Us", href: "/contact" },
+        { name: "Contacts", href: "/contact" },
       ];
   return (
     <div className="min-h-screen bg-white text-gray-800">
@@ -76,41 +76,77 @@ export default function Contact() {
                 </div>
             </header>
       {/* Contact Form */}
-      <div className="mt-24 max-w-3xl mx-auto px-4 py-12 text-center">
-        <h1 className="text-4xl font-bold mb-2">Get in Touch with Us.</h1>
-        <p className="text-2xl text-green-600 font-semibold mb-8">We’re here to help.</p>
-
-        <form className="space-y-6">
-          {/* Name & Email */}
-          <div className="flex flex-col sm:flex-row gap-4">
-            <input
-              type="text"
-              placeholder="Your Name"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-            />
-            <input
-              type="email"
-              placeholder="Email Address"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-            />
-          </div>
-
-          {/* Message */}
-          <textarea
-            rows={5}
-            placeholder="Message"
-            className="w-full px-4 py-2 border border-gray-300 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-green-500"
-          />
-
-          {/* Submit Button */}
-          <button
-            type="submit"
-            className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition"
-          >
-            Contact Us
-          </button>
-        </form>
+<div className="mt-24 max-w-4xl mx-auto px-4 py-12 text-center">
+  <h1 className="text-5xl font-bold mb-2 text-gray-800">Get in Touch with Us.</h1>
+  <p className="text-3xl text-green-600 font-semibold mb-12">We're here to help.</p>
+  
+  <form className="space-y-8">
+    {/* Name & Phone */}
+    <div className="flex flex-col sm:flex-row gap-6">
+      <div className="w-full">
+        <input
+          type="text"
+          placeholder="Your Name"
+          className="w-full px-0 py-4 border-0 border-b border-gray-300 bg-transparent focus:outline-none focus:border-gray-400 text-lg placeholder-gray-500"
+        />
       </div>
+      <div className="w-full">
+        <input
+          type="email"
+          placeholder="Phone Number"
+          className="w-full px-0 py-4 border-0 border-b border-gray-300 bg-transparent focus:outline-none focus:border-gray-400 text-lg placeholder-gray-500"
+        />
+      </div>
+    </div>
+    
+    {/* Country & Email */}
+    <div className="flex flex-col sm:flex-row gap-6">
+      <div className="w-full relative">
+        <select className="w-full px-0 py-4 border-0 border-b border-gray-300 bg-transparent focus:outline-none focus:border-gray-400 text-lg text-gray-500 appearance-none cursor-pointer">
+          <option value="">Country</option>
+          <option value="us">United States</option>
+          <option value="uk">United Kingdom</option>
+          <option value="ca">Canada</option>
+          <option value="au">Australia</option>
+          <option value="de">Germany</option>
+          <option value="fr">France</option>
+          <option value="ke">Kenya</option>
+        </select>
+        <div className="absolute right-0 top-4 pointer-events-none">
+          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+      </div>
+      <div className="w-full">
+        <input
+          type="email"
+          placeholder="Email Address"
+          className="w-full px-0 py-4 border-0 border-b border-gray-300 bg-transparent focus:outline-none focus:border-gray-400 text-lg placeholder-gray-500"
+        />
+      </div>
+    </div>
+    
+    {/* Message */}
+    <div className="w-full">
+      <textarea
+        rows={4}
+        placeholder="Message"
+        className="w-full px-0 py-4 border-0 border-b border-gray-300 bg-transparent resize-none focus:outline-none focus:border-gray-400 text-lg placeholder-gray-500"
+      />
+    </div>
+    
+    {/* Submit Button */}    
+    <div className="pt-8">
+      <button
+        type="submit"
+        className="bg-green-600 text-white px-12 py-3 rounded-full text-lg font-medium hover:bg-green-700 transition-colors duration-200"
+      >
+        Contact Us
+      </button>
+    </div>
+  </form>
+</div>
 
       {/* Contact Info Section */}
       <div className="bg-green-100 py-10 px-4 mt-12 h-60">

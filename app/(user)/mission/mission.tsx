@@ -15,7 +15,7 @@ export default function Mission() {
     { name: "Outlets", href: "/outlets" },
     { name: "Surveys", href: "/surveys" },
     { name: "Events", href: "/events" },
-    { name: "Contact Us", href: "/contact" },
+    { name: "Contacts", href: "/contact" },
   ];
 
   return (

@@ -382,13 +382,13 @@ export default function Events() {
 
   const navigationItems = [
     { name: "Home", href: "/" },
-    { name: "Our Mission", href: "/mission" },
+    { name: "Mission", href: "/mission" },
     { name: "Shop", href: "/shop" },
     { name: "Resources", href: "/resources" },
     { name: "Outlets", href: "/outlets" },
     { name: "Surveys", href: "/surveys" },
     { name: "Events", href: "/events" },
-    { name: "Contact Us", href: "/contact" },
+    { name: "Contacts", href: "/contact" },
   ];
 
   const eventData = [
@@ -431,7 +431,7 @@ export default function Events() {
     title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
   return (
-    <div className="relative min-h-screen w-full overflow-x-hidden bg-white">
+    <div className="relative min-h-screen w-full overflow-x-hidden bg-black/2">
       {/* Fixed Navbar */}
             <header className="fixed top-0 w-full z-50 bg-white backdrop-blur-md">
                 <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-20 md:h-24">
@@ -492,7 +492,7 @@ export default function Events() {
         </h1>
       </div>
 
-      <main className="px-4 md:px-6 max-w-7xl mx-auto space-y-20">
+      <main className="mr-32 px-4 md:px-6 max-w-7xl mx-auto space-y-20">
         {["Trainings & Workshops", "Online Webinars", "Farm Tours"].map(
           (sectionTitle, idx) => (
             <section key={idx}>
@@ -541,7 +541,7 @@ export default function Events() {
       </main>
 
       <div
-        className="mb-29 max-w-3xl mx-auto mt-20 px-6 py-10 rounded-[20px] text-center bg-green-600 text-white mr-50"
+        className="mb-29 max-w-3xl mx-auto mt-20 px-6 py-10 rounded-[20px] text-center bg-green-600 text-white mr-62"
         style={{
           backgroundImage: 'url("/images/veggie-pattern.png")',
           backgroundSize: "cover",

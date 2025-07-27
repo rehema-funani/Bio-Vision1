@@ -384,13 +384,13 @@ export default function EventDetail() {
 
   const navigationItems = [
     { name: "Home", href: "/" },
-    { name: "Our Mission", href: "/mission" },
+    { name: "Mission", href: "/mission" },
     { name: "Shop", href: "/shop" },
     { name: "Resources", href: "/resources" },
     { name: "Outlets", href: "/outlets" },
     { name: "Surveys", href: "/surveys" },
     { name: "Events", href: "/events" },
-    { name: "Contact Us", href: "/contact" },
+    { name: "Contacts", href: "/contact" },
   ];
 
   const upcomingEvents = [

@@ -18,13 +18,13 @@ export default function Resources() {
     
     const navigationItems = [
         { name: "Home", href: "/" },
-        { name: "Our Mission", href: "/mission" },
+        { name: "Mission", href: "/mission" },
         { name: "Shop", href: "/shop" },
         { name: "Resources", href: "/resources" },
         { name: "Outlets", href: "/outlets" },
         { name: "Surveys", href: "/surveys" },
         { name: "Events", href: "/events" },
-        { name: "Contact Us", href: "/contact" },
+        { name: "Contacts", href: "/contact" },
     ];
 
     // Sample data for resources (Learning section)
@@ -194,7 +194,7 @@ export default function Resources() {
                         </div>
                         
                         {/* Success Story Card */}
-                        <div className="absolute top-1/2 -right-4 md:-right-8 transform -translate-y-1/2 w-[500px] md:w-[600px] lg:w-[750px] z-10 mr-10">
+                        <div className="mt-39 absolute top-1/2 -right-4 md:-right-8 transform -translate-y-1/2 w-[500px] md:w-[600px] lg:w-[750px] z-10 mr-10">
                             <div className="bg-[#FAF9F7] rounded-xl shadow-lg p-5 md:p-6 text-left">
                                 <div className="flex items-center justify-between mb-3">
                                     <span className="text-xs text-green-600 font-semibold tracking-wide uppercase">SUCCESS STORY</span>
@@ -208,9 +208,11 @@ export default function Resources() {
                                     chemicals could change her family's future. But in just two years, her switch to agroecological farming has doubled 
                                     her income, improved her soil quality, and opened new doors she didn't know existed.
                                 </p>
-                                <button className="bg-green-600 hover:bg-green-700 text-white text-sm px-5 py-2.5 rounded-lg font-medium transition duration-200">
-                                    Read More
-                                </button>
+                                <Link href="/readmore">
+  <button className="bg-green-600 hover:bg-green-700 text-white text-sm px-5 py-2.5 rounded-lg font-medium transition duration-200">
+    Read More
+  </button>
+</Link>
                             </div>
                         </div>
                     </div>
@@ -333,7 +335,7 @@ export default function Resources() {
                         </div>
                         
                         <div className="absolute top-1/2 -right-4 md:-right-8 transform -translate-y-1/2 w-[500px] md:w-[600px] lg:w-[750px] z-10 mr-10">
-                            <div className="bg-[#FAF9F7] rounded-xl shadow-lg p-5 md:p-6 text-left">
+                            <div className="mt-79 bg-[#FAF9F7] rounded-xl shadow-lg p-5 md:p-6 text-left">
                                 <div className="flex items-center justify-between mb-3">
                                     <span className="text-xs text-green-600 font-semibold tracking-wide uppercase">BREAKING NEWS</span>
                                     <span className="text-xs text-gray-400">4 July 2025</span>
@@ -546,9 +548,8 @@ export default function Resources() {
 
     return (
         <div className="relative min-h-screen w-full overflow-x-hidden">
-            <div className="fixed inset-0 bg-black/40" />
+            <div className="fixed inset-0 bg-black/1" />
 
-            {/* Fixed Navbar */}
             {/* Fixed Navbar */}
             <header className="fixed top-0 w-full z-50 bg-white backdrop-blur-md">
                 <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-20 md:h-24">
@@ -603,7 +604,7 @@ export default function Resources() {
                 </div>
             </header>
 
-            <div className="min-h-screen">
+            <div className="min-h-screen bg-black/2">
                 {/* Navigation Tabs */}
                 <nav className="pt-24  px-4 py-4 relative z-10">
                     <div className="max-w-6xl mx-auto flex justify-center">
@@ -650,7 +651,7 @@ export default function Resources() {
                 </main>
 
                 {/* Call-to-Action Section */}
-                <section className="py-16 px-4">
+                <section className="mb-19 py-16 px-4">
                     <div className="max-w-4xl mx-auto">
                         <div className="bg-green-600 px-8 py-12 text-center rounded-xl">
                             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
@@ -667,7 +668,8 @@ export default function Resources() {
                     </div>
                 </section>
             
-                {/* Newsletter Section */}
+                  
+{/* Newsletter Section */}
       <section className="bg-[#2C2A29] py-16 px-4 md:px-8 lg:px-12 -mt-16">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
           
