@@ -9,7 +9,7 @@ export default function Mission() {
   const [searchQuery, setSearchQuery] = useState("");
    const navigationItems = [
     { name: "Home", href: "/" },
-    { name: "Our Mission", href: "/mission" },
+    { name: "Mission", href: "/mission" },
     { name: "Shop", href: "/shop" },
     { name: "Resources", href: "/resources" },
     { name: "Outlets", href: "/outlets" },
@@ -21,12 +21,12 @@ export default function Mission() {
   return (
         <div className="relative min-h-screen w-full overflow-x-hidden">
           {/* ✅ Background image using <img src="/about-hero.jpg" /> */}
-      <img
+      {/* <img
         src="/images/farmers.png"
         alt="Hero Background"
         className="fixed top-0 left-0 w-full h-full object-cover -z-10"
-      />
-      <div className="fixed inset-0 bg-black/40  " />
+      /> */}
+      {/* <div className="fixed inset-0 bg-black/40  " /> */}
 
       {/* Fixed Navbar */}
             <header className="fixed top-0 w-full z-50 bg-black/30 backdrop-blur-md">
@@ -83,8 +83,8 @@ export default function Mission() {
             </header>
 
     
-    <section className="bg-gray-50 py-12 px-4 sm:py-16 md:py-20 lg:py-24">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-white py-12 px-4 sm:py-16 md:py-20 lg:py-24">
+      <div className="max-w-7xl bg-red mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Column - Title */}
           <div className="order-2 lg:order-1">
