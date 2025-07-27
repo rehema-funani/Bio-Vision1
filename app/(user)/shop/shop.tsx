@@ -18,7 +18,7 @@ export default function Shop() {
     
     const navigationItems = [
         { name: "Home", href: "/" },
-        { name: "Our Mission", href: "/mission" },
+        { name: "Mission", href: "/mission" },
         { name: "Shop", href: "/shop" },
         { name: "Resources", href: "/resources" },
         { name: "Outlets", href: "/outlets" },
@@ -125,11 +125,11 @@ export default function Shop() {
                 <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-20 md:h-24">
                     {/* Logo */}
                     <div className="flex-shrink-0">
-                        <img
+                        {/* <img
                             src="https://api.builder.io/api/v1/image/assets/TEMP/5376572c943bbbbf555a8e8d2b23c9146eee9067?width=335"
                             alt="Biovision Africa Trust"
                             className="h-12 md:h-14 object-contain"
-                        />
+                        /> */}
                     </div>
 
                     {/* Navigation */}
