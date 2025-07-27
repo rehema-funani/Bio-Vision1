@@ -1027,6 +1027,7 @@ import {
   Facebook
 } from "lucide-react";
 import Image from 'next/image';
+import Link from 'next/link';
 
 
 export default function App() {
@@ -1246,13 +1247,12 @@ export default function App() {
         className="fixed top-0 left-0 w-full h-full object-cover -z-10"
       />
 
-    {/* ✅ Fixed Navbar with Mobile Hamburger Menu */}
-<header className="fixed top-0 w-full z-50 bg-black/50 backdrop-blur-md border-b border-white/10">
+   <header className="fixed top-0 w-full z-50 bg-white shadow">
   <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-20 md:h-24">
     {/* Logo */}
     <div className="flex-shrink-0">
-      <img 
-        src="https://api.builder.io/api/v1/image/assets/TEMP/5376572c943bbbbf555a8e8d2b23c9146eee9067?width=335"
+      <img
+        src="/images/greenlogo.png"
         alt="Biovision Africa Trust"
         className="h-12 md:h-14 object-contain"
       />
@@ -1262,134 +1262,93 @@ export default function App() {
     <nav className="hidden lg:flex items-center space-x-2">
       {navigationItems.map((item, index) => (
         <div key={item.name} className="flex items-center">
-          <a
+          <Link
             href={item.href}
-            onClick={(e) => {
-              if (item.name === 'Home') {
-                e.preventDefault(); // Stay on homepage for Home link
-              }
-            }}
-            className={`text-sm font-medium px-3 py-2 transition rounded-md hover:bg-white/10 ${
-              item.name === 'Home' 
-                ? 'text-green-400' 
-                : 'text-white hover:text-green-400'
+            className={`text-sm font-semibold px-2 transition ${
+              currentPage === item.name.toLowerCase()
+                ? "text-green-500"
+                : "text-black hover:text-green-400"
             }`}
           >
             {item.name}
-          </a>
+          </Link>
           {index < navigationItems.length - 1 && (
-            <span className="h-4 w-px bg-white/30 mx-1" />
+            <span className="h-6 w-px bg-white/40 mx-2" />
           )}
         </div>
       ))}
     </nav>
 
-    {/* Desktop Search + Actions */}
-    <div className="hidden lg:flex items-center gap-3">
-      {/* Search Icon Only */}
-      <button className="p-2.5 border border-white/30 rounded-full text-white hover:text-green-400 hover:border-green-400 transition-colors">
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-        </svg>
-      </button>
-
-      {/* Sign Up Button */}
-      <button 
-        onClick={() => setCurrentPage('auth')}
-        className="bg-green-600 hover:bg-green-700 text-white px-6 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors shadow-lg"
-      >
-        Sign Up
-      </button>
-
-      {/* Language Selector */}
-      <div className="flex items-center text-white text-sm">
-        <span className="mr-1">EN</span>
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
-      </div>
-    </div>
-
-    {/* Mobile Menu Button */}
-    <div className="lg:hidden flex items-center gap-3">
-      {/* Mobile Sign Up Button */}
-      <button 
-        onClick={() => setCurrentPage('auth')}
-        className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors shadow-lg"
-      >
-        Sign Up
-      </button>
-
-      {/* Hamburger Menu Button */}
+    {/* Hamburger button */}
+    <div className="block lg:hidden">
       <button
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        className="p-2 text-white hover:text-green-400 transition-colors"
-        aria-label="Toggle mobile menu"
+        className="text-gray-800 focus:outline-none"
       >
-        <svg 
-          className="w-6 h-6" 
-          fill="none" 
-          stroke="currentColor" 
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
           viewBox="0 0 24 24"
-          strokeWidth={2}
+          xmlns="http://www.w3.org/2000/svg"
         >
-          {mobileMenuOpen ? (
-            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-          ) : (
-            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          )}
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d={
+              mobileMenuOpen
+                ? "M6 18L18 6M6 6l12 12" // X icon
+                : "M4 6h16M4 12h16M4 18h16" // Hamburger icon
+            }
+          />
         </svg>
+      </button>
+    </div>
+
+    {/* Search + Sign Up */}
+    <div className="hidden md:flex items-center gap-4">
+      <div className="hidden md:flex items-center border border-gray-500 rounded-full overflow-hidden">
+        <input
+          type="text"
+          placeholder="Search"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="bg-transparent text-black placeholder-white/50 text-sm px-4 py-2 w-32 focus:outline-none"
+        />
+        <button className="bg-green-700 hover:bg-green-800 text-white text-sm px-4 py-2 transition">
+          Search
+        </button>
+      </div>
+      <button className="bg-green-700 hover:bg-green-800 text-white px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap">
+        Sign Up
       </button>
     </div>
   </div>
 
   {/* Mobile Menu Panel */}
-  <div className={`lg:hidden transition-all duration-300 ease-in-out ${
-    mobileMenuOpen 
-      ? 'max-h-screen opacity-100' 
-      : 'max-h-0 opacity-0 overflow-hidden'
-  }`}>
-    <div className="bg-black/90 backdrop-blur-md border-t border-white/10">
-      <nav className="px-4 py-4 space-y-2">
+  {mobileMenuOpen && (
+    <div className="block lg:hidden px-4 pt-4 pb-6 bg-white border-t border-gray-200 shadow-md">
+      <nav className="space-y-3">
         {navigationItems.map((item) => (
-          <a
+          <Link
             key={item.name}
             href={item.href}
-            onClick={(e) => {
-              if (item.name === 'Home') {
-                e.preventDefault();
-              }
-              setMobileMenuOpen(false); // Close menu on click
-            }}
-            className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
-              item.name === 'Home'
-                ? 'text-green-400 bg-white/10'
-                : 'text-white hover:text-green-400 hover:bg-white/10'
+            className={`block text-sm font-semibold ${
+              currentPage === item.name.toLowerCase()
+                ? "text-green-500"
+                : "text-gray-700 hover:text-green-600"
             }`}
           >
             {item.name}
-          </a>
+          </Link>
         ))}
-        
-        {/* Mobile Search */}
-        <button className="w-full flex items-center px-4 py-3 text-white hover:text-green-400 hover:bg-white/10 rounded-lg transition-colors">
-          <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-          Search
-        </button>
-
-        {/* Mobile Language Selector */}
-        <button className="w-full flex items-center justify-between px-4 py-3 text-white hover:text-green-400 hover:bg-white/10 rounded-lg transition-colors">
-          <span>Language: EN</span>
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
       </nav>
     </div>
-  </div>
+  )}
 </header>
+
+
 
      {/* ✅ Hero Section */}
 <section className="pt-36 lg:pt-40 max-w-7xl mx-auto px-4 md:px-6 flex flex-col items-center justify-center text-center relative">

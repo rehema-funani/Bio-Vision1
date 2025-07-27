@@ -5,9 +5,12 @@ import { useState } from "react";
 import { BookOpen, DollarSign, GraduationCap, Heart, Leaf, Smile, Sprout, Users } from "lucide-react";
 
 export default function Mission() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
   const pathname = usePathname();
   const [searchQuery, setSearchQuery] = useState("");
-   const navigationItems = [
+  
+  const navigationItems = [
     { name: "Home", href: "/" },
     { name: "Mission", href: "/mission" },
     { name: "Shop", href: "/shop" },
@@ -19,69 +22,135 @@ export default function Mission() {
   ];
 
   return (
-        <div className="relative min-h-screen w-full overflow-x-hidden">
-          {/* ✅ Background image using <img src="/about-hero.jpg" /> */}
-      {/* <img
-        src="/images/farmers.png"
-        alt="Hero Background"
-        className="fixed top-0 left-0 w-full h-full object-cover -z-10"
-      /> */}
-      {/* <div className="fixed inset-0 bg-black/40  " /> */}
-
+    <div className="relative min-h-screen w-full overflow-x-hidden">
       {/* Fixed Navbar */}
-            {/* Fixed Navbar */}
-            <header className="fixed top-0 w-full z-50 bg-white backdrop-blur-md">
-                <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-20 md:h-24">
-                    {/* Logo */}
-                    <div className="flex-shrink-0">
-                        <img
-                            src="/images/greenlogo.png"
-                            alt="Biovision Africa Trust"
-                            className="h-12 md:h-14 object-contain"
-                        />
-                    </div>
+      <header className="fixed top-0 w-full z-50 bg-white backdrop-blur-md">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-20 md:h-24">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <img
+              src="/images/greenlogo.png"
+              alt="Biovision Africa Trust"
+              className="h-12 md:h-14 object-contain"
+            />
+          </div>
 
-                    {/* Navigation */}
-                    <nav className="bg-white hidden lg:flex items-center space-x-2">
-                        {navigationItems.map((item, index) => (
-                            <div key={item.name} className="flex items-center">
-                                <Link
-                                    href={item.href}
-                                    className={`text-sm font-semibold px-2 transition ${
-                                        pathname === item.href
-                                            ? "text-green-500"
-                                            : "text-black hover:text-green-400"
-                                    }`}
-                                >
-                                    {item.name}
-                                </Link>
-                                {index < navigationItems.length - 1 && (
-                                    <span className="h-6 w-px bg-white/40 mx-2" />
-                                )}
-                            </div>
-                        ))}
-                    </nav>
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-2">
+            {navigationItems.map((item, index) => (
+              <div key={item.name} className="flex items-center">
+                <Link
+                  href={item.href}
+                  className={`text-sm font-semibold px-2 transition ${
+                    pathname === item.href
+                      ? "text-green-500"
+                      : "text-black hover:text-green-400"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+                {index < navigationItems.length - 1 && (
+                  <span className="h-6 w-px bg-gray-300 mx-2" />
+                )}
+              </div>
+            ))}
+          </nav>
 
-                    {/* Search + Sign Up */}
-                    <div className="flex items-center gap-4">
-                        <div className="hidden md:flex items-center border border-gray-500 rounded-full overflow-hidden">
-                            <input
-                                type="text"
-                                placeholder="Search"
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                                className="bg-transparent text-black placeholder-white/50 text-sm px-4 py-2 w-32 focus:outline-none"
-                            />
-                            <button className="bg-green-700 hover:bg-green-800 text-white text-sm px-4 py-2 transition">
-                                Search
-                            </button>
-                        </div>
-                        <button className="bg-green-700 hover:bg-green-800 text-white px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap">
-                            Sign Up
-                        </button>
-                    </div>
+          {/* Desktop Search + Actions */}
+          <div className="hidden lg:flex items-center gap-4">
+            <div className="hidden md:flex items-center border border-gray-500 rounded-full overflow-hidden">
+              <input
+                type="text"
+                placeholder="Search"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="bg-transparent text-black placeholder-gray-500 text-sm px-4 py-2 w-32 focus:outline-none"
+              />
+              <button className="bg-green-700 hover:bg-green-800 text-white text-sm px-4 py-2 transition">
+                Search
+              </button>
+            </div>
+            
+            <button className="bg-green-700 hover:bg-green-800 text-white px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap">
+              Sign Up
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="lg:hidden flex items-center gap-3">
+            {/* Mobile Sign Up Button */}
+            <button className="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors">
+              Sign Up
+            </button>
+
+            {/* Hamburger Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 text-black hover:text-green-400 transition-colors"
+              aria-label="Toggle mobile menu"
+            >
+              <svg 
+                className="w-6 h-6" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+              >
+                {mobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu Panel */}
+        <div className={`lg:hidden transition-all duration-300 ease-in-out ${
+          mobileMenuOpen 
+            ? 'max-h-screen opacity-100' 
+            : 'max-h-0 opacity-0 overflow-hidden'
+        }`}>
+          <div className="bg-white border-t border-gray-200">
+            <nav className="px-4 py-4 space-y-2">
+              {navigationItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)} // Close menu on click
+                  className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
+                    pathname === item.href
+                      ? 'text-green-500 bg-green-50'
+                      : 'text-black hover:text-green-400 hover:bg-gray-50'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              
+              {/* Mobile Search */}
+              <div className="px-4 py-3">
+                <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
+                  <input
+                    type="text"
+                    placeholder="Search"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="bg-transparent text-black placeholder-gray-500 text-sm px-3 py-2 flex-1 focus:outline-none"
+                  />
+                  <button className="bg-green-700 hover:bg-green-800 text-white text-sm px-4 py-2 transition">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                  </button>
                 </div>
-            </header>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </header>
+
     
     <section className="bg-black/2 py-12 px-4 sm:py-16 md:py-20 lg:py-24">
       <div className="max-w-7xl bg-red mx-auto">
