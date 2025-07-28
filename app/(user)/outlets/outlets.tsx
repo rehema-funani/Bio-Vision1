@@ -536,7 +536,7 @@ export default function Outlets() {
 
 
      {/* CTA Section */}
-<div className="ml-60 max-w-3xl bg-green-600 mb-20 px-6 py-12 text-center rounded-xl">
+<div className=" mx-auto max-w-7xl bg-green-600 mb-20 w-200 px-6 py-12 text-center rounded-xl">
   <h2 className="text-2xl font-bold mb-4 text-white">Your Story Could Inspire Thousands</h2>
   <p className="text-white mb-6">
     Have you started your agroecology journey? Share your experience and become part

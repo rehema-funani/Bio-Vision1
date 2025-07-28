@@ -656,10 +656,10 @@ export default function Shop() {
 
     // Main Shop Page Component
     return (
-        <div className=" relative max-w-7xl mx-auto bg-[#FFFFFF]relative min-h-screen w-full overflow-x-hidden">
+        <div className=" bg-[#FFFFFF]relative min-h-screen w-full overflow-x-hidden">
             {/* Fixed Navbar */}
       <header className="fixed top-0 w-full z-50 bg-white border-b border-white/10">
-  <div className="max-w-7xl mx-auto px-4 md:px-6 flex flex-wrap  justify-between h-20 md:h-24">
+  <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-20 md:h-24">
     {/* Logo */}
     <div className="flex-shrink-0">
       <img
@@ -1138,7 +1138,7 @@ export default function Shop() {
    </div>
 
    {/* ✅ Newest Products Section */}
-   <div className="mt-16">
+   <div className="max-w-7xl mx-auto mt-16">
     <h2 className="text-2xl md:text-3xl font-bold mb-8">Newest Products</h2>
      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
        {[

@@ -578,7 +578,7 @@ export default function Events() {
         </h1>
       </div>
 
-      <main className="mr-32 px-4 md:px-6 max-w-7xl mx-auto space-y-20">
+      <main className=" px-4 md:px-6 max-w-7xl mx-auto space-y-20">
         {["Trainings & Workshops", "Online Webinars", "Farm Tours"].map(
           (sectionTitle, idx) => (
             <section key={idx}>
@@ -627,7 +627,7 @@ export default function Events() {
       </main>
 
       <div
-        className="mb-29 max-w-3xl mx-auto mt-20 px-6 py-10 rounded-[20px] text-center bg-green-600 text-white mr-62"
+        className="mb-29 max-w-3xl mx-auto mt-20 px-6 py-10 rounded-[20px] text-center bg-green-600 text-white"
         style={{
           backgroundImage: 'url("/images/veggie-pattern.png")',
           backgroundSize: "cover",
