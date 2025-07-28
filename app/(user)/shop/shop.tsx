@@ -656,10 +656,10 @@ export default function Shop() {
 
     // Main Shop Page Component
     return (
-        <div className=" bg-[#FFFFFF]relative min-h-screen w-full overflow-x-hidden">
+        <div className=" relative max-w-7xl mx-auto bg-[#FFFFFF]relative min-h-screen w-full overflow-x-hidden">
             {/* Fixed Navbar */}
       <header className="fixed top-0 w-full z-50 bg-white border-b border-white/10">
-  <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-20 md:h-24">
+  <div className="max-w-7xl mx-auto px-4 md:px-6 flex flex-wrap  justify-between h-20 md:h-24">
     {/* Logo */}
     <div className="flex-shrink-0">
       <img
@@ -875,7 +875,7 @@ export default function Shop() {
     </h2>
 
                 {/* Main Products Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-12">
+                <div className=" max-w-7xl mx-auto overflow-x scroll grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-12">
                     {[
                         { name: "Green Apples", img: "/images/greenapples.png" },
                         { name: "Chinese Cabbage", img: "/images/chinese-cabbage.png" },
@@ -914,7 +914,7 @@ export default function Shop() {
                 </div>
 
                 {/* Secondary Categories */}
-                <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-6">
                     {/* Hot Deals */}
                     <div>
                         <h4 className="font-semibold text-lg mb-4">Hot Deals</h4>

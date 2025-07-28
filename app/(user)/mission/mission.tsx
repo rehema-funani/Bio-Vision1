@@ -200,8 +200,8 @@ export default function Mission() {
     </section>
     
 
-    <section className="mt-[-1] bg-green-50 py-12 px-4 sm:py-16 md:py-20 lg:py-24">
-      <div className="ml-13 max-w-7xl mx-auto">
+    <section className="mt-[-1] max-w-7xl mx-auto bg-green-50 py-12 px-4 sm:py-16 md:py-20 lg:py-24">
+      <div className="ml-13 ">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[50px]">
           {/* Left Column - Four pillars */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
@@ -284,8 +284,8 @@ export default function Mission() {
       </div>
     </section>
 
-    <section className="bg-white py-12 px-4 sm:py-16 md:py-20 lg:py-24">
-      <div className="ml-13 max-w-7xl mx-auto">
+    <section className="bg-white max-w-7xl mx-auto py-12 px-4 sm:py-16 md:py-20 lg:py-24">
+      <div className="ml-13 ">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left Column - Title and Description */}
           <div className="space-y-6">

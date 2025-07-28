@@ -1387,33 +1387,32 @@ export default function App() {
 
 
      {/* ✅ Hero Section */}
-<section className="pt-36 lg:pt-40 max-w-7xl mx-auto px-4 md:px-6 flex flex-col items-center justify-center text-center relative">
+<section className="pt-36  lg:pt-40 max-w-7xl mx-auto px-4 md:px-6 flex flex-col items-center justify-center text-center">
   {/* Dark overlay */}
-  <div className="absolute inset-0 bg-black/50 -z-10"></div>
-  
+  <div className="absolute  inset-0 bg-black/50 -z-10"></div> 
   <div className="flex flex-col lg:flex-row items-center justify-center gap-12 w-full">
-   
-    {/* ✅ Hero Text */}
-    <div className="h-90 text-white max-w-xl text-left">
+
+     
+     <div className="h-90 text-white max-w-xl text-left">
       <h1 className="text-4xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
-        Empowering Africa <br /> Through Agroecology
-      </h1>
-      <p className="text-lg font-bold text-white/90 mb-4">
-        Explore certified organic products, verified AE/EOA outlets, and insights
-        that promote sustainable food systems across Africa.
-      </p>
-      <p className="text-base text-white/80 mb-8">
-        Every purchase supports 2.3M+ Farmers building sustainable food systems.
-      </p>
-      <div className="flex gap-4 flex-wrap">
-        <button className="bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-full text-sm">
-          Explore Products
+         Empowering Africa <br /> Through Agroecology
+       </h1>
+       <p className="text-lg font-bold text-white/90 mb-4">
+         Explore certified organic products, verified AE/EOA outlets, and insights
+         that promote sustainable food systems across Africa.
+       </p>
+       <p className="text-base text-white/80 mb-8">
+         Every purchase supports 2.3M+ Farmers building sustainable food systems.
+       </p>
+       <div className="flex gap-4 flex-wrap">
+         <button className="bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-full text-sm">
+           Explore Products
+         </button>
+         <button className="bg-white text-green-800 hover:bg-gray-100 font-semibold px-6 py-3 rounded-full text-sm">
+           Learn More
         </button>
-        <button className="bg-white text-green-800 hover:bg-gray-100 font-semibold px-6 py-3 rounded-full text-sm">
-          Learn More
-        </button>
-      </div>
-    </div>
+       </div>
+     </div>
 
     {/* ✅ Hero Side Images */}
     <div className="flex gap-4">
