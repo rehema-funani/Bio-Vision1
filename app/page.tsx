@@ -1028,9 +1028,13 @@ import {
 } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 
 
 export default function App() {
+  const handleLogin =() => {
+    redirect("/auth")
+  }
   // ✅ All useState hooks go HERE, inside the component function
   const [currentPage, setCurrentPage] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -1207,7 +1211,7 @@ export default function App() {
                   Already have an account?{' '}
                   <button
                     type="button"
-                    onClick={() => setIsSignIn(true)}
+          
                     className="text-green-600 hover:underline"
                   >
                     Sign In
@@ -1372,7 +1376,7 @@ export default function App() {
             </svg>
           </div>
         </div>
-        <button className="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full text-sm font-medium">
+        <button onClick = {() => handleLogin} className="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full text-sm font-medium">
           Sign Up
         </button>
       </div>

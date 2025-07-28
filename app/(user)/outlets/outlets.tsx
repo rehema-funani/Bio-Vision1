@@ -11,7 +11,7 @@ import { useState } from "react";
 import { BookOpen, DollarSign, GraduationCap, Heart, Leaf, Smile, Sprout, Users } from "lucide-react";
 
 export default function Outlets() {
-  const [currentPage, setCurrentPage] = useState('resources');
+  const [currentPage, setCurrentPage] = useState('outlets');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const pathname = usePathname();
           const [searchQuery, setSearchQuery] = useState("");
