@@ -1247,16 +1247,18 @@ export default function App() {
         className="fixed top-0 left-0 w-full h-full object-cover -z-10"
       />
 
-   <header className="fixed top-0 w-full z-50 bg-white shadow">
+   <header className="fixed top-0 w-full z-50 bg-black/20 backdrop-blur-sm border-b border-white/10">
   <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-20 md:h-24">
     {/* Logo */}
     <div className="flex-shrink-0">
       <img
-        src="/images/greenlogo.png"
+        src="https://api.builder.io/api/v1/image/assets/TEMP/5376572c943bbbbf555a8e8d2b23c9146eee9067?width=335"
         alt="Biovision Africa Trust"
         className="h-12 md:h-14 object-contain"
       />
     </div>
+
+    
 
     {/* Desktop Navigation */}
     <nav className="hidden lg:flex items-center space-x-2">
@@ -1266,14 +1268,14 @@ export default function App() {
             href={item.href}
             className={`text-sm font-semibold px-2 transition ${
               currentPage === item.name.toLowerCase()
-                ? "text-green-500"
-                : "text-black hover:text-green-400"
+                ? "text-green-400"
+                : "text-white hover:text-green-300"
             }`}
           >
             {item.name}
           </Link>
           {index < navigationItems.length - 1 && (
-            <span className="h-6 w-px bg-white/40 mx-2" />
+            <span className="h-6 w-px bg-white/30 mx-2" />
           )}
         </div>
       ))}
@@ -1283,7 +1285,7 @@ export default function App() {
     <div className="block lg:hidden">
       <button
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        className="text-gray-800 focus:outline-none"
+        className="text-white focus:outline-none"
       >
         <svg
           className="w-6 h-6"
@@ -1308,27 +1310,43 @@ export default function App() {
 
     {/* Search + Sign Up */}
     <div className="hidden md:flex items-center gap-4">
-      <div className="hidden md:flex items-center border border-gray-500 rounded-full overflow-hidden">
-        <input
-          type="text"
-          placeholder="Search"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="bg-transparent text-black placeholder-white/50 text-sm px-4 py-2 w-32 focus:outline-none"
-        />
-        <button className="bg-green-700 hover:bg-green-800 text-white text-sm px-4 py-2 transition">
-          Search
-        </button>
+      {/* Search with circular button */}
+      <div className="flex items-center gap-2">
+        <div className="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center cursor-pointer hover:bg-white/10 transition">
+          <svg 
+            className="w-5 h-5 text-white" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              strokeWidth={2} 
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" 
+            />
+          </svg>
+        </div>
       </div>
-      <button className="bg-green-700 hover:bg-green-800 text-white px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap">
+      
+      {/* Sign Up Button */}
+      <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap transition">
         Sign Up
       </button>
+      
+      {/* Language Selector */}
+      <div className="flex items-center gap-1 text-white cursor-pointer">
+        <span className="text-sm font-medium">EN</span>
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </div>
     </div>
   </div>
 
   {/* Mobile Menu Panel */}
   {mobileMenuOpen && (
-    <div className="block lg:hidden px-4 pt-4 pb-6 bg-white border-t border-gray-200 shadow-md">
+    <div className="block lg:hidden px-4 pt-4 pb-6 bg-black/80 backdrop-blur-sm border-t border-white/10">
       <nav className="space-y-3">
         {navigationItems.map((item) => (
           <Link
@@ -1336,14 +1354,28 @@ export default function App() {
             href={item.href}
             className={`block text-sm font-semibold ${
               currentPage === item.name.toLowerCase()
-                ? "text-green-500"
-                : "text-gray-700 hover:text-green-600"
+                ? "text-green-400"
+                : "text-white hover:text-green-300"
             }`}
           >
             {item.name}
           </Link>
         ))}
       </nav>
+      
+      {/* Mobile Search and Sign Up */}
+      <div className="mt-4 space-y-3">
+        <div className="flex items-center gap-2">
+          <div className="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center">
+            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+        </div>
+        <button className="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full text-sm font-medium">
+          Sign Up
+        </button>
+      </div>
     </div>
   )}
 </header>
