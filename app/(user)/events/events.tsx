@@ -578,20 +578,19 @@ export default function Events() {
         </h1>
       </div>
 
-      <main className="px-4 md:px-6 max-w-7xl mx-auto space-y-12 sm:space-y-16 lg:space-y-20">
+      <main className="px-4 md:px-6 max-w-7xl mx-auto space-y-12 sm:space-y-16 lg:space-y-20 bg-white">
   {["Trainings & Workshops", "Online Webinars", "Farm Tours"].map(
     (sectionTitle, idx) => (
       <section key={idx} className="w-full">
-        <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-800 mb-4 sm:mb-6 text-center sm:text-left">
+        <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4 sm:mb-6 ml-0 sm:ml-50">
           {sectionTitle}
         </h2>
-
-        <div className="flex flex-wrap justify-center sm:justify-start lg:justify-center gap-4 sm:gap-6">
+        <div className="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-6 sm:ml-50">
           {eventData.map((event, i) => (
             <Link
               key={i}
               href={`/eventdetails`}
-              className="relative group overflow-hidden rounded-xl block flex-shrink-0 w-full max-w-[280px] sm:w-[235px] h-[280px] sm:h-[320px] mx-auto sm:mx-0"
+              className="relative group overflow-hidden rounded-xl block flex-shrink-0 w-full max-w-[280px] sm:w-[235px] h-[280px] sm:h-[320px] mx-auto sm:mx-0 bg-white"
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-300 scale-100 group-hover:scale-105"
