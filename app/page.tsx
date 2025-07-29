@@ -1244,7 +1244,7 @@ export default function App() {
 
   // Homepage Component (keeping your existing homepage exactly as is)
   const Homepage = () => (
-    <div className="bg-red relative min-h-screen w-full overflow-x-hidden">
+    <div className=" relative min-h-screen w-full overflow-x-hidden">
       {/* Background image */}
       <img
         src="/images/farmers.png"
@@ -1311,8 +1311,8 @@ export default function App() {
 </section>
 
      {/* Stats Section */}
-     <section className="bg-white py-20 px-4 md:px-8 lg:px-16 text-gray-900">
-       <div className="bg-white max-w-7xl mx-auto flex flex-col gap-16">
+     <section className="bg-[#fdfbf6] py-20 px-4 md:px-8 lg:px-16 text-gray-900">
+       <div className="bg-[#fdfbf6] max-w-7xl mx-auto flex flex-col gap-16">
          <div className="flex flex-col lg:flex-row justify-between items-start gap-12">
            {/* Heading */}
            <div className="max-w-xl">
@@ -1404,8 +1404,8 @@ export default function App() {
      </section>
 
       {/* ✅ Find Outlets Section */}
-<section className="relative bg-white  py-24 px-4 md:px-8 lg:px-12">
-  <div className=" max-w-7xl mx-auto text-center relative z-10">
+<section className="relative bg-[#fdfbf6]  py-24 px-4 md:px-8 lg:px-12">
+  <div className=" bg-[#fdfbf6] max-w-7xl mx-auto text-center relative z-10">
 
     {/* Heading */}
     <h2 className="text-[2.5rem] md:text-5xl font-bold text-gray-900 leading-snug mb-6">
@@ -1503,8 +1503,8 @@ export default function App() {
 
 
      {/* Featured Products Section */}
-     <section className="bg-[#fdfcf7] py-20 px-4 md:px-8 lg:px-12">
-       <div className="bg-[#fdfcf7] max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+     <section className="bg-[#fdfbf6] py-20 px-4 md:px-8 lg:px-12">
+       <div className="bg-[#fdfbf6] max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
          {/* Product Cards Grid */}
          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
@@ -1530,7 +1530,7 @@ export default function App() {
  </div>
 
  {/* Bottom lightly colored section */}
- <div className="bg-[#fdfcf7] p-4 pt-1 text-left">
+ <div className="bg-[#fdfbf6] p-4 pt-1 text-left">
    <p className="text-xs text-gray-400 mb-1">Vegetables</p>
    <h3 className="font-semibold text-gray-800">{product.name}</h3>
    <div className="flex items-center justify-center gap-2 text-xs text-gray-500 mt-1">
@@ -1577,7 +1577,7 @@ export default function App() {
      </section>
 
       {/* How It Works Section */}
-      <section className="bg-white py-20 px-4 md:px-8 lg:px-12 relative overflow-hidden">
+      <section className="bg-[#fdfbf6] py-20 px-4 md:px-8 lg:px-12 relative overflow-hidden">
         {/* Decorative background elements */}
         <div className="absolute top-10 left-10 w-32 h-32 bg-green-200/30 rounded-full blur-3xl" />
         <div className="absolute bottom-10 right-10 w-40 h-40 bg-green-300/20 rounded-full blur-3xl" />
@@ -1726,7 +1726,7 @@ export default function App() {
       </section>
 
       {/* Stories & Insights From the Field Section */}
-      <section className="bg-white py-20 px-4 md:px-8 lg:px-12">
+      <section className="bg-[#e8eee2] py-20 px-4 md:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
@@ -1833,7 +1833,7 @@ export default function App() {
       </section>
 
       {/* Upcoming Events & Trainings Section */}
-      <section className="bg-white py-20 px-4 md:px-8 lg:px-12">
+      <section className="bg-[#fdfbf6] py-20 px-4 md:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
@@ -1946,7 +1946,7 @@ Join us online for stories from producers, a live Q&A, and tips for conscious co
           </div>
 
           {/* View All Events Button */}
-          <div className="text-center">
+          <div className="bg-[#fdfbf6] text-center">
             <button className="bg-green-700 hover:bg-green-800 text-white font-semibold px-8 py-4 rounded-full text-sm transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
               View All Events
             </button>
@@ -1955,7 +1955,7 @@ Join us online for stories from producers, a live Q&A, and tips for conscious co
       </section>
 
        {/* ✅ Ready to Shop Section */}
- <section className="bg-white py-16 px-4 md:px-8 lg:px-12 mb-6 ">
+ <section className="bg-[#fdfbf6] py-16 px-4 md:px-8 lg:px-12 mb-6 ">
    {/* Decorative background pattern */}
    <div className="absolute inset-0 opacity-10 bg-white">
      <div className="absolute top-10 left-10 w-32 h-32 border border-white/20 rounded-full" />
@@ -1977,7 +1977,7 @@ Join us online for stories from producers, a live Q&A, and tips for conscious co
  </section>
 
       {/* Newsletter Section */}
-      <section className="bg-[#2C2A29] py-16 px-4 md:px-8 lg:px-12 -mt-16">
+      <section className="bg-[#2c2a29] py-16 px-4 md:px-8 lg:px-12 -mt-16">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
           
           {/* Left side - Newsletter info */}
@@ -2014,7 +2014,7 @@ Join us online for stories from producers, a live Q&A, and tips for conscious co
 
       
      {/* ✅ Footer Section */}
-<footer className="bg-[#24231D] py-8 px-4 md:px-8 lg:px-12">
+<footer className="bg-[#24231d] py-8 px-4 md:px-8 lg:px-12">
     <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-6">
             
@@ -2169,7 +2169,7 @@ Join us online for stories from producers, a live Q&A, and tips for conscious co
         {/* Bottom Section */}
         {/* Updated Bottom Section - Full Width */}
 {/* Bottom Section - Full Width Outside Container */}
-        <div className="w-full bg-[#2C2A29] border-t border-gray-700 pt-6 pb-6 ">
+        <div className="w-full bg-[#2c2a29] border-t border-gray-700 pt-6 pb-6 ">
             <div className="max-w-9xl mx-auto px-4 md:px-8 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p className=" ml-3 text-yellow-500 text-xs font-medium">
                     © 2025 BioVision Africa Trust. All Rights Reserved.
