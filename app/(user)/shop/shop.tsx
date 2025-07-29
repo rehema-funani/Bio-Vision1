@@ -1213,4 +1213,4 @@ export default function Shop() {
     
     
   );
-
+}
