@@ -1259,50 +1259,52 @@ export default function App() {
 
 
 
-     {/* ✅ Hero Section */}
-<section className="pt-36  lg:pt-40 max-w-7xl mx-auto px-4 md:px-6 flex flex-col items-center justify-center text-center">
-  {/* Dark overlay */}
-  <div className="absolute  inset-0 bg-black/50 -z-10"></div> 
-  <div className="flex flex-col lg:flex-row items-center justify-center gap-12 w-full">
+ // Update your Hero Section in the Homepage component
+// Replace the existing hero section with this:
 
+{/* Hero Section */}
+<section className="pt-20 sm:pt-24 lg:pt-32 pb-16 max-w-7xl mx-auto px-4 md:px-6 flex flex-col items-center justify-center text-center">
+  {/* Dark overlay */}
+  <div className="absolute inset-0 bg-black/50 -z-10"></div> 
+  <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 w-full">
      
-     <div className="h-90 text-white max-w-xl text-left">
-      <h1 className="text-4xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
+    <div className="text-white max-w-xl text-left">
+      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4 lg:mb-6">
          Empowering Africa <br /> Through Agroecology
-       </h1>
-       <p className="text-lg font-bold text-white/90 mb-4">
+      </h1>
+      <p className="text-base lg:text-lg font-bold text-white/90 mb-3 lg:mb-4">
          Explore certified organic products, verified AE/EOA outlets, and insights
          that promote sustainable food systems across Africa.
-       </p>
-       <p className="text-base text-white/80 mb-8">
+      </p>
+      <p className="text-sm lg:text-base text-white/80 mb-6 lg:mb-8">
          Every purchase supports 2.3M+ Farmers building sustainable food systems.
-       </p>
-       <div className="flex gap-4 flex-wrap">
-         <button className="bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-full text-sm">
+      </p>
+      <div className="flex gap-4 flex-wrap">
+         <button className="bg-green-700 hover:bg-green-800 text-white font-semibold px-4 lg:px-6 py-2 lg:py-3 rounded-full text-sm">
            Explore Products
          </button>
-         <button className="bg-white text-green-800 hover:bg-gray-100 font-semibold px-6 py-3 rounded-full text-sm">
+         <button className="bg-white text-green-800 hover:bg-gray-100 font-semibold px-4 lg:px-6 py-2 lg:py-3 rounded-full text-sm">
            Learn More
         </button>
-       </div>
-     </div>
+      </div>
+    </div>
 
-    {/* ✅ Hero Side Images */}
-    <div className="flex gap-4">
+    {/* Hero Side Images */}
+    <div className="flex gap-3 lg:gap-4">
       <img
        src="/images/farmer.png"
        alt="Hero image 1"
-       className="rounded-xl w-32 md:w-36 lg:w-40 object-cover"
+       className="rounded-xl w-24 sm:w-32 lg:w-40 object-cover"
      />
      <img
        src="/images/farm.png"
        alt="Hero image 2"
-       className="rounded-xl w-32 md:w-36 lg:w-40 object-cover"
+       className="rounded-xl w-24 sm:w-32 lg:w-40 object-cover"
      />
      <img
        src="/images/carrot.png"
        alt="Hero image 3"
-       className="rounded-xl w-32 md:w-36 lg:w-40 object-cover"
+       className="rounded-xl w-24 sm:w-32 lg:w-40 object-cover"
      />
    </div>
  </div>
