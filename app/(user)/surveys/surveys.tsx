@@ -1716,142 +1716,7 @@ export default function Surveys() {
         <div className="min-h-screen bg-white text-gray-800">
             <div className="fixed inset-0 bg-black/40" />
 
-            {/* Fixed Navbar */}
-      <header className="fixed top-0 w-full z-50 bg-white border-b border-white/10">
-  <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-16 md:h-20 lg:h-24">
-    {/* Logo */}
-    <div className="flex-shrink-0">
-      <img
-        src="/images/greenlogo.png"
-        alt="Biovision Africa Trust"
-        className="h-10 md:h-12 lg:h-14 object-contain"
-      />
-    </div>
-
-    
-
-    {/* Desktop Navigation */}
-    <nav className="hidden lg:flex items-center space-x-2">
-      {navigationItems.map((item, index) => (
-        <div key={item.name} className="flex items-center">
-          <Link
-            href={item.href}
-            className={`text-sm font-semibold px-2 transition ${
-              currentPage === item.name.toLowerCase()
-                ? "text-green-400"
-                : "text-black hover:text-green-300"
-            }`}
-          >
-            {item.name}
-          </Link>
-          {index < navigationItems.length - 1 && (
-            <span className="h-6 w-px bg-black/20 mx-2" />
-
-          )}
-        </div>
-      ))}
-    </nav>
-
-    {/* Hamburger button */}
-    <div className="block lg:hidden">
-      <button
-        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        className="text-green-500 focus:outline-none"
-      >
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d={
-              mobileMenuOpen
-                ? "M6 18L18 6M6 6l12 12" // X icon
-                : "M4 6h16M4 12h16M4 18h16" // Hamburger icon
-            }
-          />
-        </svg>
-      </button>
-    </div>
-
-    {/* Search + Sign Up */}
-    <div className="hidden md:flex items-center gap-2 lg:gap-4">
-      {/* Search with circular button */}
-      <div className="flex items-center gap-2">
-        <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full border border-green-500 flex items-center justify-center cursor-pointer hover:bg-green-100/10 transition">
-
-          <svg 
-            className="w-4 h-4 lg:w-5 lg:h-5 text-green-500" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
-          >
-            <path 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              strokeWidth={2} 
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" 
-            />
-          </svg>
-        </div>
-      </div>
-      
-      {/* Sign Up Button */}
-      <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 lg:px-6 lg:py-2 rounded-full text-xs lg:text-sm font-medium whitespace-nowrap transition">
-        Sign Up
-      </button>
-      
-      {/* Language Selector */}
-      <div className="flex items-center gap-1 text-green-500 cursor-pointer">
-  <span className="text-xs lg:text-sm font-medium">EN</span>
-  <svg className="w-3 h-3 lg:w-4 lg:h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-  </svg>
-</div>
-
-    </div>
-  </div>
-
-  {/* Mobile Menu Panel */}
-  {mobileMenuOpen && (
-    <div className="block lg:hidden px-4 pt-4 pb-6 bg-black/80 backdrop-blur-sm border-t border-white/10">
-      <nav className="space-y-3">
-        {navigationItems.map((item) => (
-          <Link
-            key={item.name}
-            href={item.href}
-            className={`block text-sm font-semibold ${
-              currentPage === item.name.toLowerCase()
-                ? "text-green-400"
-                : "text-white hover:text-green-300"
-            }`}
-          >
-            {item.name}
-          </Link>
-        ))}
-      </nav>
-      
-      {/* Mobile Search and Sign Up */}
-      <div className="mt-4 space-y-3">
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center">
-            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </div>
-        </div>
-        <button className="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full text-sm font-medium">
-          Sign Up
-        </button>
-      </div>
-    </div>
-  )}
-</header>
+           
 
             {/* Survey Modal */}
             <SurveyModal />
@@ -1994,36 +1859,38 @@ export default function Surveys() {
                 </section>
             </main>
 
-            {/* Newsletter Section */}
-      <section className="bg-[#2C2A29] py-12 sm:py-16 px-4 md:px-8 lg:px-12 -mt-12 sm:-mt-16">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8">
+            
+      
+      {/* Newsletter Section */}
+      <section className="bg-[#2c2a29] py-16 px-4 md:px-8 lg:px-12 -mt-16">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
           
           {/* Left side - Newsletter info */}
-          <div className="flex items-center gap-3 sm:gap-4 text-white text-center lg:text-left">
+          <div className="flex items-center gap-4 text-white">
             <div className="flex-shrink-0">
               {/* Email icon */}
-              <svg className="w-10 h-10 sm:w-12 sm:h-12 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-12 h-12 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </div>
             <div>
-              <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">
+              <h3 className="text-xl md:text-2xl font-bold mb-2">
                 Join the Movement
               </h3>
-              <p className="text-gray-300 text-xs sm:text-sm md:text-base">
+              <p className="text-gray-300 text-sm md:text-base">
                 Get updates on AE/EOA events, stories, outlets, and resources that empower African farmers.
               </p>
             </div>
           </div>
 
           {/* Right side - Email signup form */}
-          <div className="flex w-full max-w-md lg:max-w-none lg:w-auto lg:min-w-80">
+          <div className="flex w-full md:w-auto min-w-80">
             <input
               type="email"
               placeholder="Your email address"
-              className="flex-1 px-3 sm:px-4 py-2 sm:py-3 text-gray-900 bg-white rounded-l-full focus:outline-none focus:ring-2 focus:ring-green-500 text-xs sm:text-sm"
+              className="flex-1 px-4 py-3 text-gray-900 bg-white rounded-l-full focus:outline-none focus:ring-2 focus:ring-green-500 text-sm"
             />
-            <button className="bg-green-700 hover:bg-green-800 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-r-full font-medium text-xs sm:text-sm transition-colors duration-300">
+            <button className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-r-full font-medium text-sm transition-colors duration-300">
               Subscribe
             </button>
           </div>
@@ -2032,7 +1899,7 @@ export default function Surveys() {
 
       
      {/* ✅ Footer Section */}
-<footer className="bg-[#24231D] py-6 sm:py-8 px-4 md:px-8 lg:px-12">
+<footer className="bg-[#24231d] py-6 sm:py-8 px-4 md:px-8 lg:px-12">
     <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-6">
             
@@ -2186,7 +2053,7 @@ export default function Surveys() {
         {/* Bottom Section */}
         {/* Updated Bottom Section - Full Width */}
 {/* Bottom Section - Full Width Outside Container */}
-        <div className="w-full bg-[#2C2A29] border-t border-gray-700 pt-4 sm:pt-6 pb-4 sm:pb-6">
+        <div className="w-full bg-[#2c2a29] border-t border-gray-700 pt-4 sm:pt-6 pb-4 sm:pb-6">
             <div className="max-w-9xl mx-auto px-4 md:px-8 lg:px-12 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
                 <p className="ml-0 sm:ml-3 text-yellow-500 text-xs font-medium text-center sm:text-left">
                     © 2025 BioVision Africa Trust. All Rights Reserved.
@@ -2202,5 +2069,5 @@ export default function Surveys() {
         </div>
     </div>
     
+    
   );
-}

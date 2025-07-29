@@ -329,11 +329,13 @@
 //       )}
 //     </header>
 //   )
-// }
+// }"use client";
 "use client";
+
 import Link from "next/link";
-import { redirect } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { redirect } from "next/navigation";
 
 const navigationItems = [
   { name: "Home", href: "/" },
@@ -350,217 +352,205 @@ const handleLogin = () => {
   redirect("/auth");
 };
 
-export const Header = () => {
-  const [currentPage, setCurrentPage] = useState("home");
+export const Header = ({ theme = "dark" }: { theme?: "light" | "dark" }) => {
+  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const isLight = theme === "light";
+
+  const logoSrc = isLight
+    ? "/images/greenlogo.png"
+    : "https://api.builder.io/api/v1/image/assets/TEMP/5376572c943bbbbf555a8e8d2b23c9146eee9067?width=335";
 
   return (
     <header className="sticky top-0 left-0 w-full z-50">
-      <div className="flex justify-center">
-    <div className=" w-full mx-auto px-4 sm:px-6 lg:px-8 bg-black/20 backdrop-blur-sm border-b border-white/10 rounded-b-lg">
-          <div className="flex items-center justify-between h-16 sm:h-20 lg:h-24">
-            {/* Logo */}
-            <div className="flex-shrink-0">
-              <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/5376572c943bbbbf555a8e8d2b23c9146eee9067?width=335"
-                alt="Biovision Africa Trust"
-                className="h-8 sm:h-10 lg:h-12 object-contain"
-              />
-            </div>
+      <div
+        className={`w-full ${
+          isLight
+            ? "bg-white border-b border-black/10"
+            : "bg-black/40 backdrop-blur-md border-b border-white/20"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-20 md:h-24">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <img
+              src={logoSrc}
+              alt="Biovision Africa Trust"
+              className="h-10 md:h-12 object-contain"
+            />
+          </div>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden xl:flex items-center space-x-1 lg:space-x-2">
-              {navigationItems.map((item, index) => (
-                <div key={item.name} className="flex items-center">
-                  <Link
-                    href={item.href}
-                    className={`text-xs lg:text-sm font-semibold px-1 lg:px-2 py-1 transition whitespace-nowrap ${
-                      currentPage === item.name.toLowerCase()
-                        ? "text-green-400"
-                        : "text-white hover:text-green-300"
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-2">
+            {navigationItems.map((item, index) => (
+              <div key={item.name} className="flex items-center">
+                <Link
+                  href={item.href}
+                  className={`text-sm font-semibold px-2 transition ${
+                    pathname === item.href
+                      ? "text-green-400"
+                      : isLight
+                      ? "text-black hover:text-green-300"
+                      : "text-white hover:text-green-300"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+                {index < navigationItems.length - 1 && (
+                  <span
+                    className={`h-6 w-px mx-2 ${
+                      isLight ? "bg-black/20" : "bg-white/30"
                     }`}
-                  >
-                    {item.name}
-                  </Link>
-                  {index < navigationItems.length - 1 && (
-                    <span className="h-4 lg:h-6 w-px bg-white/30 mx-1 lg:mx-2" />
-                  )}
-                </div>
-              ))}
-            </nav>
-
-            {/* Desktop Actions */}
-            <div className="hidden lg:flex items-center gap-2 lg:gap-4">
-              {/* Search */}
-              <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full border border-white/40 flex items-center justify-center cursor-pointer hover:bg-white/10 transition">
-                <svg
-                  className="w-4 h-4 lg:w-5 lg:h-5 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                   />
-                </svg>
+                )}
               </div>
+            ))}
+          </nav>
 
-              {/* Sign Up */}
-              <button
-                onClick={handleLogin}
-                className="bg-green-600 hover:bg-green-700 text-white px-3 lg:px-6 py-2 rounded-full text-xs lg:text-sm font-medium whitespace-nowrap transition"
+          {/* Desktop Actions */}
+          <div className="hidden md:flex items-center gap-4">
+            {/* Search */}
+            <div
+              className={`w-10 h-10 rounded-full border flex items-center justify-center cursor-pointer transition ${
+                isLight
+                  ? "border-green-500 hover:bg-green-100/10"
+                  : "border-white/40 hover:bg-white/10"
+              }`}
+            >
+              <svg
+                className={`w-5 h-5 ${isLight ? "text-green-500" : "text-white"}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                Sign Up
-              </button>
-
-              {/* Language */}
-              <div className="flex items-center gap-1 text-white cursor-pointer">
-                <span className="text-xs lg:text-sm font-medium">EN</span>
-                <svg
-                  className="w-3 h-3 lg:w-4 lg:h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </div>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
             </div>
 
-            {/* Mobile/Tablet Actions */}
-            <div className="flex items-center gap-2 lg:hidden">
-              {/* Search - Tablet only */}
-              <div className="hidden sm:flex w-8 h-8 rounded-full border border-white/40 items-center justify-center cursor-pointer hover:bg-white/10 transition">
-                <svg
-                  className="w-4 h-4 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-              </div>
+            {/* Sign Up Button */}
+            <button
+              onClick={handleLogin}
+              className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap transition"
+            >
+              Sign Up
+            </button>
 
-              {/* Sign Up - Tablet only */}
-              <button
-                onClick={handleLogin}
-                className="hidden sm:block bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap transition"
+            {/* Language Selector */}
+            <div
+              className={`flex items-center gap-1 cursor-pointer ${
+                isLight ? "text-green-500" : "text-white"
+              }`}
+            >
+              <span className="text-sm font-medium">EN</span>
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                Sign Up
-              </button>
-
-              {/* Hamburger Menu */}
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-white focus:outline-none p-2"
-              >
-                <svg
-                  className="w-5 h-5 sm:w-6 sm:h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d={
-                      mobileMenuOpen
-                        ? "M6 18L18 6M6 6l12 12" // X icon
-                        : "M4 6h16M4 12h16M4 18h16" // Hamburger icon
-                    }
-                  />
-                </svg>
-              </button>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
             </div>
           </div>
 
-          {/* Mobile Menu Panel */}
-          {mobileMenuOpen && (
-            <div className="xl:hidden pt-4 pb-6 bg-black/90 backdrop-blur-sm border-t border-white/10 rounded-b-lg">
-              <nav className="space-y-3">
-                {navigationItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className={`block text-sm font-semibold py-2 ${
-                      currentPage === item.name.toLowerCase()
-                        ? "text-green-400"
-                        : "text-white hover:text-green-300"
-                    }`}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </nav>
+          {/* Mobile Hamburger */}
+          <div className="block lg:hidden">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className={`${isLight ? "text-green-500" : "text-white"} focus:outline-none`}
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d={
+                    mobileMenuOpen
+                      ? "M6 18L18 6M6 6l12 12"
+                      : "M4 6h16M4 12h16M4 18h16"
+                  }
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
 
-              <div className="mt-6 space-y-4">
-                {/* Mobile Search */}
-                <div className="flex items-center gap-2 sm:hidden">
-                  <div className="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center">
-                    <svg
-                      className="w-5 h-5 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                      />
-                    </svg>
-                  </div>
-                  <span className="text-white text-sm">Search</span>
-                </div>
-
-                {/* Sign Up - Mobile */}
-                <button
-                  onClick={handleLogin}
-                  className="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full text-sm font-medium sm:hidden"
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div
+            className={`block lg:hidden px-4 pt-4 pb-6 ${
+              isLight
+                ? "bg-white border-t border-black/10"
+                : "bg-black/80 border-t border-white/10"
+            } backdrop-blur-sm`}
+          >
+            <nav className="space-y-3">
+              {navigationItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`block text-sm font-semibold ${
+                    pathname === item.href
+                      ? "text-green-400"
+                      : isLight
+                      ? "text-black hover:text-green-300"
+                      : "text-white hover:text-green-300"
+                  }`}
                 >
-                  Sign Up
-                </button>
+                  {item.name}
+                </Link>
+              ))}
+            </nav>
 
-                {/* Language Selector */}
-                <div className="flex items-center gap-2 text-white">
-                  <span className="text-sm font-medium">Language:</span>
-                  <div className="flex items-center gap-1 cursor-pointer">
-                    <span className="text-sm font-medium">EN</span>
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                  </div>
+            {/* Mobile Actions */}
+            <div className="mt-4 space-y-3">
+              <div className="flex items-center gap-2">
+                <div
+                  className={`w-10 h-10 rounded-full border flex items-center justify-center ${
+                    isLight ? "border-green-500" : "border-white/40"
+                  }`}
+                >
+                  <svg
+                    className={`w-5 h-5 ${isLight ? "text-green-500" : "text-white"}`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
+                  </svg>
                 </div>
               </div>
+
+              <button
+                onClick={handleLogin}
+                className="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full text-sm font-medium"
+              >
+                Sign Up
+              </button>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </header>
   );
