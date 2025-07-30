@@ -1944,16 +1944,15 @@ Join us online for stories from producers, a live Q&A, and tips for conscious co
           </div>
 
           {/* View All Events Button */}
-          <div className="bg-[#fdfbf6] text-center">
-            <button className="bg-green-700 hover:bg-green-800 text-white font-semibold px-8 py-4 rounded-full text-sm transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
-              View All Events
-            </button>
-          </div>
+          <div className="mb-2 bg-[#fdfbf6] text-center">
+  <button className="mt-2 bg-green-700 hover:bg-green-800 text-white font-semibold px-8 py-4 rounded-full text-sm transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+    View All Events
+  </button>
+</div>
         </div>
       </section>
 
-       {/* ✅ Ready to Shop Section */}
-<section className="bg-[#fdfbf6] py-16 px-4 md:px-8 lg:px-12 mb-6">
+       <section className="bg-[#fdfbf6] py-5 px-4 md:px-8 lg:px-12 mb-18">
   {/* Decorative background pattern */}
   <div className="absolute inset-0 opacity-10 bg-white">
     <div className="absolute top-10 left-10 w-32 h-32 border border-white/20 rounded-full" />
@@ -1961,19 +1960,19 @@ Join us online for stories from producers, a live Q&A, and tips for conscious co
     <div className="absolute top-1/2 left-1/4 w-16 h-16 border border-white/20 rounded-full" />
   </div>
 
-  <div className="max-w-7xl mx-auto text-center relative z-10 bg-[#2E7D32] px-8 py-12 h-[250px] rounded-2xl flex flex-col justify-center">
-    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+  <div className="max-w-7xl mx-auto text-center relative z-10 bg-[#2E7D32] px-6 py-8 rounded-2xl flex flex-col justify-center">
+    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
       Ready to shop for impact?
     </h2>
-    <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+    <p className="text-base md:text-lg text-white/90 mb-6 max-w-2xl mx-auto">
       Explore our full range of certified organic solutions and see how every purchase drives change.
     </p>
-    <button className="w-73 ml-115 bg-white text-green-700 hover:bg-gray-50 font-semibold px-8 py-2 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-lg">
-  Shop All Products
-</button>
-
+    <button className="mx-auto bg-white text-green-700 hover:bg-gray-50 font-semibold px-6 py-2 rounded-full text-base transition-all duration-300 hover:scale-105 shadow-lg">
+      Shop All Products
+    </button>
   </div>
 </section>
+
       {/* Newsletter Section */}
       <section className="bg-[#2c2a29] py-16 px-4 md:px-8 lg:px-12 -mt-16">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
