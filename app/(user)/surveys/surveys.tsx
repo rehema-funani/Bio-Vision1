@@ -1714,7 +1714,7 @@ export default function Surveys() {
 
     return (
         <div className="min-h-screen bg-white text-gray-800">
-            <div className="fixed inset-0 bg-black/40" />
+            {/* <div className="fixed inset-0 bg-black/40" /> */}
 
            
 
@@ -1725,9 +1725,9 @@ export default function Surveys() {
             <SuccessPopup />
 
             {/* Main Content */}
-            <main className={`relative z-10 pt-16 sm:pt-20 md:pt-24 ${showSurveyModal || showSuccessPopup ? 'blur-sm' : ''}`}>
+<main className={`relative z-10 ${showSurveyModal || showSuccessPopup ? 'blur-sm' : ''} pt-0`}>
                 {/* Hero Section */}
-                <section className="bg-gray-50 py-8 sm:py-12 lg:py-16 px-4">
+                <section className="bg-gray-50 pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-12 lg:pb-16 px-4">
                     <div className="max-w-4xl mx-auto text-center">
                         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
                             Your Voice Shapes the<br />
