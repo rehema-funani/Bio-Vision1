@@ -1010,7 +1010,7 @@
 // }
 
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Microscope, 
   Coins, 
@@ -1033,6 +1033,43 @@ import { Header } from '@/components/Header';
 
 
 export default function App() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+const images = [
+  { src: "/images/farmer.png", alt: "Farmer" },
+  { src: "/images/farm.png", alt: "Farm" },
+  { src: "/images/carrot.png", alt: "Carrot" },
+  { src: "/images/okra.png", alt: "Okra" },
+  { src: "/images/mangoes.png", alt: "Mangoes" },
+  { src: "/images/cucumbers.png", alt: "Cucumbers" },
+];
+
+
+ 
+
+  // ⬇️ ADD THIS USEEFFECT
+ const [startIndex, setStartIndex] = useState(3);
+
+const getVisibleImages = () => {
+  return [
+    images[(startIndex + 0) % images.length],
+    images[(startIndex + 1) % images.length],
+    images[(startIndex + 2) % images.length],
+  ];
+};
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setStartIndex((prevIndex) => (prevIndex + 1) % images.length);
+  }, 3000); // 3 sec
+
+  return () => clearInterval(interval);
+}, [images]);
+
+
+ 
+
+
+
   const handleLogin =() => {
     redirect("/auth")
   }
@@ -1258,54 +1295,63 @@ export default function App() {
 // Replace the existing hero section with this:
 
 {/* Hero Section */}
-<section 
-  className=" pt-20 sm:pt-24 lg:pt-32 pb-16 w-full px-4 md:px-6 flex flex-col items-center justify-center text-center relative bg-cover bg-center"
-  style={{backgroundImage: "url('/images/farmers.png')"}}
-> {/* Dark overlay */}
-  <div className="absolute inset-0 bg-black/90 -z-10"></div> 
-  <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 w-full">
-     
+<section className="pt-20 sm:pt-24 lg:pt-32 pb-16 w-full px-4 md:px-6 flex flex-col items-center justify-center text-center relative overflow-hidden">
+  {/* Video Background */}
+  <video 
+    className="absolute inset-0 w-full h-full object-cover -z-20"
+    autoPlay 
+    muted 
+    loop 
+    playsInline
+  >
+    <source src="/videos/hero-background.mp4" type="video/mp4" />
+  </video>
+
+  {/* Remove black overlay if you don't want it */}
+  {/* <div className="absolute inset-0 bg-black/50 -z-10"></div> */}
+
+  <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 w-full max-w-7xl z-10">
+    {/* Left Content */}
     <div className="text-white max-w-xl text-left">
       <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4 lg:mb-6">
-         Empowering Africa <br /> Through Agroecology
+        Empowering Africa <br /> Through Agroecology
       </h1>
       <p className="text-base lg:text-lg font-bold text-white/90 mb-3 lg:mb-4">
-         Explore certified organic products, verified AE/EOA outlets, and insights
-         that promote sustainable food systems across Africa.
+        Explore certified organic products, verified AE/EOA outlets, and insights
+        that promote sustainable food systems across Africa.
       </p>
       <p className="text-sm lg:text-base text-white/80 mb-6 lg:mb-8">
-         Every purchase supports 2.3M+ Farmers building sustainable food systems.
+        Every purchase supports 2.3M+ Farmers building sustainable food systems.
       </p>
       <div className="flex gap-4 flex-wrap">
-         <button className="bg-green-700 hover:bg-green-800 text-white font-semibold px-4 lg:px-6 py-2 lg:py-3 rounded-full text-sm">
-           Explore Products
-         </button>
-         <button className="bg-white text-green-800 hover:bg-gray-100 font-semibold px-4 lg:px-6 py-2 lg:py-3 rounded-full text-sm">
-           Learn More
+        <button className="bg-green-700 hover:bg-green-800 text-white font-semibold px-4 lg:px-6 py-2 lg:py-3 rounded-full text-sm transition-colors">
+          Explore Products
+        </button>
+        <button className="bg-white text-green-800 hover:bg-gray-100 font-semibold px-4 lg:px-6 py-2 lg:py-3 rounded-full text-sm transition-colors">
+          Learn More
         </button>
       </div>
     </div>
 
-    {/* Hero Side Images */}
-    <div className="flex gap-3 lg:gap-4">
-      <img
-       src="/images/farmer.png"
-       alt="Hero image 1"
-       className="rounded-xl w-24 sm:w-32 lg:w-40 object-cover"
-     />
-     <img
-       src="/images/farm.png"
-       alt="Hero image 2"
-       className="rounded-xl w-24 sm:w-32 lg:w-40 object-cover"
-     />
-     <img
-       src="/images/carrot.png"
-       alt="Hero image 3"
-       className="rounded-xl w-24 sm:w-32 lg:w-40 object-cover"
-     />
-   </div>
- </div>
+    {/* Right Slideshow */}
+    <div className="w-full max-w-4xl overflow-hidden mx-auto">
+  <div className="flex gap-4 transition-all duration-700 ease-in-out">
+    {getVisibleImages().map((image, i) => (
+      <div key={i} className="w-1/3 flex-shrink-0">
+        <img
+          src={image.src}
+          alt={image.alt}
+          className="w-full h-64 object-cover rounded-xl shadow-md"
+        />
+      </div>
+    ))}
+  </div>
+</div>
+
+
+  </div>
 </section>
+
 
      {/* Stats Section */}
      <section className="bg-[#fdfbf6] py-20 px-4 md:px-8 lg:px-16 text-gray-900">
