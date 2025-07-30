@@ -542,12 +542,13 @@ export const Header = ({ theme = "dark" }: { theme?: "light" | "dark" }) => {
                 </div>
               </div>
 
-              <button
-                onClick={handleLogin}
-                className="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full text-sm font-medium"
-              >
-                Sign Up
-              </button>
+              <Link href="/auth">
+  <button
+    className="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full text-sm font-medium"
+  >
+    Sign Up
+  </button>
+</Link>
             </div>
           </div>
         )}
