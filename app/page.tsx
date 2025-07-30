@@ -1550,27 +1550,30 @@ export default function App() {
      ))}
    </div>
          {/* Green Card with Call-to-Action */}
-         <div className="bg-[#3d8640] text-white p-10 rounded-2xl relative overflow-hidden w-[879px]">
-     <p className="text-sm font-medium  mb-2 opacity-80 drop-shadow-lg">Featured Products</p>
-     <h2 className="text-4xl font-bold leading-tight mb-6">
-       Explore <br />
-       Certified <br />
-       Agroecological <br />
-       Products
-     </h2>
-     <p className="text-base font-medium mb-4">
-       Sourced from trusted organic producers and <br/>outlets. Every purchase supports farming<br/>
-       communities and healthier ecosystems.
-     </p>
-     <p className="text-white text-sm font-semibold mb-6">Support a farmer today</p>
-     <button className="bg-white text-green-800 font-semibold px-6 py-3 rounded-full text-sm hover:bg-gray-100 transition">
-       Shop Now
-     </button>
+<div className="bg-[#3d8640] text-white p-10 rounded-2xl relative overflow-hidden w-[879px]">
+  {/* Decorative veges background inside green card */}
+  <div className="absolute inset-0 bg-[url('/images/veges.png')] opacity-90 bg-contain bg-repeat z-0 pointer-events-none" />
 
-     {/* Optional: Decorative BG icons */}
-     <div className="absolute inset-0 bg-[url('/images/veges.png')] opacity-50 bg-contain bg-repeat z-0" />
-     
-   </div>
+  {/* Content stays on top */}
+  <div className="relative z-10">
+    <p className="text-sm font-medium mb-2 opacity-80 drop-shadow-lg">Featured Products</p>
+    <h2 className="text-4xl font-bold leading-tight mb-6">
+      Explore <br />
+      Certified <br />
+      Agroecological <br />
+      Products
+    </h2>
+    <p className="text-base font-medium mb-4">
+      Sourced from trusted organic producers and <br /> outlets. Every purchase supports farming<br />
+      communities and healthier ecosystems.
+    </p>
+    <p className="text-white text-sm font-semibold mb-6">Support a farmer today</p>
+    <button className="bg-white text-green-800 font-semibold px-6 py-3 rounded-full text-sm hover:bg-gray-100 transition">
+      Shop Now
+    </button>
+  </div>
+</div>
+
        </div>
      </section>
 
@@ -1953,25 +1956,32 @@ Join us online for stories from producers, a live Q&A, and tips for conscious co
       </section>
 
        <section className="bg-[#fdfbf6] py-5 px-4 md:px-8 lg:px-12 mb-18">
-  {/* Decorative background pattern */}
+  {/* Optional: Decorative background pattern (outside green box, optional) */}
   <div className="absolute inset-0 opacity-10 bg-white">
     <div className="absolute top-10 left-10 w-32 h-32 border border-white/20 rounded-full" />
     <div className="absolute bottom-20 right-20 w-24 h-24 border border-white/20 rounded-full" />
     <div className="absolute top-1/2 left-1/4 w-16 h-16 border border-white/20 rounded-full" />
   </div>
 
-  <div className="max-w-7xl mx-auto text-center relative z-10 bg-[#2E7D32] px-6 py-8 rounded-2xl flex flex-col justify-center">
-    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
-      Ready to shop for impact?
-    </h2>
-    <p className="text-base md:text-lg text-white/90 mb-6 max-w-2xl mx-auto">
-      Explore our full range of certified organic solutions and see how every purchase drives change.
-    </p>
-    <button className="mx-auto bg-white text-green-700 hover:bg-gray-50 font-semibold px-6 py-2 rounded-full text-base transition-all duration-300 hover:scale-105 shadow-lg">
-      Shop All Products
-    </button>
+  {/* Green box with veges BG */}
+  <div className="max-w-7xl mx-auto text-center relative z-10 px-6 py-8 rounded-2xl flex flex-col justify-center overflow-hidden">
+    <div className="absolute inset-0 bg-[#2E7D32] z-0" />
+    <div className="absolute inset-0 bg-[url('/images/veges.png')] opacity-90 bg-contain bg-repeat z-0" />
+
+    <div className="relative z-10">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+        Ready to shop for impact?
+      </h2>
+      <p className="text-base md:text-lg text-white/90 mb-6 max-w-2xl mx-auto">
+        Explore our full range of certified organic solutions and see how every purchase drives change.
+      </p>
+      <button className="mx-auto bg-white text-green-700 hover:bg-gray-50 font-semibold px-6 py-2 rounded-full text-base transition-all duration-300 hover:scale-105 shadow-lg">
+        Shop All Products
+      </button>
+    </div>
   </div>
 </section>
+
 
       {/* Newsletter Section */}
       <section className="bg-[#2c2a29] py-16 px-4 md:px-8 lg:px-12 -mt-16">
