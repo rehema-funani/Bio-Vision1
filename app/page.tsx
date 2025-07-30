@@ -1577,154 +1577,132 @@ export default function App() {
        </div>
      </section>
 
-      {/* How It Works Section */}
       <section className="bg-[#fdfbf6] py-20 px-4 md:px-8 lg:px-12 relative overflow-hidden">
-        {/* Decorative background elements */}
-        <div className="absolute top-10 left-10 w-32 h-32 bg-green-200/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-10 w-40 h-40 bg-green-300/20 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-green-100/40 rounded-full blur-2xl" />
-        
-        <div className="max-w-7xl mx-auto text-center relative z-10">
-          {/* Section Header */}
-          <div className="mb-16">
-            <p className="text-sm font-medium text-green-700 mb-2 uppercase tracking-wide">How It Works</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
-              Engage With Biovision's
-            </h2>
-            <h2 className="text-4xl md:text-5xl font-bold text-green-700 leading-tight mb-6">
-              Impact Model
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-              Our proven approach to agroecological transformation
-            </p>
-          </div>
+  {/* Decorative Africa map shapes — repositioned */}
+  <div className="absolute top-32 left-0 md:top-36 lg:top-40 w-40 md:w-52 lg:w-60 opacity-10 z-0">
+    <img src="/images/maps.png" alt="Africa map left" className="w-full h-auto" />
+  </div>
+  <div className="absolute top-32 right-0 md:top-36 lg:top-40 w-40 md:w-52 lg:w-60 opacity-10 z-0">
+    <img src="/images/maps.png" alt="Africa map right" className="w-full h-auto" />
+  </div>
 
-          {/* Steps Container */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4 items-start">
-            
-            {/* Step 1: Discover */}
-            <div className="flex flex-col items-center text-center group">
-              <div className="relative mb-6">
-                {/* Connecting line for larger screens */}
-                <div className="hidden lg:block absolute top-1/2 left-full w-full h-0.5 bg-green-200 transform -translate-y-1/2 z-0" />
-                
-                {/* Main circle with two rings */}
-                <div className="relative z-10 group-hover:scale-105 transition-transform duration-300">
-                  {/* Small decorative circles positioned on the outer ring */}
-                  <div className="absolute left-0 top-1/2 w-3 h-3 bg-green-700 rounded-full transform -translate-y-1/2 -translate-x-1/2 z-30" />
-                  <div className="absolute right-0 top-1/2 w-3 h-3 bg-green-700 rounded-full transform -translate-y-1/2 translate-x-1/2 z-30" />
-                  
-                  {/* Outer thinner ring */}
-                  <div className="w-28 h-28 border-2 border-green-700 rounded-full flex items-center justify-center relative z-20">
-                    {/* Inner thicker ring */}
-                    <div className="w-24 h-24 border-8 border-green-700 rounded-full bg-white flex items-center justify-center">
-                      <div className="text-center">
-                        <p className="text-xs font-medium text-gray-600 mb-1">Step 1</p>
-                        <p className="text-lg font-bold text-gray-900">Discover</p>
-                      </div>
-                    </div>
-                  </div>
+  {/* Optional decorative blobs */}
+  <div className="absolute top-10 left-10 w-32 h-32 bg-green-200/30 rounded-full blur-3xl" />
+  <div className="absolute bottom-10 right-10 w-40 h-40 bg-green-300/20 rounded-full blur-3xl" />
+  <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-green-100/40 rounded-full blur-2xl" />
+
+  <div className="max-w-7xl mx-auto text-center relative z-10">
+    {/* Section Header */}
+    <div className="mb-16">
+      <p className="text-sm font-medium text-green-700 mb-2 uppercase tracking-wide">How It Works</p>
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
+        Engage With Biovision's
+      </h2>
+      <h2 className="text-4xl md:text-5xl font-bold text-green-700 leading-tight mb-6">
+        Impact Model
+      </h2>
+      <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+        Our proven approach to agroecological transformation
+      </p>
+    </div>
+
+    {/* Steps Container */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4 items-start">
+      {/* Step 1: Discover */}
+      <div className="flex flex-col items-center text-center group">
+        <div className="relative mb-6">
+          <div className="relative z-10 group-hover:scale-105 transition-transform duration-300">
+            <div className="absolute left-0 top-1/2 w-3 h-3 bg-green-700 rounded-full transform -translate-y-1/2 -translate-x-1/2 z-30" />
+            <div className="absolute right-0 top-1/2 w-3 h-3 bg-green-700 rounded-full transform -translate-y-1/2 translate-x-1/2 z-30" />
+            <div className="w-28 h-28 border-2 border-green-700 rounded-full flex items-center justify-center relative z-20">
+              <div className="w-24 h-24 border-8 border-green-700 rounded-full bg-white flex items-center justify-center">
+                <div className="text-center">
+                  <p className="text-xs font-medium text-gray-600 mb-1">Step 1</p>
+                  <p className="text-lg font-bold text-gray-900">Discover</p>
                 </div>
               </div>
-              
-              <p className="text-sm text-gray-600 max-w-48 leading-relaxed">
-                Browse certified outlets, products, and learning resources
-              </p>
             </div>
-
-            {/* Step 2: Engage */}
-            <div className="flex flex-col items-center text-center group">
-              <div className="relative mb-6">
-                {/* Connecting line */}
-                <div className="hidden lg:block absolute top-1/2 left-full w-full h-0.5 bg-green-200 transform -translate-y-1/2 z-0" />
-                
-                <div className="relative z-10 group-hover:scale-105 transition-transform duration-300">
-                  {/* Small decorative circles positioned on the outer ring */}
-                  <div className="absolute left-0 top-1/2 w-3 h-3 bg-green-700 rounded-full transform -translate-y-1/2 -translate-x-1/2 z-30" />
-                  <div className="absolute right-0 top-1/2 w-3 h-3 bg-green-700 rounded-full transform -translate-y-1/2 translate-x-1/2 z-30" />
-                  
-                  {/* Outer thinner ring */}
-                  <div className="w-28 h-28 border-2 border-green-700 rounded-full flex items-center justify-center relative z-20">
-                    {/* Inner thicker ring */}
-                    <div className="w-24 h-24 border-8 border-green-700 rounded-full bg-white flex items-center justify-center">
-                      <div className="text-center">
-                        <p className="text-xs font-medium text-gray-600 mb-1">Step 2</p>
-                        <p className="text-lg font-bold text-gray-900">Engage</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <p className="text-sm text-gray-600 max-w-48 leading-relaxed">
-                Connect with farmers, participate in programs, and access training
-              </p>
-            </div>
-
-            {/* Step 3: Support */}
-            <div className="flex flex-col items-center text-center group">
-              <div className="relative mb-6">
-                {/* Connecting line */}
-                <div className="hidden lg:block absolute top-1/2 left-full w-full h-0.5 bg-green-200 transform -translate-y-1/2 z-0" />
-                
-                <div className="relative z-10 group-hover:scale-105 transition-transform duration-300">
-                  {/* Small decorative circles positioned on the outer ring */}
-                  <div className="absolute left-0 top-1/2 w-3 h-3 bg-green-700 rounded-full transform -translate-y-1/2 -translate-x-1/2 z-30" />
-                  <div className="absolute right-0 top-1/2 w-3 h-3 bg-green-700 rounded-full transform -translate-y-1/2 translate-x-1/2 z-30" />
-                  
-                  {/* Outer thinner ring */}
-                  <div className="w-28 h-28 border-2 border-green-700 rounded-full flex items-center justify-center relative z-20">
-                    {/* Inner thicker ring */}
-                    <div className="w-24 h-24 border-8 border-green-700 rounded-full bg-white flex items-center justify-center">
-                      <div className="text-center">
-                        <p className="text-xs font-medium text-gray-600 mb-1">Step 3</p>
-                        <p className="text-lg font-bold text-gray-900">Support</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <p className="text-sm text-gray-600 max-w-48 leading-relaxed">
-                Purchase products, fund initiatives, and advocate for change
-              </p>
-            </div>
-
-            {/* Step 4: Grow */}
-            <div className="flex flex-col items-center text-center group">
-              <div className="relative mb-6">
-                <div className="relative z-10 group-hover:scale-105 transition-transform duration-300">
-                  {/* Small decorative circles positioned on the outer ring */}
-                  <div className="absolute left-0 top-1/2 w-3 h-3 bg-green-700 rounded-full transform -translate-y-1/2 -translate-x-1/2 z-30" />
-                  <div className="absolute right-0 top-1/2 w-3 h-3 bg-green-700 rounded-full transform -translate-y-1/2 translate-x-1/2 z-30" />
-                  
-                  {/* Outer thinner ring */}
-                  <div className="w-28 h-28 border-2 border-green-700 rounded-full flex items-center justify-center relative z-20">
-                    {/* Inner thicker ring */}
-                    <div className="w-24 h-24 border-8 border-green-700 rounded-full bg-white flex items-center justify-center">
-                      <div className="text-center">
-                        <p className="text-xs font-medium text-gray-600 mb-1">Step 4</p>
-                        <p className="text-lg font-bold text-gray-900">Grow</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <p className="text-sm text-gray-600 max-w-48 leading-relaxed">
-                See measurable impact in communities and sustainable ecosystems
-              </p>
-            </div>
-          </div>
-
-          {/* Call to Action */}
-          <div className="mt-16">
-            <button className="bg-green-700 hover:bg-green-800 text-white font-semibold px-8 py-4 rounded-full text-sm transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
-              Start Your Journey
-            </button>
           </div>
         </div>
-      </section>
+        <p className="text-sm text-gray-600 max-w-48 leading-relaxed">
+          Browse certified outlets, products, and learning resources
+        </p>
+      </div>
+
+      {/* Step 2: Engage */}
+      <div className="flex flex-col items-center text-center group">
+        <div className="relative mb-6">
+          <div className="relative z-10 group-hover:scale-105 transition-transform duration-300">
+            <div className="absolute left-0 top-1/2 w-3 h-3 bg-green-700 rounded-full transform -translate-y-1/2 -translate-x-1/2 z-30" />
+            <div className="absolute right-0 top-1/2 w-3 h-3 bg-green-700 rounded-full transform -translate-y-1/2 translate-x-1/2 z-30" />
+            <div className="w-28 h-28 border-2 border-green-700 rounded-full flex items-center justify-center relative z-20">
+              <div className="w-24 h-24 border-8 border-green-700 rounded-full bg-white flex items-center justify-center">
+                <div className="text-center">
+                  <p className="text-xs font-medium text-gray-600 mb-1">Step 2</p>
+                  <p className="text-lg font-bold text-gray-900">Engage</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p className="text-sm text-gray-600 max-w-48 leading-relaxed">
+          Connect with farmers, participate in programs, and access training
+        </p>
+      </div>
+
+      {/* Step 3: Support */}
+      <div className="flex flex-col items-center text-center group">
+        <div className="relative mb-6">
+          <div className="relative z-10 group-hover:scale-105 transition-transform duration-300">
+            <div className="absolute left-0 top-1/2 w-3 h-3 bg-green-700 rounded-full transform -translate-y-1/2 -translate-x-1/2 z-30" />
+            <div className="absolute right-0 top-1/2 w-3 h-3 bg-green-700 rounded-full transform -translate-y-1/2 translate-x-1/2 z-30" />
+            <div className="w-28 h-28 border-2 border-green-700 rounded-full flex items-center justify-center relative z-20">
+              <div className="w-24 h-24 border-8 border-green-700 rounded-full bg-white flex items-center justify-center">
+                <div className="text-center">
+                  <p className="text-xs font-medium text-gray-600 mb-1">Step 3</p>
+                  <p className="text-lg font-bold text-gray-900">Support</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p className="text-sm text-gray-600 max-w-48 leading-relaxed">
+          Purchase products, fund initiatives, and advocate for change
+        </p>
+      </div>
+
+      {/* Step 4: Grow */}
+      <div className="flex flex-col items-center text-center group">
+        <div className="relative mb-6">
+          <div className="relative z-10 group-hover:scale-105 transition-transform duration-300">
+            <div className="absolute left-0 top-1/2 w-3 h-3 bg-green-700 rounded-full transform -translate-y-1/2 -translate-x-1/2 z-30" />
+            <div className="absolute right-0 top-1/2 w-3 h-3 bg-green-700 rounded-full transform -translate-y-1/2 translate-x-1/2 z-30" />
+            <div className="w-28 h-28 border-2 border-green-700 rounded-full flex items-center justify-center relative z-20">
+              <div className="w-24 h-24 border-8 border-green-700 rounded-full bg-white flex items-center justify-center">
+                <div className="text-center">
+                  <p className="text-xs font-medium text-gray-600 mb-1">Step 4</p>
+                  <p className="text-lg font-bold text-gray-900">Grow</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p className="text-sm text-gray-600 max-w-48 leading-relaxed">
+          See measurable impact in communities and sustainable ecosystems
+        </p>
+      </div>
+    </div>
+
+    {/* Call to Action */}
+    <div className="mt-16">
+      <button className="bg-green-700 hover:bg-green-800 text-white font-semibold px-8 py-4 rounded-full text-sm transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+        Start Your Journey
+      </button>
+    </div>
+  </div>
+</section>
+
+
 
       {/* Stories & Insights From the Field Section */}
       <section className="bg-[#e8eee2] py-20 px-4 md:px-8 lg:px-12">
