@@ -1259,10 +1259,10 @@ export default function App() {
 
 {/* Hero Section */}
 <section 
-  className="pt-20 sm:pt-24 lg:pt-32 pb-16 w-full px-4 md:px-6 flex flex-col items-center justify-center text-center relative bg-cover bg-center"
+  className=" pt-20 sm:pt-24 lg:pt-32 pb-16 w-full px-4 md:px-6 flex flex-col items-center justify-center text-center relative bg-cover bg-center"
   style={{backgroundImage: "url('/images/farmers.png')"}}
 > {/* Dark overlay */}
-  <div className="absolute inset-0 bg-black/2 -z-10"></div> 
+  <div className="absolute inset-0 bg-black/90 -z-10"></div> 
   <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 w-full">
      
     <div className="text-white max-w-xl text-left">
@@ -1426,9 +1426,9 @@ export default function App() {
   {/* Map Image */}
   <img src="/images/map-placeholder.png" alt="Map" className="w-full" />
 
-  <div className="absolute top-[480%] right-[-3%] z-20 w-[270px] md:w-[300px] bg-[#00000040] backdrop-blur-sm rounded-xl shadow-2xl p-3 space-y-3">
+  <div className="absolute top-[480%] left-[72%] z-20 w-[270px] md:w-[300px] bg-[#00000040] backdrop-blur-sm rounded-xl shadow-2xl p-3 space-y-3">
   {/* Top Bar: Near You + A2 */}
-  <div className="flex items-center justify-between text-white font-semibold text-sm">
+  <div className=" flex items-center justify-between text-white font-semibold text-sm ml-90">
     <div className="flex items-center gap-1">
       <span>Near You</span>
       <svg

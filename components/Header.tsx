@@ -362,7 +362,7 @@ export const Header = ({ theme = "dark" }: { theme?: "light" | "dark" }) => {
     : "https://api.builder.io/api/v1/image/assets/TEMP/5376572c943bbbbf555a8e8d2b23c9146eee9067?width=335";
 
   return (
-    <header className="sticky top-0 left-0 w-full z-50">
+    <header className="sticky top-0 left-0 w-full z-50 bg-black/30 backdrop-blur-md">
       <div
         className={`w-full ${
           isLight
