@@ -1024,56 +1024,60 @@ import {
   Mail,
   Phone,
   Twitter,
-  Facebook
+  Facebook,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { Header } from '@/components/Header';
 
-
 export default function App() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-const images = [
-  { src: "/images/farmer.png", alt: "Farmer" },
-  { src: "/images/farm.png", alt: "Farm" },
-  { src: "/images/carrot.png", alt: "Carrot" },
-  { src: "/images/okra.png", alt: "Okra" },
-  { src: "/images/mangoes.png", alt: "Mangoes" },
-  { src: "/images/cucumbers.png", alt: "Cucumbers" },
-];
-
-
- 
-
-  // ⬇️ ADD THIS USEEFFECT
- const [startIndex, setStartIndex] = useState(3);
-
-const getVisibleImages = () => {
-  return [
-    images[(startIndex + 0) % images.length],
-    images[(startIndex + 1) % images.length],
-    images[(startIndex + 2) % images.length],
+  const images = [
+    { src: "/images/farmer.png", alt: "Farmer" },
+    { src: "/images/farm.png", alt: "Farm" },
+    { src: "/images/carrot.png", alt: "Carrot" },
+    { src: "/images/okra.png", alt: "Okra" },
+    { src: "/images/mangoes.png", alt: "Mangoes" },
+    { src: "/images/cucumbers.png", alt: "Cucumbers" },
   ];
-};
 
-useEffect(() => {
-  const interval = setInterval(() => {
+  // Slideshow state - reversed direction (moving backwards)
+  const [startIndex, setStartIndex] = useState(0);
+
+  const getVisibleImages = () => {
+    return [
+      images[(startIndex + 0) % images.length],
+      images[(startIndex + 1) % images.length],
+      images[(startIndex + 2) % images.length],
+    ];
+  };
+
+  // Auto-slide in reverse direction
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setStartIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    }, 3000); // 3 seconds
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  // Manual navigation functions
+  const goToNext = () => {
     setStartIndex((prevIndex) => (prevIndex + 1) % images.length);
-  }, 3000); // 3 sec
+  };
 
-  return () => clearInterval(interval);
-}, [images]);
+  const goToPrevious = () => {
+    setStartIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
 
-
- 
-
-
-
-  const handleLogin =() => {
+  const handleLogin = () => {
     redirect("/auth")
   }
-  // ✅ All useState hooks go HERE, inside the component function
+
+  // All useState hooks
   const [currentPage, setCurrentPage] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isSignIn, setIsSignIn] = useState(false);
@@ -1117,18 +1121,9 @@ useEffect(() => {
     { name: "Contacts", href: "/contact" },
   ];
 
-  // Improved Auth Page Component with better styling and TypeScript
+  // Auth Page Component
   const AuthPage = () => (
     <div className="relative h-screen w-screen overflow-hidden bg-white">
-      {/* Background Image */}
-      {/* <div className="relative inset-0 -z-30">
-        <img
-          src="/images/background2.png"
-          alt="Background"
-          className="w-full h-full object-cover brightness-100 contrast-110"
-        />
-      </div> */}
-
       {/* Africa Map Overlay */}
       <div
         className={`absolute top-0 h-full w-[40%] z-10 pointer-events-none hidden md:block ${
@@ -1148,12 +1143,12 @@ useEffect(() => {
       <div
         className={`flex h-full items-center ${
           isSignIn
-            ? 'justify-end mr-20 pr-6 md:pr-12'
-            : 'justify-start ml-20 pl-6 md:pl-12'
+            ? 'justify-end mr-4 md:mr-20 pr-6 md:pr-12'
+            : 'justify-start ml-4 md:ml-20 pl-6 md:pl-12'
         }`}
       >
-        <div className="bg-white/80 backdrop-blur-lg border border-white/50 rounded-xl p-8 w-full max-w-md shadow-2xl space-y-4 z-20">
-          <h1 className="text-2xl font-semibold text-gray-900">
+        <div className="bg-white/80 backdrop-blur-lg border border-white/50 rounded-xl p-6 md:p-8 w-full max-w-md shadow-2xl space-y-4 z-20">
+          <h1 className="text-xl md:text-2xl font-semibold text-gray-900">
             {isSignIn ? 'Sign In' : 'Join us today'}
           </h1>
 
@@ -1185,34 +1180,34 @@ useEffect(() => {
             )}
 
             <div>
-                          <label
-                            htmlFor="phoneNumber"
-                            className="text-xs text-gray-700 block mb-1"
-                          >
-                            Phone Number <span className="text-red-500">*</span>
-                          </label>
-                          <div className="flex space-x-2">
-                            <div className="flex items-center px-2 py-2 border border-gray-300 bg-white rounded-md text-sm space-x-1.5">
-                              <Image
-                                src="/images/flag.png"
-                                alt="Kenya Flag"
-                                width={20}
-                                height={14}
-                                className="rounded-sm"
-                              />
-                              <span className="text-gray-800">+254</span>
-                            </div>
-                            <input
-                              type="tel"
-                              name="phoneNumber"
-                              id="phoneNumber"
-                              placeholder="0712 345 678"
-                              value={formData.phoneNumber}
-                              onChange={handleInputChange}
-                              className="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-green-600"
-                            />
-                          </div>
-                        </div>
+              <label
+                htmlFor="phoneNumber"
+                className="text-xs text-gray-700 block mb-1"
+              >
+                Phone Number <span className="text-red-500">*</span>
+              </label>
+              <div className="flex space-x-2">
+                <div className="flex items-center px-2 py-2 border border-gray-300 bg-white rounded-md text-sm space-x-1.5">
+                  <Image
+                    src="/images/flag.png"
+                    alt="Kenya Flag"
+                    width={20}
+                    height={14}
+                    className="rounded-sm"
+                  />
+                  <span className="text-gray-800">+254</span>
+                </div>
+                <input
+                  type="tel"
+                  name="phoneNumber"
+                  id="phoneNumber"
+                  placeholder="0712 345 678"
+                  value={formData.phoneNumber}
+                  onChange={handleInputChange}
+                  className="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-green-600"
+                />
+              </div>
+            </div>
 
             {isSignIn && (
               <div className="flex items-center space-x-2 text-xs text-gray-700">
@@ -1249,7 +1244,7 @@ useEffect(() => {
                   Already have an account?{' '}
                   <button
                     type="button"
-          
+                    onClick={() => setIsSignIn(true)}
                     className="text-green-600 hover:underline"
                   >
                     Sign In
@@ -1279,78 +1274,104 @@ useEffect(() => {
     </div>
   );
 
-  // Homepage Component (keeping your existing homepage exactly as is)
+  // Homepage Component with improved slideshow
   const Homepage = () => (
-    <div className=" relative min-h-screen w-full overflow-x-hidden">
-      
+    <div className="relative min-h-screen w-full overflow-x-hidden">
+      {/* Hero Section */}
+      <section className="pt-20 sm:pt-24 lg:pt-32 pb-16 w-full px-4 md:px-6 flex flex-col items-center justify-center text-center relative overflow-hidden">
+        {/* Video Background */}
+        <video 
+          className="absolute inset-0 w-full h-full object-cover -z-20"
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+        >
+          <source src="/videos/hero-background.mp4" type="video/mp4" />
+        </video>
 
-{/* 
- </header> 
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/30 -z-10"></div>
 
-   
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 w-full max-w-7xl z-10">
+          {/* Left Content */}
+          <div className="text-white max-w-xl text-left">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4 lg:mb-6 drop-shadow-lg">
+              Empowering Africa <br /> Through Agroecology
+            </h1>
+            <p className="text-base lg:text-lg font-bold text-white/95 mb-3 lg:mb-4 drop-shadow-md">
+              Explore certified organic products, verified AE/EOA outlets, and insights
+              that promote sustainable food systems across Africa.
+            </p>
+            <p className="text-sm lg:text-base text-white/90 mb-6 lg:mb-8 drop-shadow-md">
+              Every purchase supports 2.3M+ Farmers building sustainable food systems.
+            </p>
+            <div className="flex gap-4 flex-wrap">
+              <button className="bg-green-700 hover:bg-green-800 text-white font-semibold px-4 lg:px-6 py-2 lg:py-3 rounded-full text-sm transition-colors shadow-lg">
+                Explore Products
+              </button>
+              <button className="bg-white/90 hover:bg-white text-green-800 font-semibold px-4 lg:px-6 py-2 lg:py-3 rounded-full text-sm transition-colors shadow-lg">
+                Learn More
+              </button>
+            </div>
+          </div>
 
+          {/* Right Slideshow with Navigation */}
+          <div className="w-full max-w-4xl relative">
+            {/* Image Slideshow */}
+            <div className="overflow-hidden mx-auto rounded-xl">
+              <div className="flex gap-2 sm:gap-4 transition-all duration-700 ease-in-out">
+                {getVisibleImages().map((image, i) => (
+                  <div key={`${startIndex}-${i}`} className="w-1/3 flex-shrink-0">
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-48 sm:h-56 md:h-64 object-cover rounded-lg shadow-lg"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
 
+            {/* Navigation Controls */}
+            <div className="flex items-center justify-center mt-4 gap-4">
+              {/* Previous Button */}
+              <button
+                onClick={goToPrevious}
+                className="bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-all duration-200 backdrop-blur-sm border border-white/20 hover:border-white/40"
+                aria-label="Previous images"
+              >
+                <ChevronLeft size={20} />
+              </button>
 
- // Update your Hero Section in the Homepage component
-// Replace the existing hero section with this:
+              {/* Dots Indicator */}
+              <div className="flex gap-2">
+                {images.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setStartIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                      index === startIndex 
+                        ? 'bg-white scale-125' 
+                        : 'bg-white/50 hover:bg-white/70'
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
 
-{/* Hero Section */}
-<section className="pt-20 sm:pt-24 lg:pt-32 pb-16 w-full px-4 md:px-6 flex flex-col items-center justify-center text-center relative overflow-hidden">
-  {/* Video Background */}
-  <video 
-    className="absolute inset-0 w-full h-full object-cover -z-20"
-    autoPlay 
-    muted 
-    loop 
-    playsInline
-  >
-    <source src="/videos/hero-background.mp4" type="video/mp4" />
-  </video>
-
-  {/* Remove black overlay if you don't want it */}
-  {/* <div className="absolute inset-0 bg-black/50 -z-10"></div> */}
-
-  <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 w-full max-w-7xl z-10">
-    {/* Left Content */}
-    <div className="text-white max-w-xl text-left">
-      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4 lg:mb-6">
-        Empowering Africa <br /> Through Agroecology
-      </h1>
-      <p className="text-base lg:text-lg font-bold text-white/90 mb-3 lg:mb-4">
-        Explore certified organic products, verified AE/EOA outlets, and insights
-        that promote sustainable food systems across Africa.
-      </p>
-      <p className="text-sm lg:text-base text-white/80 mb-6 lg:mb-8">
-        Every purchase supports 2.3M+ Farmers building sustainable food systems.
-      </p>
-      <div className="flex gap-4 flex-wrap">
-        <button className="bg-green-700 hover:bg-green-800 text-white font-semibold px-4 lg:px-6 py-2 lg:py-3 rounded-full text-sm transition-colors">
-          Explore Products
-        </button>
-        <button className="bg-white text-green-800 hover:bg-gray-100 font-semibold px-4 lg:px-6 py-2 lg:py-3 rounded-full text-sm transition-colors">
-          Learn More
-        </button>
-      </div>
-    </div>
-
-    {/* Right Slideshow */}
-    <div className="w-full max-w-4xl overflow-hidden mx-auto">
-  <div className="flex gap-4 transition-all duration-700 ease-in-out">
-    {getVisibleImages().map((image, i) => (
-      <div key={i} className="w-1/3 flex-shrink-0">
-        <img
-          src={image.src}
-          alt={image.alt}
-          className="w-full h-64 object-cover rounded-xl shadow-md"
-        />
-      </div>
-    ))}
-  </div>
-</div>
-
-
-  </div>
-</section>
+              {/* Next Button */}
+              <button
+                onClick={goToNext}
+                className="bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-all duration-200 backdrop-blur-sm border border-white/20 hover:border-white/40"
+                aria-label="Next images"
+              >
+                <ChevronRight size={20} />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
 
 
      {/* Stats Section */}
